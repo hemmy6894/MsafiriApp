@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MsafiriApp</string>
+    <string name="login_button_String">Sign In </string>
+    <string name="login_button_register">New Member Register</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_bus_ticket">Buses</string>
+    <string name="title_ship_ticket">Ship</string>
+    <string name="title_train_ticket">Train</string>
+</resources>

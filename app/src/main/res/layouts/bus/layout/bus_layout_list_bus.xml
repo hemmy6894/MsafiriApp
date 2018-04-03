@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="@color/msafiri_app_background_color"
-    tools:context="com.tanzania.comtech.msafiriapp.Bus.activity_list_bus">
+    tools:context="com.tanzania.comtech.msafiriapp.Bus.Activity_list_bus">
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -60,6 +60,6 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/bus_layout_list_bus_list">
-    </ListView>
+        android:id="@+id/bus_layout_list_bus_list"
+        android:background="@color/msafiri_app_background_color"/>
 </LinearLayout>

@@ -2,4 +2,6 @@
 <resources>
     <color name="app_standard_background_color">#cccccc</color>
     <color name="msafiri_app_background_color">#e9ebee</color>
+    <color name="background_color_card">#ffffff</color>
+    <color name="text_color_card">#434343</color>
 </resources>

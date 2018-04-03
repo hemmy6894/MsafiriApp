@@ -1,9 +1,12 @@
 package com.tanzania.comtech.msafiriapp.seat_plan;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ////Variable for storing selected seat by customers
     String[] selected_seat_by_customers;
     ImageButton buttonChangeImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,8 +86,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layout.addView(layout2);
         //End of driver seat button
 
+        creating_customer_seat(layout,myLayouts,myLayouts2);
 
 
+
+        //Adding Coded layout to real UI xml UI
+        Layout.addView(layout,myLayouts);
+        ArrayArr = new String[67];
+    }
+
+
+    String[] ArrayArr ;
+    @Override
+    public void onClick(View view) {
+
+        String array_searched = seatNo[view.getId()];
+        //Change seat image and pop up seat no selected
+        buttonChangeImage = (ImageButton)findViewById(view.getId());
+        buttonChangeImage.setImageResource(R.drawable.seat_taken);
+        Toast.makeText(getApplicationContext(),"Seat No : " + array_searched,Toast.LENGTH_SHORT).show();
+        selected_seat_by_customers[view.getId()] = array_searched; //Storing selected seat by customer
+
+        /*
+         * Suppless the codes
+         *
+        for (String search : selected_seat_by_customers){
+            try {
+                if(array_searched.contains(search)){
+                    Toast.makeText(getApplicationContext(),"" + array_searched,Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getApplicationContext(),"not found",Toast.LENGTH_LONG).show();
+                }
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+        }
+        /*
+        To here
+         */
+
+    }
+    ///////Creating customers seat layout
+
+    public void creating_customer_seat(final LinearLayout layout,final LinearLayout.LayoutParams myLayouts,final LinearLayout.LayoutParams myLayouts2){
         for(int j = 1; j <= total_seats_rows; j++) {
             ///Creating layout for rows
             LinearLayout layout3 = new LinearLayout(MainActivity.this);
@@ -130,20 +175,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //setting rows to layout
             layout.addView(layout3, myLayouts);
         }
+    }
+    ///Creating next button
+    public LinearLayout add_view_for_next_button(){
+        LinearLayout nextLayout = new LinearLayout(MainActivity.this);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+              LinearLayout.LayoutParams.MATCH_PARENT,
+              LinearLayout.LayoutParams.MATCH_PARENT
+            );
+            params.gravity = Gravity.CENTER;
 
-        //Adding Coded layout to real UI xml UI
-        Layout.addView(layout,myLayouts);
+            nextLayout.setLayoutParams(params);
+
+            Button myNextButton = new Button(MainActivity.this);
+            myNextButton.setText("Next");
+            myNextButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    on_click_next_button();
+                }
+            });
+
+            nextLayout.addView(myNextButton);
+        return nextLayout;
+    }
+
+    //Function followed whene next button clicked
+    private void on_click_next_button() {
+
     }
 
 
-    @Override
-    public void onClick(View view) {
-
-        //Change seat image and pop up seat no selected
-        buttonChangeImage = (ImageButton)findViewById(view.getId());
-        buttonChangeImage.setImageResource(R.drawable.seat_taken);
-        Toast.makeText(getApplicationContext(),"Seat No : " + seatNo[view.getId()],Toast.LENGTH_SHORT).show();
-        count_selected_seat++;
-        selected_seat_by_customers[count_selected_seat] = seatNo[view.getId()]; //Storing selected seat by customer
-    }
 }

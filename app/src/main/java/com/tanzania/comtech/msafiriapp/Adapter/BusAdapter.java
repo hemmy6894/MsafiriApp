@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tanzania.comtech.msafiriapp.Model.FetchBusModel;
 import com.tanzania.comtech.msafiriapp.Repository.BusRepository;
 
 import java.util.ArrayList;
@@ -23,9 +24,9 @@ import com.tanzania.comtech.msafiriapp.R;
  */
 
 public class BusAdapter extends ArrayAdapter<BusRepository> {
-    Context context;
-    int resources;
-    ArrayList<BusRepository> busRepositories;
+    private Context context;
+    private int resources;
+    private ArrayList<BusRepository> busRepositories;
 
     public BusAdapter(@NonNull Context context, int resource, @NonNull ArrayList<BusRepository> objects) {
         super(context, resource, objects);
@@ -67,7 +68,8 @@ public class BusAdapter extends ArrayAdapter<BusRepository> {
         book_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"Bus Id " + busRepository.getBus_id(), Toast.LENGTH_SHORT).show();
+                FetchBusModel fetchBusModel = new FetchBusModel(context);
+                fetchBusModel.fetchBusInfo(busRepository.getBus_id());
             }
         });
 

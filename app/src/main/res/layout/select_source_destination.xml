@@ -12,7 +12,7 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:background="#cccccc"
         app:menu="@menu/navigation" />
 
     <ScrollView
@@ -58,13 +58,12 @@
                                 android:fontFamily="serif-monospace"
                                 android:textStyle="bold"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
-                                <EditText
+                                <AutoCompleteTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                     android:drawableLeft="@drawable/msafiri_app_icon_city"
                                     android:hint="@string/from_kutoka"
-                                    android:text="DAR_ES_SALAAM"
                                     android:id="@+id/select_source_destination_source"/>
                             <TextView
                                 android:layout_width="match_parent"
@@ -74,11 +73,10 @@
                                 android:textStyle="bold"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-                            <EditText
+                            <AutoCompleteTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="@string/to_kwenda"
-                                    android:text="MWANZA"
                                     android:drawableLeft="@drawable/msafiri_app_icon_city"
                                     android:id="@+id/select_source_destination_destination"/>
                         </LinearLayout>
@@ -183,17 +181,25 @@
             </RelativeLayout>
     </ScrollView>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scrollView2"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
     <Button
         android:id="@+id/select_source_destination_next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/scrollView2"
+        android:layout_below="@+id/progress_bar"
         android:layout_gravity="right"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
-        android:text="next button" />
+        android:text="Next" />
 </RelativeLayout>
 

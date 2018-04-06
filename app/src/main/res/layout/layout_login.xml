@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:windowsNoTitle="true"
     tools:context="com.tanzania.comtech.msafiriapp.Activity_Login">
 
     <android.support.v7.widget.CardView
@@ -42,21 +41,22 @@
                                 android:layout_margin="@dimen/layout_input_margin"
                                 android:src="@drawable/logo_login" />
 
-                            <android.support.v7.widget.AppCompatEditText
+                            <AutoCompleteTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/layout_login_edittext_enter_email"
                                 android:hint=" Email"
                                 android:inputType="textEmailAddress"
                                 android:ems="10"
+                                android:text="grand@gmail.com"
                                 android:textColor="#fff"
-                                android:drawableLeft="@drawable/ic_email"
+                                android:drawableLeft="@android:drawable/ic_dialog_email"
                                 android:alpha="0.618"
                                 android:background="@android:color/transparent"
                                 android:textColorHint="#fff"
                                 android:layout_marginLeft="@dimen/layout_input_margin"
                                 android:layout_marginRight="@dimen/layout_input_margin">
-                            </android.support.v7.widget.AppCompatEditText>
+                            </AutoCompleteTextView>
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
@@ -64,21 +64,24 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
                                 android:layout_marginRight="20dp"
-                                android:background="#fff" />
-                            <android.support.v7.widget.AppCompatEditText
+                                android:background="#fff"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="20dp" />
+                            <AutoCompleteTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/layout_login_edittext_enter_password"
-                                android:hint=" Password"
-                                android:drawableLeft="@drawable/ic"
+                                android:hint="@string/login_password_hint"
+                                android:drawableLeft="@android:drawable/ic_lock_lock"
                                 android:background="@android:color/transparent"
                                 android:textColor="#fff"
                                 android:alpha="0.618"
+                                android:text="password"
                                 android:textColorHint="#fff"
                                 android:inputType="textPassword"
                                 android:layout_marginLeft="@dimen/layout_input_margin"
                                 android:layout_marginRight="@dimen/layout_input_margin">
-                            </android.support.v7.widget.AppCompatEditText>
+                            </AutoCompleteTextView>
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
@@ -116,6 +119,18 @@
                                 android:textAllCaps="false"
                                 />
 
+                            <ProgressBar
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:id="@+id/progress_bar"
+                                android:visibility="gone"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:id="@+id/layout_login_hidden_sms"
+                            android:visibility="gone"/>
                         </LinearLayout>
 
                 </LinearLayout>

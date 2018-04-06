@@ -15,12 +15,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -30,6 +34,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
 import com.tanzania.comtech.msafiriapp.Bus.Activity_list_bus;
+import com.tanzania.comtech.msafiriapp.Model.FetchRouteModel;
 import com.tanzania.comtech.msafiriapp.Time.TimeVariables;
 
 import org.json.JSONArray;
@@ -42,20 +47,21 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    SharedPreferences busJson;
     private TextView mTextMessage;
-    JSONObject studentsObj;
     Button goNext;
     ImageView swapper;
     Calendar myCalendar;
     DatePickerDialog.OnDateSetListener date;
 
-    EditText fromEditText, toEditText;
+    SharedPreferences routeInfo;
+    SharedPreferences.Editor editRoute;
+    AutoCompleteTextView fromEditText, toEditText;
 
     LinearLayout datePickerLayout ;
 
     TextView datePickerDay, datePickerMonth,datePickerDayName,datePickerYear;
 
+    public int left_seat, right_seat;
 
     String sendTextFrom, sendTextTo, sendPickedDate;
     public void create_datePickers(){
@@ -70,11 +76,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int day_of_month = myCalendar.get(Calendar.DAY_OF_MONTH);
         int month = myCalendar.get(Calendar.MONTH);
         int year = myCalendar.get(Calendar.YEAR);
+        int day_of_week = myCalendar.get(Calendar.DAY_OF_WEEK);
 
         datePickerDay.setText(String.format("%s", day_of_month));
-        datePickerDayName.setText(String.format("%s", TimeVariables.weeksNames[myCalendar.get(Calendar.DAY_OF_WEEK)]));
+        datePickerDayName.setText(String.format("%s", TimeVariables.weeksNames[day_of_week]));
         datePickerMonth.setText(String.format("%s", TimeVariables.monthNames[month]));
         datePickerYear.setText(String.format("%s", year));
+
+        editRoute = routeInfo.edit();
+        editRoute.putInt("day_of_month",day_of_month);
+        editRoute.putInt("month",month);
+        editRoute.putInt("day_of_week",day_of_week);
+        editRoute.putInt("year",year);
 
         sendPickedDate = "" + append_zero(day_of_month) + "-" + append_zero(month + 1) +"-"+ append_zero(year);
     }
@@ -119,8 +132,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         swapper = (ImageView)findViewById(R.id.select_source_destination_swapper);
-        fromEditText = (EditText)findViewById(R.id.select_source_destination_source);
-        toEditText = (EditText)findViewById(R.id.select_source_destination_destination);
+        fromEditText = (AutoCompleteTextView) findViewById(R.id.select_source_destination_source);
+        toEditText = (AutoCompleteTextView) findViewById(R.id.select_source_destination_destination);
+
+        String[] countries = getResources().getStringArray(R.array.regions_array);
+        // Create the adapter and set it to the AutoCompleteTextView
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countries);
+        fromEditText.setAdapter(adapter);
+        toEditText.setAdapter(adapter);
+
         swapper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,9 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        busJson = getSharedPreferences("MY_BUSES", Context.MODE_PRIVATE);
-
-
+        routeInfo = getSharedPreferences("routeInfo",Context.MODE_PRIVATE);
         create_datePickers();
         initiate_datePickers();
         populate_layout_date();
@@ -168,74 +187,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-
-    public void requestJson(final String sendTextFrom, final String sendTextTo,final String sendPickedDate){
-        final String Canceltag = "TagCancel";
-        final String url = BusApi.routeInformation + "/" + sendPickedDate + "/" + sendTextFrom + "/" + sendTextTo;
-        StringRequest requestRoot = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-
-                    Log.e(Canceltag,response);
-                    Log.e(Canceltag,url);
-                    JSONObject routeObject = new JSONObject(response);
-                    boolean success = routeObject.getBoolean("success");
-                    if(success){
-                        JSONArray data = routeObject.getJSONArray("data");
-                            for (int i = 0; i < data.length(); i++){
-
-                            }
-
-//                        bus1.put("bus_name", "Bus name "  + i);
-//                        bus1.put("bus_id", i);
-//                        bus1.put("left_seat", 2);
-//                        bus1.put("right_seat", 3);
-//                        bus1.put("model", "U Tong");
-//                        bus1.put("phone_number", "0685646765");
-//                        bus1.put("visible", false);
-//                        bus1.put("source", "Dar es salaam");
-//                        bus1.put("destination", "Dar es salaam");
-//                        bus1.put("departure", "07:00 AM");
-//                        bus1.put("check_in", "06:00 AM");
-//                        bus1.put("fear_price", "150,00 Tzs");
-//                        bus1.put("available_seat", "20 seats");
-
-                    }
-                    //JSONArray routeArray = routeObject.getJSONArray("buses");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
-                SharedPreferences token = getSharedPreferences("msafiriAppSession",Context.MODE_PRIVATE);
-                String stringToken = token.getString("token","");
-                headers.put("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3JhbmRAZ21haWwuY29tIiwicGFzc3dvcmQiOiJwYXNzd29yZCJ9LCJpYXQiOjE1MjI5NDQ2ODEsImV4cCI6MjE3NTIyOTQ0NjgxfQ.Q8RDGnAvG0CG3XLTVtTm9wIhtYY-LYY8zb-oH6LNnFI");
-                Log.e(Canceltag,stringToken);
-                return headers;
-            }
-        };
-
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(requestRoot,Canceltag);
-        /*
-        Log.e("Test","Tested");
-        fill_array_buses();
-        Log.e("This a json datas " , String.valueOf(studentsObj));
-
-        SharedPreferences.Editor editor = busJson.edit();
-        editor.putString("BusJson", String.valueOf(studentsObj));
-        editor.apply();
-        */
-    }
-
     public void setSwapper(){
         String swapper = "";
         String fromText = fromEditText.getText().toString();
@@ -249,49 +200,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toEditText.setText(toText);
     }
 
-    public  void fill_array_buses(){
-        JSONObject bus1 = new JSONObject();
-        JSONArray jsonArray = new JSONArray();
-
-        for(int i = 0; i <= 10 ; i++) {
-            try {
-                bus1.put("bus_name", "Bus name "  + i);
-                bus1.put("bus_id", i);
-                bus1.put("left_seat", 2);
-                bus1.put("right_seat", 3);
-                bus1.put("model", "U Tong");
-                bus1.put("phone_number", "0685646765");
-                bus1.put("visible", false);
-                bus1.put("source", "Dar es salaam");
-                bus1.put("destination", "Dar es salaam");
-                bus1.put("departure", "07:00 AM");
-                bus1.put("check_in", "06:00 AM");
-                bus1.put("fear_price", "150,00 Tzs");
-                bus1.put("available_seat", "20 seats");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            jsonArray.put(bus1);
-        }
-
-         studentsObj = new JSONObject();
-        try {
-            studentsObj.put("buses", jsonArray);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.select_source_destination_next_button:
                 sendTextFrom = fromEditText.getText().toString();
                 sendTextTo = toEditText.getText().toString();
+                editRoute.putString("from",sendTextFrom);
+                editRoute.putString("to",sendTextTo);
+                editRoute.apply();
 
-                requestJson(sendTextFrom,sendTextTo,sendPickedDate);
-                Intent select_bus_activity = new Intent(getApplicationContext(), Activity_list_bus.class);
-                //startActivity(select_bus_activity);
+                ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
+                progressBar.setVisibility(View.VISIBLE);
+                FetchRouteModel fetchRouteModel = new FetchRouteModel(getApplicationContext());
+                fetchRouteModel.requestJson(sendTextFrom,sendTextTo,sendPickedDate,progressBar);
                 break;
         }
     }

@@ -1,8 +1,11 @@
 package com.tanzania.comtech.msafiriapp.seat_plan;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,19 +18,29 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.tanzania.comtech.msafiriapp.Payment.SeatInformation;
 import com.tanzania.comtech.msafiriapp.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Start of layout variables
     LinearLayout Layout;
-    final int left_column = 2;
-    final int right_column = 2;
+    private int left_column = 0;
+    private int right_column = 0;
     int total_seats = 30;
-    int total_column = left_column + right_column + 1;
-    int space_between = left_column + 1;
-    int total_seats_rows = total_seats / (total_column - 1);
-    int remain_seat = total_seats % total_column;
+    int total_column;
+    int space_between;
+    int total_seats_rows;
+    int remain_seat;
     String rowNames[];
     String[] seatNo;
     int seat_id = 0;
@@ -38,11 +51,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String[] selected_seat_by_customers;
     ImageButton buttonChangeImage;
 
+    SharedPreferences busData;
+
+    JSONObject object;
+    public void populate_bas_data(){
+        busData = getSharedPreferences("BusDataFromId",Context.MODE_PRIVATE);
+        try {
+            object = new JSONObject(busData.getString("bus","{}"));
+            left_right_seat(object.getString("seat_type"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        total_column = left_column + right_column + 1;
+        space_between = left_column + 1;
+        total_seats_rows = total_seats / (total_column - 1);
+        remain_seat = total_seats % total_column;
+    }
+
+    public void left_right_seat(String seat_type){
+        if(seat_type.equals("2_X_3")){
+            left_column = 2;
+            right_column = 3;
+        }else if(seat_type.equals( "2_X_2")){
+            left_column = 2;
+            right_column = 2;
+        }else if(seat_type.equals("1_X_2")){
+            left_column = 1;
+            right_column = 2;
+        }
+    }
+
+    ArrayList seatAvailable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seat_plan_layout);
-
+        seatAvailable = new ArrayList();
+        populate_bas_data();
         rowNames = new String[]{"","A","B","C","D","E","F","G","H","K","L","M","N","O","P"}; // rows seat name
         seatNo = new String[89]; // string for storing seats
         selected_seat_by_customers = new String[10];
@@ -99,32 +145,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String[] ArrayArr ;
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case 67:
 
-        String array_searched = seatNo[view.getId()];
-        //Change seat image and pop up seat no selected
-        buttonChangeImage = (ImageButton)findViewById(view.getId());
-        buttonChangeImage.setImageResource(R.drawable.seat_taken);
-        Toast.makeText(getApplicationContext(),"Seat No : " + array_searched,Toast.LENGTH_SHORT).show();
-        selected_seat_by_customers[view.getId()] = array_searched; //Storing selected seat by customer
-
-        /*
-         * Suppless the codes
-         *
-        for (String search : selected_seat_by_customers){
-            try {
-                if(array_searched.contains(search)){
-                    Toast.makeText(getApplicationContext(),"" + array_searched,Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(getApplicationContext(),"not found",Toast.LENGTH_LONG).show();
-                }
-            }catch (NullPointerException e){
-                e.printStackTrace();
-            }
+                break;
+            default:
+            String array_searched = seatNo[view.getId()];
+            Toast.makeText(getApplicationContext(), "Seat No : " + array_searched, Toast.LENGTH_SHORT).show();
+            addSeatAvailable(array_searched, array_searched, view.getId());
+            Log.e("Seat Selected ", String.valueOf(seatAvailable));
+            break;
         }
-        /*
-        To here
-         */
+    }
 
+    int totalSeatSelected = 0;
+    public void addSeatAvailable(String key, String value, int ImageID){
+        int d = seatAvailable.indexOf(value);
+
+        if(d >= 0){
+            seatAvailable.remove(d);
+            totalSeatSelected--;
+            //Change seat image and pop up seat no selected
+            buttonChangeImage = (ImageButton)findViewById(ImageID);
+            buttonChangeImage.setImageResource(R.drawable.empty_seat);
+        }else if(totalSeatSelected < 5){
+            seatAvailable.add(value);
+            totalSeatSelected++;
+            //Change seat image and pop up seat no selected
+            buttonChangeImage = (ImageButton)findViewById(ImageID);
+            buttonChangeImage.setImageResource(R.drawable.seat_taken);
+        }else {
+            Toast.makeText(getApplicationContext(),"The maximum number of seats that can be selected is 5",Toast.LENGTH_SHORT).show();
+        }
     }
     ///////Creating customers seat layout
 
@@ -175,6 +227,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //setting rows to layout
             layout.addView(layout3, myLayouts);
         }
+        layout.addView(add_view_for_next_button_inv(),myLayouts);
+        layout.addView(add_view_for_next_button(),myLayouts);
     }
     ///Creating next button
     public LinearLayout add_view_for_next_button(){
@@ -183,12 +237,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               LinearLayout.LayoutParams.MATCH_PARENT,
               LinearLayout.LayoutParams.MATCH_PARENT
             );
-            params.gravity = Gravity.CENTER;
+            params.gravity = Gravity.RIGHT;
 
             nextLayout.setLayoutParams(params);
 
             Button myNextButton = new Button(MainActivity.this);
-            myNextButton.setText("Next");
+            myNextButton.setText("Book Now");
             myNextButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -200,9 +254,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return nextLayout;
     }
 
+    public LinearLayout add_view_for_next_button_inv(){
+        LinearLayout nextLayout = new LinearLayout(MainActivity.this);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        params.gravity = Gravity.RIGHT;
+
+        nextLayout.setLayoutParams(params);
+
+        Button myNextButton = new Button(MainActivity.this);
+        myNextButton.setText("Book Now");
+        myNextButton.setVisibility(View.INVISIBLE);
+        myNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
+        nextLayout.addView(myNextButton);
+        return nextLayout;
+    }
+
     //Function followed whene next button clicked
     private void on_click_next_button() {
+        if(!seatAvailable.isEmpty()){
 
+            SharedPreferences seatPreference = getSharedPreferences("SEAT_BOOK",Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = seatPreference.edit();
+
+            editor.putString("seatSelected", String.valueOf(seatAvailable));
+            editor.apply();
+            startActivity(new Intent(getApplicationContext(), SeatInformation.class));
+        }else{
+            Toast.makeText(getApplicationContext(),"You must choose atleast 1 seat",Toast.LENGTH_SHORT).show();
+        }
     }
 
 

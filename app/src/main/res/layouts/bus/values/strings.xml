@@ -7,4 +7,23 @@
     <string name="date_picker_month_name">January</string>
     <string name="date_picker_year">2018</string>
     <string name="choose_destination_next_button">next step</string>
+    <string name="login_password_hint">Password</string>
+    <string name="destination_string">Destination</string>
+    <string name="source_string">Source</string>
+    <string name="date_string">Monday 26, March 2018</string>
+    <string name="passenger_name">Passenger Name</string>
+    <string name="passenger_age">Age</string>
+
+    <string-array name="regions_array">
+        <item>DAR_ES_SALAAM</item>
+        <item>MWANZA</item>
+        <item>DODOMA</item>
+        <item>LINDI</item>
+        <item>MTWARA</item>
+        <item>MOROGORO</item>
+        <item>KIBAHA</item>
+        <item>SHINYANGA</item>
+        <item>ARUSHA</item>
+        <item>MOSHI</item>
+    </string-array>
 </resources>

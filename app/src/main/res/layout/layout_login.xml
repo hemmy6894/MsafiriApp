@@ -33,6 +33,7 @@
                         android:id="@+id/layout_login_edittext_enter_email"
                         android:hint="Enter email address ..."
                         android:inputType="textEmailAddress"
+                        android:text="grand@gmail.com"
                         android:layout_marginLeft="@dimen/layout_input_margin"
                         android:layout_marginRight="@dimen/layout_input_margin">
                     </android.support.v7.widget.AppCompatEditText>
@@ -42,6 +43,7 @@
                         android:id="@+id/layout_login_edittext_enter_password"
                         android:hint="Enter email password ..."
                         android:inputType="textPassword"
+                        android:text="password"
                         android:layout_marginLeft="@dimen/layout_input_margin"
                         android:layout_marginRight="@dimen/layout_input_margin">
                     </android.support.v7.widget.AppCompatEditText>
@@ -64,6 +66,14 @@
                         android:id="@+id/layout_login_button_regiter"
                         android:textAllCaps="false"
                         />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:id="@+id/layout_login_hidden_sms"
+                        android:visibility="gone"/>
                 </LinearLayout>
         </ScrollView>
     </android.support.v7.widget.CardView>

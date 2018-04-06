@@ -32,7 +32,7 @@ public class Activity_list_bus extends AppCompatActivity {
         busPreference = getSharedPreferences("MY_BUSES", Context.MODE_PRIVATE);
         jsonObj = busPreference.getString("BusJson",null);
 
-        Log.e("My Json Data",jsonObj);
+       // Log.e("My Json Data",jsonObj);
         busRepositories = new ArrayList<>();
 
         busList = (ListView)findViewById(R.id.bus_layout_list_bus_list);
@@ -71,6 +71,6 @@ public class Activity_list_bus extends AppCompatActivity {
 
         BusAdapter flightAdapter = new BusAdapter(getApplicationContext(),R.layout.element_single_bus_view_og,busRepositories);
         busList.setAdapter(flightAdapter);
-        Log.e("Reached","Ok reached there");
+        //Log.e("Reached","Ok reached there");
     }
 }

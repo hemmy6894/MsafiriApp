@@ -1,1 +1,10 @@
-<resources></resources>
+<resources>
+    <string name="from_kutoka">From ( Kutoka )</string>
+    <string name="to_kwenda">To ( Kwenda )</string>
+    <string name="journey_date">Journey Date</string>
+    <string name="date_picker_date">10</string>
+    <string name="date_picker_day_of_week_name">Monday</string>
+    <string name="date_picker_month_name">January</string>
+    <string name="date_picker_year">2018</string>
+    <string name="choose_destination_next_button">next step</string>
+</resources>

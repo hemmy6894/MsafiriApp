@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/msafiri_app_color_gray"
-    android:backgroundTint="@color/msafiri_app_color_light_grey"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:windowsNoTitle="true"
     tools:context="com.tanzania.comtech.msafiriapp.Activity_Login">
 
     <android.support.v7.widget.CardView
@@ -14,67 +13,112 @@
         android:transitionGroup="true"
         android:layout_margin="0dp">
         <ScrollView
+            android:background="@drawable/back_img"
             android:layout_width="match_parent"
+            android:padding="20dp"
             android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <ImageView
-                        android:id="@+id/msafiri_App_logo"
-                        android:layout_width="match_parent"
-                        android:layout_height="250dp"
-                        android:layout_margin="@dimen/layout_input_margin"
-                        android:src="@drawable/logo_login" />
 
-                    <android.support.v7.widget.AppCompatEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/layout_login_edittext_enter_email"
-                        android:hint="Enter email address ..."
-                        android:inputType="textEmailAddress"
-                        android:text="grand@gmail.com"
-                        android:layout_marginLeft="@dimen/layout_input_margin"
-                        android:layout_marginRight="@dimen/layout_input_margin">
-                    </android.support.v7.widget.AppCompatEditText>
-                    <android.support.v7.widget.AppCompatEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/layout_login_edittext_enter_password"
-                        android:hint="Enter email password ..."
-                        android:inputType="textPassword"
-                        android:text="password"
-                        android:layout_marginLeft="@dimen/layout_input_margin"
-                        android:layout_marginRight="@dimen/layout_input_margin">
-                    </android.support.v7.widget.AppCompatEditText>
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_input_margin"
-                        android:layout_marginRight="@dimen/layout_input_margin"
-                        android:text="@string/login_button_String"
-                        android:id="@+id/layout_login_button_login"
-                        android:textAllCaps="false"
-                        />
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/layout_input_margin"
-                        android:layout_marginRight="@dimen/layout_input_margin"
-                        android:text="@string/login_button_register"
-                        android:id="@+id/layout_login_button_regiter"
-                        android:textAllCaps="false"
-                        />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textColor="#000"
-                        android:id="@+id/layout_login_hidden_sms"
-                        android:visibility="gone"/>
+                        <LinearLayout
+                            android:padding="20dp"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.8"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="#000"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/msafiri_App_logo"
+                                android:layout_width="170dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/layout_input_margin"
+                                android:src="@drawable/logo_login" />
+
+                            <android.support.v7.widget.AppCompatEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/layout_login_edittext_enter_email"
+                                android:hint=" Email"
+                                android:inputType="textEmailAddress"
+                                android:ems="10"
+                                android:textColor="#fff"
+                                android:drawableLeft="@drawable/ic_email"
+                                android:alpha="0.618"
+                                android:background="@android:color/transparent"
+                                android:textColorHint="#fff"
+                                android:layout_marginLeft="@dimen/layout_input_margin"
+                                android:layout_marginRight="@dimen/layout_input_margin">
+                            </android.support.v7.widget.AppCompatEditText>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#fff" />
+                            <android.support.v7.widget.AppCompatEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/layout_login_edittext_enter_password"
+                                android:hint=" Password"
+                                android:drawableLeft="@drawable/ic"
+                                android:background="@android:color/transparent"
+                                android:textColor="#fff"
+                                android:alpha="0.618"
+                                android:textColorHint="#fff"
+                                android:inputType="textPassword"
+                                android:layout_marginLeft="@dimen/layout_input_margin"
+                                android:layout_marginRight="@dimen/layout_input_margin">
+                            </android.support.v7.widget.AppCompatEditText>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#fff" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_bg_red"
+                                android:alpha="0.618"
+                                android:textColor="#fff"
+                                android:textSize="17sp"
+                                android:layout_marginLeft="@dimen/layout_input_margin"
+                                android:layout_marginRight="@dimen/layout_input_margin"
+                                android:text="@string/login_button_String"
+                                android:id="@+id/layout_login_button_login"
+                                android:textAllCaps="false"
+                                />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_bg_red_border"
+                                android:textSize="17sp"
+                                android:textColor="#fff"
+                                android:alpha="0.618"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="@dimen/layout_input_margin"
+                                android:layout_marginRight="@dimen/layout_input_margin"
+                                android:text="@string/login_button_register"
+                                android:id="@+id/layout_login_button_regiter"
+                                android:textAllCaps="false"
+                                />
+
+                        </LinearLayout>
+
                 </LinearLayout>
         </ScrollView>
     </android.support.v7.widget.CardView>
-</RelativeLayout>
+</LinearLayout>

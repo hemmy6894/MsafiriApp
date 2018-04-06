@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MsafiriApp</string>
-    <string name="login_button_String">Sign In </string>
-    <string name="login_button_register">New Member Register</string>
+    <string name="login_button_String">Log In </string>
+    <string name="login_button_register">Register</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

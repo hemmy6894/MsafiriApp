@@ -23,6 +23,7 @@
                     android:orientation="vertical">
 
 
+
                         <LinearLayout
                             android:padding="20dp"
                             android:layout_width="fill_parent"
@@ -116,7 +117,6 @@
                                 />
 
                         </LinearLayout>
-
 
                 </LinearLayout>
         </ScrollView>

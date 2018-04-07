@@ -80,7 +80,7 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
                         list.add(p_editText[i].getText().toString());
                     }
                 TextView text = (TextView)findViewById(R.id.view_collection);
-               // text.setText( list);
+                // text.setText( list);
                 break;
         }
     }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.tanzania.comtech.msafiriapp.Auth.VerificationPage">
+
+  
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp" 
+            android:src="@mipmap/msafiri_app_logo_two"
+            android:contentDescription="@string/msafiri_logo" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="@string/sms_verification"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:gravity="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:text="@string/enter_otp"/>
+    
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/verification_otp"
+        android:id="@+id/verification_otp"
+        android:gravity="center"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/count_down_time"
+        android:layout_margin="5dp"/>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg_red_border"
+            android:text="Submit OPT"
+            android:id="@+id/verification_submit"
+            android:layout_marginRight="2dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:id="@+id/verification_resend"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg_red_border"
+            android:text="Resend OPT"/>
+    </LinearLayout>
+</LinearLayout>

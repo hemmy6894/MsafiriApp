@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.tanzania.comtech.msafiriapp.Activity_Login">
+    tools:context="com.tanzania.comtech.msafiriapp.Auth.Activity_Login">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -35,11 +35,11 @@
 
                             <ImageView
                                 android:id="@+id/msafiri_App_logo"
-                                android:layout_width="170dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="200dp"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/layout_input_margin"
-                                android:src="@drawable/logo_login" />
+                                android:src="@mipmap/msafiri_app_logo_two" />
 
                             <AutoCompleteTextView
                                 android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                                 android:hint=" Email"
                                 android:inputType="textEmailAddress"
                                 android:ems="10"
-                                android:text="grand@gmail.com"
+                                android:text="@string/test_email"
                                 android:textColor="#fff"
                                 android:drawableLeft="@android:drawable/ic_dialog_email"
                                 android:alpha="0.618"

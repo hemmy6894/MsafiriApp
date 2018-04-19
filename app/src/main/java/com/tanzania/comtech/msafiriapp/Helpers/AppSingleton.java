@@ -1,6 +1,7 @@
-package com.tanzania.comtech.msafiriapp;
+package com.tanzania.comtech.msafiriapp.Helpers;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.LruCache;
@@ -10,13 +11,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
-/**
- * Created by programing on 5/02/18.
- */
+
 public class AppSingleton {
+    @SuppressLint("StaticFieldLeak")
     private static AppSingleton mAppSingletonInstance;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
+    @SuppressLint("StaticFieldLeak")
     private static Context mContext;
 
     private AppSingleton(Context context) {
@@ -26,7 +27,11 @@ public class AppSingleton {
         mImageLoader = new ImageLoader(mRequestQueue,
                 new ImageLoader.ImageCache() {
                     private final LruCache<String, Bitmap>
-                            cache = new LruCache<String, Bitmap>(20);
+                            cache;
+
+                    {
+                        cache = new LruCache<String, Bitmap>(20);
+                    }
 
                     @Override
                     public Bitmap getBitmap(String url) {
@@ -47,7 +52,7 @@ public class AppSingleton {
         return mAppSingletonInstance;
     }
 
-    public RequestQueue getRequestQueue() {
+    private RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
             // getApplicationContext() is key, it keeps you from leaking the
             // Activity or BroadcastReceiver if someone passes one in.

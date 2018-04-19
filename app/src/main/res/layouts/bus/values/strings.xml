@@ -26,4 +26,30 @@
         <item>ARUSHA</item>
         <item>MOSHI</item>
     </string-array>
+    <string name="title_activity_drawable">Customer View</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="personal_details">PERSONAL DETAILS</string>
+    <string name="register_first_name">First Name</string>
+    <string name="register_last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="register_phone_number">Phone number</string>
+    <string name="register_address">Address</string>
+    <string name="register_password">Password</string>
+    <string name="register_re_password">Confirm Password</string>
+    <string name="test_first_name">Hemedi</string>
+    <string name="test_last_name">Mshamu</string>
+    <string name="test_email">hmanyinja@gmail.com</string>
+    <string name="test_phone_number">+255685639653</string>
+    <string name="test_password">password</string>
+    <string name="sms_verification">Enter verification code.</string>
+    <string name="msafiri_logo">Msafiri Logo</string>
+    <string name="enter_otp">We just sent an SMS with a verification code to +255767524222. Enter that code below</string>
+    <string name="verification_otp">Your code</string>
+    <string name="error_login_sms">Under Login</string>
+    <string name="title_activity_choose_transport_type">Source Destination</string>
+    <string name="log_out">Log out</string>
 </resources>

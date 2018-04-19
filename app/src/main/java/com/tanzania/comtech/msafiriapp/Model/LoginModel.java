@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,7 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
-import com.tanzania.comtech.msafiriapp.AppSingleton;
+import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
+import com.tanzania.comtech.msafiriapp.Helpers.DirectUserByRole;
 import com.tanzania.comtech.msafiriapp.MainActivity;
 
 import org.json.JSONException;
@@ -75,9 +75,7 @@ public class LoginModel {
                         userEditor.apply();
 
                         progressBar.setVisibility(View.GONE);
-                        Intent chooseRoute = new Intent(context,MainActivity.class);
-                        chooseRoute.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(chooseRoute);
+                        new DirectUserByRole(context,role);
                         hidden_text_view("Success Login",hiddenSms);
                     }else{
                         progressBar.setVisibility(View.GONE);

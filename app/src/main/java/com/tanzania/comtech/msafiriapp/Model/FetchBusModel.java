@@ -10,7 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
-import com.tanzania.comtech.msafiriapp.AppSingleton;
+import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
 import com.tanzania.comtech.msafiriapp.seat_plan.MainActivity;
 
 

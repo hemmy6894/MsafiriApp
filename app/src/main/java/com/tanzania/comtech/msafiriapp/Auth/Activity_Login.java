@@ -1,4 +1,4 @@
-package com.tanzania.comtech.msafiriapp;
+package com.tanzania.comtech.msafiriapp.Auth;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
+import com.tanzania.comtech.msafiriapp.Helpers.DirectUserByRole;
 import com.tanzania.comtech.msafiriapp.Model.LoginModel;
+import com.tanzania.comtech.msafiriapp.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,11 +66,10 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
                     LoginModel loginModel = new LoginModel(getApplicationContext());
                     loginModel.logInToMsafiriApi(textUsername,textPassword,hiddenSms,progressBar);
                     hiddenSms.setVisibility(View.GONE);
-                    hiddenSms.setText("Under Login");
+                    hiddenSms.setText(R.string.error_login_sms);
                 break;
             case R.id.layout_login_button_regiter:
-                    hiddenSms.setVisibility(View.VISIBLE);
-                    hiddenSms.setText("Under construction");
+                    new DirectUserByRole(getApplicationContext(),"register");
                 break;
         }
     }

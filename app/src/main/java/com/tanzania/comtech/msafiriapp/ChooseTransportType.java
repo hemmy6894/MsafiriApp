@@ -26,10 +26,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.Model.FetchRouteModel;
 import com.tanzania.comtech.msafiriapp.Time.TimeVariables;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChooseTransportType extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -154,6 +157,10 @@ public class ChooseTransportType extends AppCompatActivity
 
         goNext = (Button)findViewById(R.id.select_source_destination_next_button);
         goNext.setOnClickListener(this);
+
+        Map<String, String> mapValue = new HashMap<String, String>();
+        mapValue.put("Mavi ", "Nikunya tyu");
+        new SharedPreferenceAppend(getApplicationContext()).appendSharedPref(mapValue,getString(R.string.shared_preference_session));
     }
 
     @Override

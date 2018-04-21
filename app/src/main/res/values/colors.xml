@@ -8,4 +8,10 @@
     <color name="msafiri_app_color_black">#050505</color>
     <color name="msafiri_app_color_gray">#63645f</color>
     <color name="msafiri_app_color_light_grey">#f6f6f6</color>
+
+    <color name="official_background_color">#000000</color>
+    <color name="official_background_color_two">#beebe6</color>
+    <color name="official_typing_text">#ffffff</color>
+    <color name="official_hint_color">#064606</color>
+    <color name="official_design_color">@color/action_bar_color</color>
 </resources>

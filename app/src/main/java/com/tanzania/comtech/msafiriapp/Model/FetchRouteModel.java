@@ -16,6 +16,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
 import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
 import com.tanzania.comtech.msafiriapp.Bus.Activity_list_bus;
+import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
+import com.tanzania.comtech.msafiriapp.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,35 +53,39 @@ public class FetchRouteModel {
                     Log.e(Canceltag,response);
                     Log.e(Canceltag,url);
                     JSONObject routeObject = new JSONObject(response);
-                    boolean success = routeObject.getBoolean("success");
+                    String success = routeObject.getString(context.getString(R.string.json_status));
 
 
-                    if(success){
+                    if(success.equals("OK")){
                         JSONObject bus1 = new JSONObject();
                         JSONArray jsonArray = new JSONArray();
                         JSONArray data = routeObject.getJSONArray("data");
                         for (int i = 0; i < data.length(); i++){
                             JSONObject information = data.getJSONObject(i);
-                            JSONObject sch = information.getJSONObject("sch_info");
-                            JSONObject buses = information.getJSONObject("bus");
-                            JSONObject company = information.getJSONObject("company");
+                            JSONObject sch = information.getJSONObject(context.getString(R.string.json_sch_information));
+                            JSONObject buses = information.getJSONObject(context.getString(R.string.json_bus_information));
+                            JSONObject company = information.getJSONObject(context.getString(R.string.json_company_information));
 
-                            left_right_seat(buses.getString("seat_type"));
+                            left_right_seat(buses.getString(context.getString(R.string.shared_seat_type)));
 
-                            bus1.put("bus_name", buses.getString("bus_name"));
-                            bus1.put("bus_id", buses.getString("_id"));
-                            bus1.put("left_seat", left_seat);
-                            bus1.put("right_seat", right_seat);
-                            bus1.put("model", buses.getString("model"));
-                            bus1.put("phone_number", information.getString("help_line_no"));
-                            bus1.put("visible", buses.getBoolean("visible"));
-                            bus1.put("source", "no");
-                            bus1.put("destination", "no");
-                            bus1.put("departure", sch.getString("departure_time"));
-                            bus1.put("check_in", sch.getString("arrival_time"));
-                            bus1.put("fear_price", sch.getString("fare"));
-                            bus1.put("available_seat", "20 seats");
+                            bus1.put(context.getString(R.string.shared_bus_name), buses.getString(context.getString(R.string.shared_bus_name)));
+                            bus1.put(context.getString(R.string.shared_bus_id), buses.getString(context.getString(R.string.shared_id)));
+                            bus1.put(context.getString(R.string.shared_left_seat), left_seat);
+                            bus1.put(context.getString(R.string.shared_right_seat), right_seat);
+                            bus1.put(context.getString(R.string.shared_model), buses.getString(context.getString(R.string.shared_model)));
+                            bus1.put(context.getString(R.string.shared_phone_number), information.getString(context.getString(R.string.shared_help_line_no)));
+                            bus1.put(context.getString(R.string.shared_visible), buses.getBoolean(context.getString(R.string.shared_visible)));
+                            bus1.put(context.getString(R.string.shared_source), "no");
+                            bus1.put(context.getString(R.string.shared_destination), "no");
+                            bus1.put(context.getString(R.string.shared_departure), sch.getString(context.getString(R.string.shared_departure_time)));
+                            bus1.put(context.getString(R.string.shared_check_in), sch.getString(context.getString(R.string.shared_arrival_time)));
+                            bus1.put(context.getString(R.string.shared_fear_price), sch.getString(context.getString(R.string.shared_fear)));
+                            bus1.put(context.getString(R.string.shared_available_seat), "20 seats");
                             jsonArray.put(bus1);
+
+                            Map<String, String> append = new HashMap<String, String>();
+                            append.put(context.getString(R.string.shared_sch_date_id),sch.getString(context.getString(R.string.shared_id)));
+                            new SharedPreferenceAppend(context).appendSharedPref(append,context.getString(R.string.shared_preference_booking_info));
                         }
                         studentsObj = new JSONObject();
                         studentsObj.put("buses", jsonArray);
@@ -90,7 +96,7 @@ public class FetchRouteModel {
                         select_bus_activity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         progressBar.setVisibility(View.GONE);
                         context.startActivity(select_bus_activity);
-                    }else{
+                    }else if(success.equals("ERROR")){
                         Toast.makeText(context,"No Route",Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
                     }
@@ -108,9 +114,9 @@ public class FetchRouteModel {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                SharedPreferences token = context.getSharedPreferences("msafiriAppSession",Context.MODE_PRIVATE);
-                String stringToken = token.getString("token","");
-                headers.put("Authorization", stringToken);
+                SharedPreferences token = context.getSharedPreferences(context.getString(R.string.shared_preference_session),Context.MODE_PRIVATE);
+                String stringToken = token.getString(context.getString(R.string.shared_token),"");
+                headers.put(context.getString(R.string.map_header_parameter), stringToken);
                 return headers;
             }
         };

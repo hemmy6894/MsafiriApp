@@ -9,4 +9,73 @@
     <string name="title_bus_ticket">Buses</string>
     <string name="title_ship_ticket">Ship</string>
     <string name="title_train_ticket">Train</string>
+
+
+
+    //////Shared preference resource section
+    <string name="shared_preference_route">RouteInformation</string>
+    <string name="shared_bus_name">bus_name</string>
+    <string name="shared_bus_id">bus_id</string>
+    <string name="shared_id">_id</string>
+    <string name="shared_left_seat">left_seat</string>
+    <string name="shared_right_seat">right_seat</string>
+    <string name="shared_model">model</string>
+    <string name="shared_phone_number">phone_no</string>
+    <string name="shared_help_line_no">help_line_no</string>
+    <string name="shared_visible">visible</string>
+    <string name="shared_destination">destination</string>
+    <string name="shared_source">source</string>
+    <string name="shared_departure">departure</string>
+    <string name="shared_departure_time">departure_time</string>
+    <string name="shared_check_in">check_in</string>
+    <string name="shared_arrival_time">arrival_time</string>
+    <string name="shared_fear_price">fear_price</string>
+    <string name="shared_fear">fear</string>
+    <string name="shared_seat_type">seat_type</string>
+    <string name="shared_available_seat">available_seat</string>
+    <string name="shared_token">token</string>
+    <string name="shared_customer_id">customer_id</string>
+    <string name="shared_sch_date_id">sch_date_id</string>
+    <string name="shared_sch_pool_id">sch_pool_id</string>
+
+    <string name="shared_preference_booking_info">bookingInfo</string>
+
+
+    <string name="shared_preference_session">msafiriAppSession</string>
+    <string name="shared_first_name">first_name</string>
+    <string name="shared_last_name">last_name</string>
+    <string name="shared_email">email</string>
+    <string name="shared_gender">gender</string>
+    <string name="shared_address">address</string>
+    <string name="shared_role">role</string>
+    <string name="shared_phone_verified">phone_verified</string>
+
+
+
+    /// Parameters values
+
+    <string name="map_password">password</string>
+    <string name="map_email">email</string>
+    <string name="map_company_id">company_id</string>
+    <string name="map_sch_date">sch_date</string>
+    <string name="map_from">from</string>
+    <string name="map_to">to</string>
+    <string name="map_sch_date_id">sch_date_id</string>
+    <string name="map_booking_ref">booking_ref</string>
+    <string name="map_sch_pool_id">sch_pool_id</string>
+    <string name="map_bus_id">bus_id</string>
+    <string name="map_header_parameter">Authorization</string>
+
+
+    /// JSON result keys
+
+    <string name="json_sch_information">sch_info</string>
+    <string name="json_bus_information">bus</string>
+    <string name="json_company_information">company</string>
+    <string name="json_dropping_points">dropping_points</string>
+    <string name="json_boarding_points">boarding_points</string>
+    <string name="json_help_line_no">help_line_no</string>
+    <string name="json_min_booking_hrs">min_booking_hrs</string>
+    <string name="json_estimated_times">boarding_points</string>
+    <string name="json_status">status</string>
 </resources>

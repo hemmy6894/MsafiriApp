@@ -74,10 +74,10 @@ public class ChooseTransportType extends AppCompatActivity
         datePickerYear.setText(String.format("%s", year));
 
         editRoute = routeInfo.edit();
-        editRoute.putInt("day_of_month",day_of_month);
-        editRoute.putInt("month",month);
-        editRoute.putInt("day_of_week",day_of_week);
-        editRoute.putInt("year",year);
+        editRoute.putInt(getString(R.string.day_of_month),day_of_month);
+        editRoute.putInt(getString(R.string.month),month);
+        editRoute.putInt(getString(R.string.day_of_week),day_of_week);
+        editRoute.putInt(getString(R.string.year),year);
 
         sendPickedDate = "" + append_zero(day_of_month) + "-" + append_zero(month + 1) +"-"+ append_zero(year);
     }
@@ -150,17 +150,13 @@ public class ChooseTransportType extends AppCompatActivity
             }
         });
 
-        routeInfo = getSharedPreferences("routeInfo", Context.MODE_PRIVATE);
+        routeInfo = getSharedPreferences(getString(R.string.shared_preference_route_info), Context.MODE_PRIVATE);
         create_datePickers();
         initiate_datePickers();
         populate_layout_date();
 
         goNext = (Button)findViewById(R.id.select_source_destination_next_button);
         goNext.setOnClickListener(this);
-
-        Map<String, String> mapValue = new HashMap<String, String>();
-        mapValue.put("Mavi ", "Nikunya tyu");
-        new SharedPreferenceAppend(getApplicationContext()).appendSharedPref(mapValue,getString(R.string.shared_preference_session));
     }
 
     @Override
@@ -268,8 +264,8 @@ public class ChooseTransportType extends AppCompatActivity
             case R.id.select_source_destination_next_button:
                 sendTextFrom = fromEditText.getText().toString();
                 sendTextTo = toEditText.getText().toString();
-                editRoute.putString("from",sendTextFrom);
-                editRoute.putString("to",sendTextTo);
+                editRoute.putString(getString(R.string.from),sendTextFrom);
+                editRoute.putString(getString(R.string.to),sendTextTo);
                 editRoute.apply();
 
                 ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);

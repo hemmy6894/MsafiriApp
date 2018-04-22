@@ -69,19 +69,19 @@ public class Activity_list_bus extends AppCompatActivity {
         for (int i = 0; i < jsonArray.length(); i++){
             JSONObject buses = jsonArray.getJSONObject(i);
             busRepositories.add(new BusRepository(
-                    buses.getString("bus_name"),
-                    buses.getString("model"),
-                    buses.getString("source"),
-                    buses.getString("destination"),
-                    buses.getString("phone_number"),
-                    buses.getBoolean("visible"),
-                    buses.getInt("left_seat"),
-                    buses.getInt("right_seat"),
-                    buses.getString("check_in"),
-                    buses.getString("departure"),
-                    buses.getString("fear_price"),
-                    buses.getString("available_seat"),
-                    buses.getString("bus_id")
+                    buses.getString(getString(R.string.shared_bus_name)),
+                    buses.getString(getString(R.string.shared_model)),
+                    buses.getString(getString(R.string.shared_source)),
+                    buses.getString(getString(R.string.shared_destination)),
+                    buses.getString(getString(R.string.shared_phone_number)),
+                    buses.getBoolean(getString(R.string.shared_visible)),
+                    buses.getInt(getString(R.string.shared_left_seat)),
+                    buses.getInt(getString(R.string.shared_right_seat)),
+                    buses.getString(getString(R.string.shared_check_in)),
+                    buses.getString(getString(R.string.shared_departure)),
+                    buses.getString(getString(R.string.shared_fear_price)),
+                    buses.getString(getString(R.string.shared_available_seat)),
+                    buses.getString(getString(R.string.shared_bus_id))
             ));
         }
 

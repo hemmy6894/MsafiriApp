@@ -11,6 +11,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
 import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
+import com.tanzania.comtech.msafiriapp.R;
 import com.tanzania.comtech.msafiriapp.seat_plan.MainActivity;
 
 
@@ -23,7 +24,7 @@ public class FetchBusModel {
     SharedPreferences bus;
     public FetchBusModel(Context context) {
         this.context = context;
-        bus = context.getSharedPreferences("BusDataFromId",Context.MODE_PRIVATE);
+        bus = context.getSharedPreferences(context.getString(R.string.shared_preference_bus_data_from_id),Context.MODE_PRIVATE);
     }
 
     public void fetchBusInfo(final String busId){
@@ -49,9 +50,9 @@ public class FetchBusModel {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                SharedPreferences token = context.getSharedPreferences("msafiriAppSession",Context.MODE_PRIVATE);
-                String stringToken = token.getString("token","");
-                headers.put("Authorization", stringToken);
+                SharedPreferences token = context.getSharedPreferences(context.getString(R.string.shared_preference_session),Context.MODE_PRIVATE);
+                String stringToken = token.getString(context.getString(R.string.shared_token),"");
+                headers.put(context.getString(R.string.map_header_parameter), stringToken);
                 return headers;
             }
         };

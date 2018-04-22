@@ -128,32 +128,6 @@
                 android:layout_alignTop="@+id/element_single_bus_view_departure_time"
                 android:text="Book Me"
                 android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/element_single_bus_view_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/element_single_bus_view_button_book_me"
-                android:layout_alignBottom="@+id/element_single_bus_view_button_book_me"
-                android:layout_alignEnd="@+id/elemet_single_bus_view_available_seat"
-                android:layout_alignLeft="@+id/elemet_single_bus_view_available_seat"
-                android:layout_alignRight="@+id/elemet_single_bus_view_available_seat"
-                android:layout_alignStart="@+id/elemet_single_bus_view_available_seat"
-                android:text="4.5"
-                android:visibility="gone" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_alignEnd="@+id/element_single_bus_view_rate"
-                android:layout_alignLeft="@+id/element_single_bus_view_departure"
-                android:layout_alignRight="@+id/element_single_bus_view_rate"
-                android:layout_alignStart="@+id/element_single_bus_view_departure"
-                android:layout_below="@+id/element_single_bus_view_button_book_me"
-                android:layout_marginBottom="3dp"
-                android:src="@drawable/abc_bus_sample"
-                android:visibility="gone" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

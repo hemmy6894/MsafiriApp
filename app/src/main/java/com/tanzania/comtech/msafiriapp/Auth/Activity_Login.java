@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
+import com.tanzania.comtech.msafiriapp.Helpers.CheckIfIsLogin;
 import com.tanzania.comtech.msafiriapp.Helpers.DirectUserByRole;
 import com.tanzania.comtech.msafiriapp.Model.LoginModel;
 import com.tanzania.comtech.msafiriapp.R;
@@ -43,6 +44,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_login);
 
+        new CheckIfIsLogin(getApplicationContext());
         username = (EditText)findViewById(R.id.layout_login_edittext_enter_email);
         password = (EditText)findViewById(R.id.layout_login_edittext_enter_password);
 

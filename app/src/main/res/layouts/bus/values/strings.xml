@@ -25,6 +25,7 @@
         <item>SHINYANGA</item>
         <item>ARUSHA</item>
         <item>MOSHI</item>
+        <item>KILIMANJARO</item>
     </string-array>
     <string name="title_activity_drawable">Customer View</string>
 
@@ -52,4 +53,7 @@
     <string name="error_login_sms">Under Login</string>
     <string name="title_activity_choose_transport_type">Source Destination</string>
     <string name="log_out">Log out</string>
+    <string name="boarding_point">Boarding Point</string>
+    <string name="phone_number">Phone number</string>
+    <string name="dropping_point">Dropping Point</string>
 </resources>

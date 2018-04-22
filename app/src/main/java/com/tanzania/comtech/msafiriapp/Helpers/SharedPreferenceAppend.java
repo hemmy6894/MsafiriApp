@@ -13,18 +13,18 @@ public class SharedPreferenceAppend {
     private Context context;
     private Map<String, String> mapValue;
     private SharedPreferences preferences;
+    Map<String, ?> preferenceMap;
     public SharedPreferenceAppend(Context context) {
         this.context = context;
     }
 
     private void startSharedPref(Map<String, String> mapValue,String sharedKey){
         this.mapValue = mapValue;
-
         preferences = context.getSharedPreferences(sharedKey, Context.MODE_PRIVATE);
     }
     public void appendSharedPref(Map<String, String> mapValue,String sharedKey){
         startSharedPref(mapValue,sharedKey);
-        Map<String, ?> preferenceMap = new HashMap<>();
+        preferenceMap = new HashMap<>();
         preferenceMap = preferences.getAll();
         for (Map.Entry <String, ?> entry : preferenceMap.entrySet()){
             if(!entry.getKey().equals(context.getString(R.string.shared_phone_verified)))
@@ -39,7 +39,28 @@ public class SharedPreferenceAppend {
         editor.apply();
     }
 
-    public void editSharedPref(Map<String, String> mapValue,String sharedKey) {
+    public void newSharedPref(Map<String, String> mapValue,String sharedKey) {
         startSharedPref(mapValue, sharedKey);
+        preferences = context.getSharedPreferences(sharedKey,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        for (Map.Entry <String, ?> entry : mapValue.entrySet()){
+            if(!entry.getKey().equals(context.getString(R.string.shared_phone_verified)))
+                editor.putString(entry.getKey(), (String) entry.getValue());
+            Log.e(entry.getKey(),""+entry.getValue());
+        }
+        editor.apply();
+
+    }
+
+    public  Map<String, String> readSharedPref(String sharedKey){
+        startSharedPref(null,sharedKey);
+        mapValue = new HashMap<>();
+        preferenceMap = preferences.getAll();
+        for (Map.Entry <String, ?> entry : preferenceMap.entrySet()){
+            if(!entry.getKey().equals(context.getString(R.string.shared_phone_verified)))
+                mapValue.put(entry.getKey(), (String) entry.getValue());
+        }
+        return mapValue;
     }
 }

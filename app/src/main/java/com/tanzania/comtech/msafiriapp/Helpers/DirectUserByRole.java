@@ -31,6 +31,10 @@ public class DirectUserByRole {
                 intent = new Intent(context, Register_Page.class);
                 openNewActivity(intent);
                 break;
+            case "select_source":
+                intent = new Intent(context, ChooseTransportType.class);
+                openNewActivity(intent);
+                break;
             default:
                 Toast.makeText(context, "Can't Login try again", Toast.LENGTH_SHORT).show();
                 break;

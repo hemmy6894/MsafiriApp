@@ -23,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,6 +61,7 @@ public class FetchRouteModel {
                         JSONObject bus1 = new JSONObject();
                         JSONArray jsonArray = new JSONArray();
                         JSONArray data = routeObject.getJSONArray("data");
+
                         for (int i = 0; i < data.length(); i++){
                             JSONObject information = data.getJSONObject(i);
                             JSONObject sch = information.getJSONObject(context.getString(R.string.json_sch_information));
@@ -85,6 +87,8 @@ public class FetchRouteModel {
 
                             Map<String, String> append = new HashMap<String, String>();
                             append.put(context.getString(R.string.shared_sch_date_id),sch.getString(context.getString(R.string.shared_id)));
+                            append.put(context.getString(R.string.shared_company_id),company.getString(context.getString(R.string.shared_id)));
+                            append.put(context.getString(R.string.shared_bus_id),buses.getString(context.getString(R.string.shared_id)));
                             new SharedPreferenceAppend(context).appendSharedPref(append,context.getString(R.string.shared_preference_booking_info));
                         }
                         studentsObj = new JSONObject();

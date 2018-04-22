@@ -16,8 +16,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
+import com.tanzania.comtech.msafiriapp.Model.CheckBookedSeat;
 import com.tanzania.comtech.msafiriapp.Payment.SeatInformation;
 import com.tanzania.comtech.msafiriapp.R;
 
@@ -55,10 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     JSONObject object;
     public void populate_bas_data(){
-        busData = getSharedPreferences("BusDataFromId",Context.MODE_PRIVATE);
+        busData = getSharedPreferences(getString(R.string.shared_preference_bus_data_from_id),Context.MODE_PRIVATE);
         try {
             object = new JSONObject(busData.getString("bus","{}"));
-            left_right_seat(object.getString("seat_type"));
+            left_right_seat(object.getString(getString(R.string.shared_seat_type)));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -83,11 +86,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     ArrayList seatAvailable;
+    TextView textView;
+    Map<String, String> checkedMapExistence;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seat_plan_layout);
         seatAvailable = new ArrayList();
+
+
+        new CheckBookedSeat(getApplicationContext()).checkBookedSeat();
+        checkedMapExistence = new SharedPreferenceAppend(getApplicationContext()).readSharedPref("booked_seat");
+
         populate_bas_data();
         rowNames = new String[]{"","A","B","C","D","E","F","G","H","K","L","M","N","O","P"}; // rows seat name
         seatNo = new String[89]; // string for storing seats
@@ -197,11 +207,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 ImageButton btn = new ImageButton(MainActivity.this); // iniitiate button for seat
                 if (space_between != i || (j==total_seats_rows && remain_seat == 1)) { //creating space beteen two columns
-                    btn.setImageResource(R.drawable.empty_seat);
                     seat_id_name = "" + rowNames[j]+""+seat_numbering; // generating seat name in latter and no
+
+
                     seat_id = seat_id + 1; // increment seat value
                     seatNo[seat_id] = seat_id_name;
                     btn.setId(seat_id);
+                    if(!isChecked(seat_id_name)) {
+                        btn.setEnabled(isChecked(seat_id_name));
+                        btn.setImageResource(R.drawable.seat_taken);
+                    }else{
+                        btn.setImageResource(R.drawable.empty_seat);
+                    }
                 } else {
                     btn.setMinimumWidth(70);
                     btn.setVisibility(View.INVISIBLE);
@@ -229,6 +246,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         layout.addView(add_view_for_next_button_inv(),myLayouts);
         layout.addView(add_view_for_next_button(),myLayouts);
+    }
+
+    private boolean isChecked(String seatName){
+        return !checkedMapExistence.containsKey(seatName);
     }
     ///Creating next button
     public LinearLayout add_view_for_next_button(){

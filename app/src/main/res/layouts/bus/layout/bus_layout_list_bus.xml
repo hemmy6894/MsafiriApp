@@ -27,15 +27,16 @@
                     android:padding="@dimen/layout_input_margin"
                     android:background="@color/msafiri_app_color_light_grey"
                     android:id="@+id/bus_layout_list_bus_source"/>
+
                 <TextView
+                    android:id="@+id/bus_layout_list_bus_destination"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="@string/destination_string"
+                    android:background="@color/official_design_color"
                     android:gravity="center"
                     android:padding="@dimen/layout_input_margin"
-                    android:background="@color/msafiri_app_color_orange"
-                    android:id="@+id/bus_layout_list_bus_destination"/>
+                    android:text="@string/destination_string" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

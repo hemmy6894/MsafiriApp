@@ -1,18 +1,23 @@
 package com.tanzania.comtech.msafiriapp.Payment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.tanzania.comtech.msafiriapp.Helpers.PopActivity;
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.R;
 
@@ -78,6 +83,7 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.set_seat_information);
         show_seats();
 
+
         payBy = (Button)findViewById(R.id.set_seat_info_button);
         payBy.setOnClickListener(this);
     }
@@ -109,6 +115,8 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
                     e.printStackTrace();
                 }
 
+                Intent intent = new Intent(SeatInformation.this,PopActivity.class);
+                startActivity(intent);
                 Log.e("object","emm" + object.toString());
                 break;
         }

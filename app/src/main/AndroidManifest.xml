@@ -13,13 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Auth.Activity_Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Auth.Activity_Login" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
@@ -32,8 +26,8 @@
             android:name=".Helpers.Drawable"
             android:label="@string/title_activity_drawable"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Auth.Register_Page"></activity>
-        <activity android:name=".Auth.VerificationPage"></activity>
+        <activity android:name=".Auth.Register_Page" />
+        <activity android:name=".Auth.VerificationPage" />
 
         <receiver android:name=".Helpers.SmsReader">
             <intent-filter>
@@ -44,7 +38,19 @@
         <activity
             android:name=".ChooseTransportType"
             android:label="@string/title_activity_choose_transport_type"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Helpers.PopActivity"
+            android:theme="@style/popWindowMyThem" />
+        <activity android:name=".Payment.PaymentNormal">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PaymentToken" />
+        <activity android:name=".Payment.PaymentVisa"></activity>
     </application>
 
 </manifest>

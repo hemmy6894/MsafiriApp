@@ -43,6 +43,7 @@ public class RegisterUser {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
 
+                    Log.e("response","res" + response);
                     signUpData = new JSONObject();
                     signUpData.put("_id",jsonObject.getString("otp_id"));
                     signUpData.put("token",jsonObject.getString("token"));

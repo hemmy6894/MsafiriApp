@@ -56,4 +56,5 @@
     <string name="boarding_point">Boarding Point</string>
     <string name="phone_number">Phone number</string>
     <string name="dropping_point">Dropping Point</string>
+    <string name="airtel_instruction">1.Dial *150*60# \n2.Select \'Make payments\' \n3.Enter the \'Business name \'M-safiri App\' \n4.Enter amount - 300 \n5.Enter reference number 1688A8F50 \n6.Enter PIN \n7.Press OK to send</string>
 </resources>

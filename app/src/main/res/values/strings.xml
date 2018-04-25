@@ -21,6 +21,7 @@
     <string name="from">from</string>
     <string name="to">to</string>
 
+    <string name="shared_preference_text_to_pay_for">shared_preference_text_to_pay_for</string>
     <string name="shared_preference_route">RouteInformation</string>
     <string name="shared_bus_name">bus_name</string>
     <string name="shared_bus_id">bus_id</string>

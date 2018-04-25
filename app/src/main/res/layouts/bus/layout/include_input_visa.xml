@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Card Holder Name"
+        android:padding="8dp"
+        android:id="@+id/input_visa_holder_name"
+        android:background="@drawable/input_text_round"
+        android:layout_margin="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Card Number"
+        android:background="@drawable/input_text_round"
+        android:layout_margin="5dp"
+        android:id="@+id/input_visa_card_number"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_text_round"
+        android:hint="Passport / ID Number"
+        android:id="@+id/input_visa_passport"
+        android:layout_margin="5dp"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_text_round"
+        android:hint="Expire month"
+        android:layout_margin="5dp"
+        android:id="@+id/input_visa_expire_month"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_text_round"
+        android:hint="Expire year"
+        android:id="@+id/input_visa_expire_year"
+        android:layout_margin="5dp"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Security Code (CVV)"
+        android:background="@drawable/input_text_round"
+        android:layout_margin="5dp"
+        android:id="@+id/input_visa_cvv"
+        android:padding="8dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PAY"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:id="@+id/input_visa_pay"/>
+</LinearLayout>

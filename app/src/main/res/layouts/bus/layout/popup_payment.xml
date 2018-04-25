@@ -20,29 +20,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/linear_layout_conner_green"
-                android:orientation="horizontal"
-                android:layout_margin="@dimen/activity_horizontal_margin"
-                android:padding="5dp">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/vodacom"
-                    android:id="@+id/pay_by_vodacom"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/airtel"
-                    android:id="@+id/pay_by_airtel"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/tigo_pesaa"
-                    android:id="@+id/pay_by_tigo_pesa"/>
-            </LinearLayout>
+
+            <include layout="@layout/include_pay_by_code"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -57,6 +36,7 @@
                     android:src="@drawable/tigopesa"
                     android:id="@+id/pay_by_api_tigo_pesa"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

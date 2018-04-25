@@ -117,7 +117,8 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
 
                 Intent intent = new Intent(SeatInformation.this,PopActivity.class);
                 startActivity(intent);
-                Log.e("object","emm" + object.toString());
+
+                new SharedPreferenceAppend(getApplicationContext()).newSharedPrefNormal(object.toString(),getString(R.string.shared_preference_text_to_pay_for));
                 break;
         }
     }

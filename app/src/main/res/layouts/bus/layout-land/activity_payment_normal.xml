@@ -22,7 +22,27 @@
                 android:layout_margin="10dp"/>
         </android.support.v7.widget.CardView>
         <include layout="@layout/include_barner_pay_for_text"/>
-        <include layout="@layout/include_pay_by_code"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal"
+            android:padding="5dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vodacom"
+                android:id="@+id/pay_by_vodacom"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/airtel"
+                android:id="@+id/pay_by_airtel"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tigo_pesaa"
+                android:id="@+id/pay_by_tigo_pesa"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -30,13 +50,34 @@
             android:gravity="center"
             android:text="Enter Phone Number: Eg: +255 (71X) XXXXXX"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
-        <EditText
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="18dp"
-            android:hint="+XXX XXX XXXXXX"
-            android:gravity="center"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+            android:orientation="horizontal"
+            android:layout_margin="18dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight=".5"
+                android:gravity="center"
+                android:text="Phone Number : "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:gravity="center"
+                android:hint="+XXX XXX XXXXXX"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        </LinearLayout>
+
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,5 +91,7 @@
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:background="@drawable/btn_bg_red"
             android:text="Next"/>
+
+
     </LinearLayout>
 </ScrollView>

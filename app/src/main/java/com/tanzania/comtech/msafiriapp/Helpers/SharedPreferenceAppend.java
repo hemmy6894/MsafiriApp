@@ -50,7 +50,19 @@ public class SharedPreferenceAppend {
             Log.e(entry.getKey(),""+entry.getValue());
         }
         editor.apply();
+    }
 
+    public void newSharedPrefNormal(String storedString,String sharedKey) {
+        startSharedPref(mapValue, sharedKey);
+        preferences = context.getSharedPreferences(sharedKey,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("addedValue",storedString);
+        editor.apply();
+    }
+
+    public  String readSharedPrefNormal(String sharedKey){
+        startSharedPref(null,sharedKey);
+        return preferences.getString("addedValue","{}");
     }
 
     public  Map<String, String> readSharedPref(String sharedKey){

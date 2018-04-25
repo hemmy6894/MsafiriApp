@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:layout_marginLeft="4dp"
+                android:id="@+id/pay_for_full_name"
                 android:text="Hemedi Mshamu"/>
         </LinearLayout>
         <LinearLayout
@@ -40,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:layout_marginLeft="4dp"
+                android:id="@+id/pay_for_total_seat"
                 android:text="3 Seat ( A1, G6, B12)"/>
         </LinearLayout>
         <LinearLayout
@@ -58,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:layout_marginLeft="4dp"
+                android:id="@+id/pay_for_total_amount"
                 android:text="200,000 Tsh"/>
         </LinearLayout>
         <LinearLayout
@@ -76,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:layout_marginLeft="4dp"
+                android:id="@+id/pay_for_phone_number"
                 android:text="@string/test_phone_number"/>
         </LinearLayout>
 </LinearLayout>

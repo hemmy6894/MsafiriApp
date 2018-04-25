@@ -12,11 +12,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class TextToPayFor {
-    Context context;
-    Activity activity;
-    private TextView fullname, seat, price, phone;
-    public TextToPayFor(Context context,Activity activity) {
+class TextToPayFor {
+    private Context context;
+    private Activity activity;
+
+    TextToPayFor(Context context, Activity activity) {
         this.context = context;
         this.activity = activity;
         textToPayFor();
@@ -24,10 +24,10 @@ public class TextToPayFor {
 
     private void textToPayFor() {
         String getRequiredText = new SharedPreferenceAppend(context).readSharedPrefNormal(context.getString(R.string.shared_preference_text_to_pay_for));
-        fullname  = (TextView)activity.findViewById(R.id.pay_for_full_name);
-        seat = (TextView)activity.findViewById(R.id.pay_for_total_seat);
-        price = (TextView)activity.findViewById(R.id.pay_for_total_amount);
-        phone = (TextView)activity.findViewById(R.id.pay_for_phone_number);
+        TextView fullname = (TextView) activity.findViewById(R.id.pay_for_full_name);
+        TextView seat = (TextView) activity.findViewById(R.id.pay_for_total_seat);
+        TextView price = (TextView) activity.findViewById(R.id.pay_for_total_amount);
+        TextView phone = (TextView) activity.findViewById(R.id.pay_for_phone_number);
 
         try {
             JSONObject object = new JSONObject(getRequiredText);

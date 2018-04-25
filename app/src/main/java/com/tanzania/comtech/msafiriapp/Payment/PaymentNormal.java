@@ -12,6 +12,5 @@ public class PaymentNormal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_normal);
         new TextToPayFor(getApplicationContext(),PaymentNormal.this);
-        new InputVisa(getApplicationContext(),PaymentNormal.this);
     }
 }

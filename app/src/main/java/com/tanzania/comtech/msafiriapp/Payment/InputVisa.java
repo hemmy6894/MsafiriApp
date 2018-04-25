@@ -21,8 +21,8 @@ public class InputVisa implements View.OnClickListener {
     private Context context;
     private Activity activity;
     private EditText holderName, cardNumber, passport, expireMonth, expireYear, cvv;
-    private Button pay;
-    public InputVisa(Context context, Activity activity) {
+
+    InputVisa(Context context, Activity activity) {
         this.context = context;
         this.activity = activity;
         inputVisa();
@@ -35,7 +35,7 @@ public class InputVisa implements View.OnClickListener {
         expireMonth =    (EditText)activity.findViewById(R.id.input_visa_expire_month);
         expireYear  =    (EditText)activity.findViewById(R.id.input_visa_expire_year);
         cvv         =    (EditText)activity.findViewById(R.id.input_visa_cvv);
-        pay         =    (Button)  activity.findViewById(R.id.input_visa_pay);
+        Button pay  = (Button) activity.findViewById(R.id.input_visa_pay);
         pay.setOnClickListener(this);
     }
 

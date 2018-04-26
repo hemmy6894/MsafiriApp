@@ -36,6 +36,7 @@
             android:layout_margin="18dp"
             android:hint="+XXX XXX XXXXXX"
             android:gravity="center"
+            android:id="@+id/payment_normal_phone_number"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
         <TextView
             android:layout_width="match_parent"

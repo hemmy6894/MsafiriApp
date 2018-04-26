@@ -51,6 +51,7 @@ public class CheckBookedSeat {
 
             @Override
             public void onResponse(JSONObject response) {
+                Log.e("StringReturned","SMS " + response);
                 Map<String, String> map = new HashMap<>();
                 try {
                     map.put(context.getString(R.string.map_sch_date_id),response.getString(context.getString(R.string.map_sch_date_id)));

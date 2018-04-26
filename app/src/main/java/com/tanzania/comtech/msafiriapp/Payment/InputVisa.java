@@ -2,6 +2,7 @@ package com.tanzania.comtech.msafiriapp.Payment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
+import com.tanzania.comtech.msafiriapp.Helpers.ThanksActivity;
 import com.tanzania.comtech.msafiriapp.R;
 
 import java.util.HashMap;
@@ -50,6 +52,10 @@ public class InputVisa implements View.OnClickListener {
             paymentDetails.put("cvv",cvv.getText().toString());
 
             sendDetailsToServer(paymentDetails);
+
+        Intent intent = new Intent(context, ThanksActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
     private void sendDetailsToServer(final Map<String, String> paymentDetails) {

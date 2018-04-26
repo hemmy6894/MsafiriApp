@@ -71,8 +71,17 @@ public class SharedPreferenceAppend {
         preferenceMap = preferences.getAll();
         for (Map.Entry <String, ?> entry : preferenceMap.entrySet()){
             if(!entry.getKey().equals(context.getString(R.string.shared_phone_verified)))
-                mapValue.put(entry.getKey(), (String) entry.getValue());
+                mapValue.put(entry.getKey(),  "" + entry.getValue());
         }
         return mapValue;
+    }
+
+    public void clearSharedPref(String arrays[]){
+        for (String string : arrays){
+            startSharedPref(null,string);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
+        }
     }
 }

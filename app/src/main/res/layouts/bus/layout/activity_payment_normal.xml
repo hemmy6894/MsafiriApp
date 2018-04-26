@@ -48,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/payment_normal_button_next"
             android:background="@drawable/btn_bg_red"
             android:text="Next"/>
     </LinearLayout>

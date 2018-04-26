@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.Model.CheckBookedSeat;
+import com.tanzania.comtech.msafiriapp.Model.HoldUnHoldSeat;
 import com.tanzania.comtech.msafiriapp.Payment.SeatInformation;
 import com.tanzania.comtech.msafiriapp.R;
 
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList seatAvailable;
     TextView textView;
     Map<String, String> checkedMapExistence;
+    Map<String, String> mapHoldingValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         seatAvailable = new ArrayList();
 
 
+        mapHoldingValue = new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_route));
         new CheckBookedSeat(getApplicationContext()).checkBookedSeat();
         checkedMapExistence = new SharedPreferenceAppend(getApplicationContext()).readSharedPref("booked_seat");
 
@@ -172,16 +175,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void addSeatAvailable(String key, String value, int ImageID){
         int d = seatAvailable.indexOf(value);
 
+        mapHoldingValue.put(getString(R.string.shared_customer_id),new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_booking_info)).get(getString(R.string.shared_customer_id)));
+        HoldUnHoldSeat holdUnHoldSeat = new HoldUnHoldSeat(getApplicationContext());
         if(d >= 0){
             seatAvailable.remove(d);
             totalSeatSelected--;
             //Change seat image and pop up seat no selected
+            mapHoldingValue.put("seat_no",value);
+            holdUnHoldSeat.unHoldingSeat(mapHoldingValue);
             buttonChangeImage = (ImageButton)findViewById(ImageID);
             buttonChangeImage.setImageResource(R.drawable.empty_seat);
         }else if(totalSeatSelected < 5){
             seatAvailable.add(value);
             totalSeatSelected++;
             //Change seat image and pop up seat no selected
+            mapHoldingValue.put("seat_no",value);
+            holdUnHoldSeat.holdingSeat(mapHoldingValue);
             buttonChangeImage = (ImageButton)findViewById(ImageID);
             buttonChangeImage.setImageResource(R.drawable.seat_taken);
         }else {

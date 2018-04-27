@@ -13,18 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Auth.Activity_Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Auth.Activity_Login"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
         <activity android:name=".Bus.Activity_list_bus" />
-        <activity android:name=".seat_plan.MainActivity"></activity>
+        <activity android:name=".seat_plan.MainActivity">
+
+        </activity>
         <activity
             android:name=".Payment.SeatInformation"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -44,15 +40,23 @@
         <activity
             android:name=".ChooseTransportType"
             android:label="@string/title_activity_choose_transport_type"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Helpers.PopActivity"
             android:theme="@style/popWindowMyThem" />
-        <activity android:name=".Payment.PaymentNormal"></activity>
+        <activity android:name=".Payment.PaymentNormal" />
         <activity android:name=".PaymentToken" />
-        <activity android:name=".Payment.PaymentVisa"></activity>
-        <activity android:name=".Helpers.ThanksActivity"
-            android:theme="@style/popWindowMyThem"></activity>
+        <activity android:name=".Payment.PaymentVisa" />
+        <activity
+            android:name=".Helpers.ThanksActivity"
+            android:theme="@style/popWindowMyThem" />
+        <activity android:name=".Auth.StartApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

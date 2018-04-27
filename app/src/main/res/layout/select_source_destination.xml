@@ -52,34 +52,29 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.75"
                             android:orientation="vertical">
-                            <TextView
+                            <android.support.design.widget.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/from_kutoka"
-                                android:fontFamily="serif-monospace"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                                android:layout_height="wrap_content">
                                 <AutoCompleteTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                     android:drawableLeft="@drawable/msafiri_app_icon_city"
                                     android:hint="@string/from_kutoka"
-                                    android:id="@+id/select_source_destination_source"/>
-                            <TextView
+                                    android:id="@+id/select_source_destination_source"
+                                    android:drawableStart="@drawable/msafiri_app_icon_city" />
+                            </android.support.design.widget.TextInputLayout>
+                            <android.support.design.widget.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/to_kwenda"
-                                android:fontFamily="serif-monospace"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
-
-                            <AutoCompleteTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="@string/to_kwenda"
-                                    android:drawableLeft="@drawable/msafiri_app_icon_city"
-                                    android:id="@+id/select_source_destination_destination"/>
+                                android:layout_height="wrap_content">
+                                <AutoCompleteTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="@string/to_kwenda"
+                                        android:drawableLeft="@drawable/msafiri_app_icon_city"
+                                        android:id="@+id/select_source_destination_destination"
+                                    android:drawableStart="@drawable/msafiri_app_icon_city" />
+                            </android.support.design.widget.TextInputLayout>
                         </LinearLayout>
 
                         <LinearLayout
@@ -110,19 +105,13 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/layout_card_margin"
                         android:orientation="horizontal"
-                        android:id="@+id/select_source_destination_date_picker">
+                        android:id="@+id/select_source_destination_date_picker"
+                        android:baselineAligned="false">
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.6"
                             android:orientation="vertical">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Journey Date (Siku ya Safari)"
-                                android:fontFamily="serif-monospace"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -135,7 +124,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="10"
-                                        android:textSize="45dp"
+                                        android:padding="0dp"
+                                        android:textSize="50sp"
                                         android:id="@+id/select_source_destination_date_picker_day"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                                 </LinearLayout>
@@ -143,20 +133,21 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="0.4"
+                                    android:padding="10dp"
                                     android:orientation="vertical">
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Monday"
                                         android:id="@+id/select_source_destination_date_picker_day_name"
-                                        android:textSize="15dp"
+                                        android:textSize="15sp"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="January"
                                         android:id="@+id/select_source_destination_date_picker_month"
-                                        android:textSize="25dp"
+                                        android:textSize="25sp"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                                 </LinearLayout>
                                 <LinearLayout
@@ -169,8 +160,9 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:text="2018"
+                                        android:gravity="top"
                                         android:id="@+id/select_source_destination_date_picker_year"
-                                        android:textSize="50dp"
+                                        android:textSize="50sp"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                                 </LinearLayout>
                             </LinearLayout>

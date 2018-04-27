@@ -14,7 +14,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int count_selected_seat = 0;
     ////Variable for storing selected seat by customers
     String[] selected_seat_by_customers;
-    ImageButton buttonChangeImage;
+    ImageView buttonChangeImage;
 
     SharedPreferences busData;
 
@@ -120,13 +120,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         LinearLayout layout = new LinearLayout(MainActivity.this);
         layout.setId(R.id.first_id);
-        layout.setBackgroundColor(Color.rgb(255,255,245));
+        //layout.setBackgroundColor(Color.rgb(255,255,245));
+        //layout.setBackgroundResource(R.drawable.background_blue_one);
         layout.setOrientation(LinearLayout.VERTICAL);
 
 
 
         //Creating button for driver seat
-        ImageButton btn1 = new ImageButton(MainActivity.this);
+        ImageView btn1 = new ImageView(MainActivity.this);
         btn1.setId(seat_id);
         btn1.setImageResource(R.drawable.seat_taken);
         LinearLayout.LayoutParams buttonParam = new LinearLayout.LayoutParams(
@@ -183,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Change seat image and pop up seat no selected
             mapHoldingValue.put("seat_no",value);
             holdUnHoldSeat.unHoldingSeat(mapHoldingValue);
-            buttonChangeImage = (ImageButton)findViewById(ImageID);
+            buttonChangeImage = (ImageView)findViewById(ImageID);
             buttonChangeImage.setImageResource(R.drawable.empty_seat);
         }else if(totalSeatSelected < 5){
             seatAvailable.add(value);
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Change seat image and pop up seat no selected
             mapHoldingValue.put("seat_no",value);
             holdUnHoldSeat.holdingSeat(mapHoldingValue);
-            buttonChangeImage = (ImageButton)findViewById(ImageID);
+            buttonChangeImage = (ImageView)findViewById(ImageID);
             buttonChangeImage.setImageResource(R.drawable.seat_taken);
         }else {
             Toast.makeText(getApplicationContext(),"The maximum number of seats that can be selected is 5",Toast.LENGTH_SHORT).show();
@@ -214,7 +215,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             for (int i = 1; i <= total_column; i++) {
 
-                ImageButton btn = new ImageButton(MainActivity.this); // iniitiate button for seat
+                ImageView btn = new ImageView(MainActivity.this); // iniitiate button for seat
+                btn.setMinimumHeight(80);
+                btn.setMinimumWidth(80);
                 if (space_between != i || (j==total_seats_rows && remain_seat == 1)) { //creating space beteen two columns
                     seat_id_name = "" + rowNames[j]+""+seat_numbering; // generating seat name in latter and no
 
@@ -229,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         btn.setImageResource(R.drawable.empty_seat);
                     }
                 } else {
-                    btn.setMinimumWidth(70);
+                    btn.setMinimumWidth(80);
                     btn.setVisibility(View.INVISIBLE);
                 }
 
@@ -242,8 +245,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //end checking if counting seat number or not
 
                 //setting button parameters
-                btn.setMaxHeight(70);
-                btn.setMaxWidth(70);
                 btn.setOnClickListener(this);
 
                 //setting button to rows

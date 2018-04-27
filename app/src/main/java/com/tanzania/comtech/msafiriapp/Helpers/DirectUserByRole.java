@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.tanzania.comtech.msafiriapp.Auth.Activity_Login;
 import com.tanzania.comtech.msafiriapp.Auth.Register_Page;
 import com.tanzania.comtech.msafiriapp.ChooseTransportType;
 import com.tanzania.comtech.msafiriapp.MainActivity;
@@ -29,6 +30,10 @@ public class DirectUserByRole {
                 break;
             case "register":
                 intent = new Intent(context, Register_Page.class);
+                openNewActivity(intent);
+                break;
+            case "login":
+                intent = new Intent(context, Activity_Login.class);
                 openNewActivity(intent);
                 break;
             case "select_source":

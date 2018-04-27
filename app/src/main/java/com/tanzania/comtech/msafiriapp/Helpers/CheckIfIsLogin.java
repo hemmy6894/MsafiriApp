@@ -17,6 +17,8 @@ public class CheckIfIsLogin {
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.shared_preference_session),Context.MODE_PRIVATE);
         if(!sharedPreferences.getString(context.getString(R.string.shared_first_name),"empty").equals("empty")){
             new DirectUserByRole(context,"select_source");
+        }else{
+            new DirectUserByRole(context,"login");
         }
     }
 }

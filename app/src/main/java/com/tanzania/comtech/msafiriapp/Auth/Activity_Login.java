@@ -35,8 +35,8 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
 
     EditText username, password;
     AppCompatEditText user;
-    TextView hiddenSms;
-    Button btnLogin, btnRegister;
+    TextView hiddenSms, btnRegister;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,14 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_login);
 
-        new CheckIfIsLogin(getApplicationContext());
+
         username = (EditText)findViewById(R.id.layout_login_edittext_enter_email);
         password = (EditText)findViewById(R.id.layout_login_edittext_enter_password);
 
         hiddenSms = (TextView)findViewById(R.id.layout_login_hidden_sms);
 
         btnLogin = (Button)findViewById(R.id.layout_login_button_login);
-        btnRegister = (Button)findViewById(R.id.layout_login_button_regiter);
+        btnRegister = (TextView) findViewById(R.id.layout_login_button_regiter);
 
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);

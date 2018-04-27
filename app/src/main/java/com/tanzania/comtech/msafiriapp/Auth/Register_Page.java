@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.tanzania.comtech.msafiriapp.Model.RegisterUser;
 import com.tanzania.comtech.msafiriapp.R;
@@ -16,8 +18,12 @@ import java.util.Map;
 public class Register_Page extends AppCompatActivity implements View.OnClickListener {
 
     EditText editTextFirstName, editTextLastName, editTextEmail, editTextPhone, editTextAddress, editTextPassword, editTextCoPassword;
-    Button buttonLogin, buttonRegister;
+    String stringFirstName, stringLastName, stringTextEmail, stringTextPhone, stringTextAddress, stringTextPassword, stringCoPassword;
+    TextView buttonLogin;
+    Button buttonRegister;
     Map<String, String> sendTextToDb;
+    private Button buttonNext,buttonPrev;
+
     private void startEditText(){
         editTextFirstName = (EditText)findViewById(R.id.register_first_name);
         editTextLastName = (EditText)findViewById(R.id.register_last_name);
@@ -28,27 +34,50 @@ public class Register_Page extends AppCompatActivity implements View.OnClickList
         editTextCoPassword = (EditText)findViewById(R.id.register_re_password);
     }
 
+    private void getEditText(){
+        stringFirstName = getTextE(editTextFirstName);
+        stringLastName = getTextE(editTextLastName);
+        stringTextEmail = getTextE(editTextEmail);
+        stringTextPhone = getTextE(editTextPhone);
+        stringTextAddress = getTextE(editTextAddress);
+        stringTextPassword = getTextE(editTextPassword);
+        stringCoPassword = getTextE(editTextCoPassword);
+    }
+
+
     private Map<String, String> getTextFrom(){
+        getEditText();
         sendTextToDb = new  HashMap<String, String>();
-        sendTextToDb.put("first_name",getTextE(editTextFirstName));
-        sendTextToDb.put("last_name",getTextE(editTextLastName));
-        sendTextToDb.put("email",getTextE(editTextEmail));
-        sendTextToDb.put("password",getTextE(editTextPassword));
-        sendTextToDb.put("phone_no",getTextE(editTextPhone));
-        sendTextToDb.put("address",getTextE(editTextAddress));
+        sendTextToDb.put("first_name",stringFirstName);
+        sendTextToDb.put("last_name",stringLastName);
+        sendTextToDb.put("email",stringTextEmail);
+        sendTextToDb.put("password",stringTextPassword);
+        sendTextToDb.put("phone_no",stringTextPhone);
+        sendTextToDb.put("address",stringTextAddress);
         sendTextToDb.put("gender","UNKNOWN");
         return sendTextToDb;
     }
 
+    LinearLayout registerOne, registerTwo;
     private String getTextE(EditText editText){
         return editText.getText().toString();
     }
     private void startButton(){
-        buttonLogin = (Button)findViewById(R.id.register_button_login);
+        registerOne = (LinearLayout)findViewById(R.id.register_one);
+        registerTwo = (LinearLayout)findViewById(R.id.register_two);
+
+        registerOne.setVisibility(View.VISIBLE);
+        buttonLogin = (TextView)findViewById(R.id.register_button_login);
         buttonLogin.setOnClickListener(this);
+
+        buttonNext = (Button) findViewById(R.id.register_page_one_next);
+        buttonNext.setOnClickListener(this);
 
         buttonRegister = (Button)findViewById(R.id.register_button_register);
         buttonRegister.setOnClickListener(this);
+
+        buttonPrev = (Button) findViewById(R.id.register_page_two_prev);
+        buttonPrev.setOnClickListener(this);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +96,14 @@ public class Register_Page extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.register_button_register:
                     doRegisterToSystemNow();
+                break;
+            case R.id.register_page_one_next:
+                registerOne.setVisibility(View.GONE);
+                registerTwo.setVisibility(View.VISIBLE);
+                break;
+            case R.id.register_page_two_prev:
+                registerOne.setVisibility(View.VISIBLE);
+                registerTwo.setVisibility(View.GONE);
                 break;
         }
     }

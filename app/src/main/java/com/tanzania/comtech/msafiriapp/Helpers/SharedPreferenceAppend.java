@@ -2,9 +2,6 @@ package com.tanzania.comtech.msafiriapp.Helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
-
-import com.tanzania.comtech.msafiriapp.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +29,7 @@ public class SharedPreferenceAppend {
                 mapValue.put(entry.getKey(), (Boolean) entry.getValue());
             }else if(entry.getValue() instanceof Integer){
                 mapValue.put(entry.getKey(), (Integer) entry.getValue());
-            }else{
+            }else if(entry.getValue() instanceof String){
                 mapValue.put(entry.getKey(), (String) entry.getValue());
             }
         }
@@ -43,7 +40,7 @@ public class SharedPreferenceAppend {
                 editor.putBoolean(entry.getKey(), (Boolean) entry.getValue() );
             }else if(entry.getValue()  instanceof Integer){
                 editor.putInt(entry.getKey(), (Integer) entry.getValue() );
-            }else{
+            }else if(entry.getValue() instanceof String){
                 editor.putString(entry.getKey(), (String) entry.getValue() );
             }
         }
@@ -60,7 +57,7 @@ public class SharedPreferenceAppend {
                 editor.putBoolean(entry.getKey(), (Boolean) entry.getValue() );
             }else if(entry.getValue()  instanceof Integer){
                 editor.putInt(entry.getKey(), (Integer) entry.getValue() );
-            }else{
+            }else if(entry.getValue() instanceof String){
                 editor.putString(entry.getKey(), (String) entry.getValue() );
             }
         }
@@ -80,17 +77,16 @@ public class SharedPreferenceAppend {
         return preferences.getString("addedValue","{}");
     }
 
-    public  Map<String, ?> readSharedPref(String sharedKey){
+    public Map<String, Object> readSharedPref(String sharedKey){
         startSharedPref(null,sharedKey);
         mapValue = new HashMap<String, Object>();
         preferenceMap = preferences.getAll();
         for (Map.Entry <String, ?> entry : preferenceMap.entrySet()){
-            mapValue.put(entry.getKey(), (String) entry.getValue());
             if(entry.getValue() instanceof Boolean){
                 mapValue.put(entry.getKey(), (Boolean) entry.getValue());
             }else if(entry.getValue() instanceof Integer){
                 mapValue.put(entry.getKey(), (Integer) entry.getValue());
-            }else{
+            }else if(entry.getValue() instanceof String){
                 mapValue.put(entry.getKey(), (String) entry.getValue());
             }
         }

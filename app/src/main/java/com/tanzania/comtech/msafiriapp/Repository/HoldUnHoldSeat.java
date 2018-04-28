@@ -24,7 +24,7 @@ public class HoldUnHoldSeat {
         this.context = context;
     }
 
-    public void holdingSeat(final Map<String, String> holdingValue){
+    public void holdingSeat(final Map<String, Object> holdingValue){
         String link = BusApi.holdingSeat + holdingValue.get(context.getString(R.string.map_sch_pool_id)) + "/" + holdingValue.get(context.getString(R.string.map_sch_date_id)) + "/" + holdingValue.get(context.getString(R.string.map_booking_ref));
         StringRequest request = new StringRequest(Request.Method.POST, link, new Response.Listener<String>() {
             @Override
@@ -40,8 +40,8 @@ public class HoldUnHoldSeat {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put(context.getString(R.string.shared_customer_id),holdingValue.get(context.getString(R.string.shared_customer_id)));
-                params.put("seat_no",holdingValue.get("seat_no"));
+                params.put(context.getString(R.string.shared_customer_id),(String) holdingValue.get(context.getString(R.string.shared_customer_id)));
+                params.put("seat_no",(String) holdingValue.get("seat_no"));
                 return params;
             }
 
@@ -57,7 +57,7 @@ public class HoldUnHoldSeat {
         AppSingleton.getInstance(context).addToRequestQueue(request,cancelTag);
     }
 
-    public void unHoldingSeat(final Map<String, String> unHoldingValue){
+    public void unHoldingSeat(final Map<String, ?> unHoldingValue){
         String link = BusApi.unHoldingSeat + unHoldingValue.get(context.getString(R.string.map_booking_ref)) + "/" + unHoldingValue.get(context.getString(R.string.shared_customer_id)) + "/" + unHoldingValue.get("seat_no");
         StringRequest request = new StringRequest(Request.Method.DELETE, link, new Response.Listener<String>() {
             @Override

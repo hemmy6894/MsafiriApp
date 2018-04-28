@@ -46,7 +46,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
 
     SharedPreferences busData;
 
-    Map<String, String> busdataMap;
+    Map<String, Object> busdataMap;
     JSONObject object;
     public void populate_bas_data(){
         coveredLayout = (LinearLayout)findViewById(R.id.seat_plan_layout_og);
@@ -82,14 +82,16 @@ public class SeatPlanOriginal extends AppCompatActivity {
 
     ArrayList seatAvailable;
     TextView textView;
-    Map<String, String> checkedMapExistence;
-    Map<String, String> mapHoldingValue;
+    Map<String, Object> checkedMapExistence;
+    Map<String, Object> mapHoldingValue;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seat_plan_original);
+        checkedMapExistence = new SharedPreferenceAppend(getApplicationContext()).readSharedPref("booked_seat");
+        Log.e("nyama za ulimi",checkedMapExistence.toString());
         rowNames = new String[]{"","A","B","C","D","E","F","G","H","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"}; // rows seat name
         seatNo = new String[89]; // string for storing seats
         selected_seat_by_customers = new String[10];
@@ -119,10 +121,12 @@ public class SeatPlanOriginal extends AppCompatActivity {
                 } else if (i == space_between) {
                     imageView.setVisibility(View.INVISIBLE);
                 }else{
-
                     seatNo[setNumberIncrement] = "" + rowNames[j] + k;
 
-                    //Log.e("resulted_seat", "seat " + seatNo[setNumberIncrement] + " row " + rowNames[j] + " j " + j + " k " + k);
+                    if(isChecked(seatNo[setNumberIncrement])){
+                        imageView.setImageResource(R.drawable.seat_taken);
+                        imageView.setEnabled(false);
+                    }
                     imageView.setId(setNumberIncrement);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -149,7 +153,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
 
     //Check if seat is booked
     private boolean isChecked(String seatName){
-        return !checkedMapExistence.containsKey(seatName);
+        return checkedMapExistence.containsKey(seatName);
     }
 
     //Function followed whene next button clicked

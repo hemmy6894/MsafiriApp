@@ -66,7 +66,7 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
         dropping = (AutoCompleteTextView)findViewById(R.id.seat_info_dropping_point);
 
         phoneNumber = (EditText)findViewById(R.id.seat_info_phone_no);
-        phoneNumber.setText(new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_session)).get(getString(R.string.shared_phone_number)));
+        phoneNumber.setText((String)new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_session)).get(getString(R.string.shared_phone_number)));
         for (int i = 0; i <total_seat;i++){
             seat_layout[i] = (LinearLayout)findViewById(seats[i]);
             seat_layout[i].setVisibility(View.VISIBLE);
@@ -95,7 +95,7 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
 
                 JSONObject object = new JSONObject();
                 try {
-                    Map<String, String> map = new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_booking_info));
+                    Map<String, ?> map = new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_booking_info));
                     object.put(getString(R.string.shared_customer_id),map.get(getString(R.string.shared_customer_id)));
                     object.put(getString(R.string.json_boarding_point),boarding.getText().toString());
                     object.put(getString(R.string.json_dropping_point),dropping.getText().toString());

@@ -51,7 +51,7 @@ public class CheckBookedSeat {
             @Override
             public void onResponse(JSONObject response) {
                 Log.e("StringReturned","SMS " + response);
-                Map<String, String> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<>();
                 try {
                     map.put(context.getString(R.string.map_sch_date_id),response.getString(context.getString(R.string.map_sch_date_id)));
                     map.put(context.getString(R.string.map_sch_pool_id),response.getString(context.getString(R.string.map_sch_pool_id)));
@@ -60,11 +60,13 @@ public class CheckBookedSeat {
 
                     new SharedPreferenceAppend(context).appendSharedPref(map,context.getString(R.string.shared_preference_route));
 
+
                     JSONArray a = response.getJSONArray("booked_seat");
-                    Map<String, String> mapb = new HashMap<>();
+                    Map<String, Object> mapb = new HashMap<>();
                     for (int i = 0; i < a.length(); i++){
                         JSONObject o = a.getJSONObject(i);
-                        mapb.put(o.getString("seat_no"),o.getString("paid"));
+                        Log.e("nuyama za ulimi","ss" + o.toString());
+                        mapb.put(o.getString("seat_no"),o.getString("on_hold"));
                     }
                     new SharedPreferenceAppend(context).newSharedPref(mapb,"booked_seat");
                 } catch (JSONException e) {

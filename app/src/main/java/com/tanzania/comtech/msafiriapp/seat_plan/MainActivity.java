@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ArrayList seatAvailable;
     TextView textView;
-    Map<String, String> checkedMapExistence;
-    Map<String, String> mapHoldingValue;
+    Map<String, Object> checkedMapExistence;
+    Map<String, Object> mapHoldingValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     int totalSeatSelected = 0;
-    public void addSeatAvailable(String key, String value, int ImageID){
+    public void addSeatAvailable(String key, Object value, int ImageID){
         int d = seatAvailable.indexOf(value);
 
         mapHoldingValue.put(getString(R.string.shared_customer_id),new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_booking_info)).get(getString(R.string.shared_customer_id)));

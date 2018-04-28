@@ -19,7 +19,7 @@ public class PlaceBusBooking {
 
     public void placeBusBooking(JSONObject object){
         String can = "cancelString";
-        Map<String, String> routeInfo = new SharedPreferenceAppend(context).readSharedPref(context.getString(R.string.shared_preference_booking_info));
+        Map<String, ?> routeInfo = new SharedPreferenceAppend(context).readSharedPref(context.getString(R.string.shared_preference_booking_info));
         String link = BusApi.placeBusBooking + "/";
     }
 }

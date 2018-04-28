@@ -23,7 +23,7 @@ public class PaymentNormal extends AppCompatActivity implements View.OnClickList
         new TextToPayFor(getApplicationContext(),PaymentNormal.this);
 
         phoneNumber = (EditText)findViewById(R.id.payment_normal_phone_number);
-        phoneNumber.setText(new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_session)).get(getString(R.string.shared_phone_number)));
+        phoneNumber.setText((String)new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_session)).get(getString(R.string.shared_phone_number)));
         nexttopay = (Button)findViewById(R.id.payment_normal_button_next);
         nexttopay.setOnClickListener(this);
     }

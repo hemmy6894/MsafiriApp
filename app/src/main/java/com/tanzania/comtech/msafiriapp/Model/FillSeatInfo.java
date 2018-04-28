@@ -1,4 +1,4 @@
-package com.tanzania.comtech.msafiriapp.Repository;
+package com.tanzania.comtech.msafiriapp.Model;
 
 /**
  * Created by programing on 4/6/2018.

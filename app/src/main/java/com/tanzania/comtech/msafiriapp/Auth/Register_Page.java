@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tanzania.comtech.msafiriapp.Model.RegisterUser;
+import com.tanzania.comtech.msafiriapp.Repository.RegisterUser;
 import com.tanzania.comtech.msafiriapp.R;
 
 import java.util.HashMap;

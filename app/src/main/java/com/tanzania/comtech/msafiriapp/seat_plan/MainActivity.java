@@ -3,15 +3,11 @@ package com.tanzania.comtech.msafiriapp.seat_plan;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.os.Build;
-import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,19 +16,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
-import com.tanzania.comtech.msafiriapp.Model.CheckBookedSeat;
-import com.tanzania.comtech.msafiriapp.Model.HoldUnHoldSeat;
+import com.tanzania.comtech.msafiriapp.Repository.CheckBookedSeat;
+import com.tanzania.comtech.msafiriapp.Repository.HoldUnHoldSeat;
 import com.tanzania.comtech.msafiriapp.Payment.SeatInformation;
 import com.tanzania.comtech.msafiriapp.R;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

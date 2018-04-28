@@ -1,49 +1,28 @@
 package com.tanzania.comtech.msafiriapp;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.tanzania.comtech.msafiriapp.API.BusApi;
-import com.tanzania.comtech.msafiriapp.Bus.Activity_list_bus;
-import com.tanzania.comtech.msafiriapp.Model.FetchRouteModel;
+import com.tanzania.comtech.msafiriapp.Repository.FetchRouteRepository;
 import com.tanzania.comtech.msafiriapp.Time.TimeVariables;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -127,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.select_source_destination);
 
-        mTextMessage = (TextView) findViewById(R.id.textView2);
+        //mTextMessage = (TextView) findViewById(R.id.textView2);
       //  BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         //  navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -212,8 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
                 progressBar.setVisibility(View.VISIBLE);
-                FetchRouteModel fetchRouteModel = new FetchRouteModel(getApplicationContext());
-                fetchRouteModel.requestJson(sendTextFrom,sendTextTo,sendPickedDate,progressBar);
+                FetchRouteRepository fetchRouteRepository = new FetchRouteRepository(getApplicationContext());
+                fetchRouteRepository.requestJson(sendTextFrom,sendTextTo,sendPickedDate,progressBar);
                 break;
         }
     }

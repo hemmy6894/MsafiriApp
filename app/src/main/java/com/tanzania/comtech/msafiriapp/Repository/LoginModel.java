@@ -1,10 +1,8 @@
-package com.tanzania.comtech.msafiriapp.Model;
+package com.tanzania.comtech.msafiriapp.Repository;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,7 +15,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
 import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
 import com.tanzania.comtech.msafiriapp.Helpers.DirectUserByRole;
-import com.tanzania.comtech.msafiriapp.MainActivity;
 import com.tanzania.comtech.msafiriapp.R;
 
 import org.json.JSONException;
@@ -25,7 +22,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by programing on 4/6/2018.

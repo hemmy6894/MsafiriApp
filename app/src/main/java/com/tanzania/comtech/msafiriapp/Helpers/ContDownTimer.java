@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.tanzania.comtech.msafiriapp.Model.ResendOtp;
-import com.tanzania.comtech.msafiriapp.Model.VerifyUser;
+import com.tanzania.comtech.msafiriapp.Repository.ResendOtp;
+import com.tanzania.comtech.msafiriapp.Repository.VerifyUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;

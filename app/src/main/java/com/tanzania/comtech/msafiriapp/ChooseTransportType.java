@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,13 +24,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
-import com.tanzania.comtech.msafiriapp.Model.FetchRouteModel;
+import com.tanzania.comtech.msafiriapp.Repository.FetchRouteRepository;
 import com.tanzania.comtech.msafiriapp.Time.TimeVariables;
 
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ChooseTransportType extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -128,7 +123,7 @@ public class ChooseTransportType extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mTextMessage = (TextView) findViewById(R.id.textView2);
+        //mTextMessage = (TextView) findViewById(R.id.textView2);
         //  BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         //  navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -270,8 +265,8 @@ public class ChooseTransportType extends AppCompatActivity
 
                 ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
                 progressBar.setVisibility(View.VISIBLE);
-                FetchRouteModel fetchRouteModel = new FetchRouteModel(getApplicationContext());
-                fetchRouteModel.requestJson(sendTextFrom,sendTextTo,sendPickedDate,progressBar);
+                FetchRouteRepository fetchRouteRepository = new FetchRouteRepository(getApplicationContext());
+                fetchRouteRepository.requestJson(sendTextFrom,sendTextTo,sendPickedDate,progressBar);
                 break;
         }
     }

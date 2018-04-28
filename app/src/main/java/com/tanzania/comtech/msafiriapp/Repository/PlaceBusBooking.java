@@ -1,4 +1,4 @@
-package com.tanzania.comtech.msafiriapp.Model;
+package com.tanzania.comtech.msafiriapp.Repository;
 
 import android.content.Context;
 

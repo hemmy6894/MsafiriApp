@@ -1,9 +1,7 @@
-package com.tanzania.comtech.msafiriapp.Model;
+package com.tanzania.comtech.msafiriapp.Repository;
 
 import android.content.Context;
 import android.widget.AutoCompleteTextView;
-
-import com.android.volley.toolbox.JsonObjectRequest;
 
 public class FillAutocompletePoint {
     Context context;

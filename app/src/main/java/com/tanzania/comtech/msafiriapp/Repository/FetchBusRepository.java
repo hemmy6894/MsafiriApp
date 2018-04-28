@@ -1,4 +1,4 @@
-package com.tanzania.comtech.msafiriapp.Model;
+package com.tanzania.comtech.msafiriapp.Repository;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,21 +11,25 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.tanzania.comtech.msafiriapp.API.BusApi;
 import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
+import com.tanzania.comtech.msafiriapp.Helpers.ReadJsonToMap;
+import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.R;
 import com.tanzania.comtech.msafiriapp.seat_plan.MainActivity;
+import com.tanzania.comtech.msafiriapp.seat_plan.SeatPlanOriginal;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class FetchBusModel {
+public class FetchBusRepository {
     Context context;
 
-    SharedPreferences bus;
-    public FetchBusModel(Context context) {
+    public FetchBusRepository(Context context) {
         this.context = context;
-        bus = context.getSharedPreferences(context.getString(R.string.shared_preference_bus_data_from_id),Context.MODE_PRIVATE);
-    }
+       }
 
     public void fetchBusInfo(final String busId){
         String cancelTag = "failToFetchBusData";
@@ -33,11 +37,14 @@ public class FetchBusModel {
         StringRequest objectRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                SharedPreferences.Editor editor = bus.edit();
-                editor.putString("bus",response);
-                editor.apply();
+                try {
+                    JSONObject busObject = new JSONObject(response);
+                    new SharedPreferenceAppend(context).newSharedPref(new ReadJsonToMap(context).readJsonToMap(busObject),context.getString(R.string.shared_preference_bus_data_from_id));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-                Intent seat_plan = new Intent(context, MainActivity.class);
+                Intent seat_plan = new Intent(context, SeatPlanOriginal.class);
                 seat_plan.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(seat_plan);
             }

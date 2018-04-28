@@ -1,12 +1,8 @@
 package com.tanzania.comtech.msafiriapp.Auth;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -14,22 +10,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.tanzania.comtech.msafiriapp.API.BusApi;
-import com.tanzania.comtech.msafiriapp.Helpers.CheckIfIsLogin;
 import com.tanzania.comtech.msafiriapp.Helpers.DirectUserByRole;
-import com.tanzania.comtech.msafiriapp.Model.LoginModel;
+import com.tanzania.comtech.msafiriapp.Repository.LoginModel;
 import com.tanzania.comtech.msafiriapp.R;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Activity_Login extends AppCompatActivity implements View.OnClickListener {
 

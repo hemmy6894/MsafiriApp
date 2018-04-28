@@ -1,6 +1,5 @@
-package com.tanzania.comtech.msafiriapp.Model;
+package com.tanzania.comtech.msafiriapp.Repository;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,8 +17,6 @@ import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

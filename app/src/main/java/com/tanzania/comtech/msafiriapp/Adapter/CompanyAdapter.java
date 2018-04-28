@@ -11,22 +11,23 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.tanzania.comtech.msafiriapp.Repository.FetchBusRepository;
-import com.tanzania.comtech.msafiriapp.R;
-import com.tanzania.comtech.msafiriapp.Model.CompanyModel;
+import com.tanzania.comtech.msafiriapp.Model.BusModel;
 
 import java.util.ArrayList;
+
+import com.tanzania.comtech.msafiriapp.R;
+import com.tanzania.comtech.msafiriapp.Repository.FetchRouteBusRepository;
 
 /**
  * Created by programing on 3/31/2018.
  */
 
-public class BusAdapter extends ArrayAdapter<CompanyModel> {
+public class CompanyAdapter extends ArrayAdapter<BusModel> {
     private Context context;
     private int resources;
-    private ArrayList<CompanyModel> busRepositories;
+    private ArrayList<BusModel> busRepositories;
 
-    public BusAdapter(@NonNull Context context, int resource, @NonNull ArrayList<CompanyModel> objects) {
+    public CompanyAdapter(@NonNull Context context, int resource, @NonNull ArrayList<BusModel> objects) {
         super(context, resource, objects);
 
         this.context = context;
@@ -42,30 +43,27 @@ public class BusAdapter extends ArrayAdapter<CompanyModel> {
             convertView = in.inflate(R.layout.element_single_bus_view_og_two,null,true);
         }
 
-        final CompanyModel companyModel = getItem(position);
+        final BusModel busModel = getItem(position);
 
-        if(!companyModel.isBus_visible() || !companyModel.isSch_visible()){
-            convertView.setVisibility(View.GONE);
-        }
         TextView company_name = (TextView)convertView.findViewById(R.id.company_layout_company_name);
-        company_name.setText(companyModel.getBus_name() + " (" + companyModel.getBus_max_seat_no() +")");
+        company_name.setText(busModel.getCompanyName() + " (" + busModel.getTotal_buses()+ ")");
 
         TextView email = (TextView)convertView.findViewById(R.id.company_layout_email);
-        email.setText(companyModel.getSch_departure_time());
+        email.setText(busModel.getEmail());
 
         TextView website = (TextView)convertView.findViewById(R.id.company_layout_website);
-        website.setText(companyModel.getSch_arrival_time());
+        website.setText(busModel.getWebsite_url());
 
         TextView call = (TextView)convertView.findViewById(R.id.company_layout_call);
-        call.setText(companyModel.getBus_driver_incharge());
+        call.setText(busModel.getCall());
 
 
         Button book_me = (Button)convertView.findViewById(R.id.company_layout_book);
         book_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FetchBusRepository fetchBusRepository = new FetchBusRepository(context);
-                fetchBusRepository.fetchBusInfo(companyModel.getBus_id());
+                FetchRouteBusRepository fetchBusRepository = new FetchRouteBusRepository(context);
+                fetchBusRepository.requestJson(busModel.getSource(), busModel.getDestination(), busModel.getDate(), busModel.getCompany_id());
             }
         });
 

@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.tanzania.comtech.msafiriapp.R;
-import com.tanzania.comtech.msafiriapp.Repository.FillSeatInfo;
+import com.tanzania.comtech.msafiriapp.Model.FillSeatInfo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**

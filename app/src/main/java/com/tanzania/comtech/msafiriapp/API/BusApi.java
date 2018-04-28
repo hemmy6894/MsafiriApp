@@ -11,6 +11,7 @@ public class BusApi {
     public final  static String customerOtpResend = Links.msfiriAppLink + "auth/resend_otp";
     public final  static String busInformation = Links.msfiriAppLink + "buses/";
     public final  static String routeInformation = Links.msfiriAppLink + "get_schedulled_buses";
+    public final  static String routeInformationCompany = Links.msfiriAppLink + "get_schedulled_companies";
     public final  static String viewBusInformation = Links.msfiriAppLink + "bus_bookings_for_single_bus/";
     public final  static String placeBusBooking = Links.msfiriAppLink + "place_bus_booking";
     public final  static String unHoldingSeat = Links.msfiriAppLink + "unhold_bus_seat/";

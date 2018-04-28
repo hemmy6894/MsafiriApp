@@ -13,14 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Auth.Activity_Login"></activity>
+        <activity android:name=".Auth.Activity_Login" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
         <activity android:name=".Bus.Activity_list_bus" />
-        <activity android:name=".seat_plan.MainActivity">
-
-        </activity>
+        <activity android:name=".Bus.Activity_list_company" />
+        <activity android:name=".seat_plan.MainActivity"></activity>
         <activity
             android:name=".Payment.SeatInformation"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -51,8 +50,12 @@
             android:name=".Helpers.ThanksActivity"
             android:theme="@style/popWindowMyThem" />
         <activity android:name=".Auth.StartApplication">
+
+        </activity>
+        <activity android:name=".seat_plan.SeatPlanOriginal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

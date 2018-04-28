@@ -1,9 +1,8 @@
-package com.tanzania.comtech.msafiriapp.Model;
+package com.tanzania.comtech.msafiriapp.Repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;

@@ -2,6 +2,8 @@ package com.tanzania.comtech.msafiriapp.Auth;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.tanzania.comtech.msafiriapp.Helpers.CheckIfIsLogin;
 import com.tanzania.comtech.msafiriapp.R;
@@ -15,10 +17,13 @@ public class StartApplication extends AppCompatActivity {
         new Thread() {
             public void run() {
                 try {
-                    sleep(2000);
+                    ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
+                    progressBar.setVisibility(View.VISIBLE);
+                    sleep(20000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
+                    finish();
                     new CheckIfIsLogin(getApplicationContext());
                 }
             }

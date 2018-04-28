@@ -46,12 +46,11 @@ public class LoginModel {
         StringRequest requestLogin = new StringRequest(Request.Method.POST, BusApi.loginToSystem, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(cancelTag,response);
                 try {
                     JSONObject loginJsonObject = new JSONObject(response);
-                    String status = loginJsonObject.getString(context.getString(R.string.json_status));
+                    boolean status = loginJsonObject.getBoolean(context.getString(R.string.json_status));
 
-                    if(status.equals("OK")) {
+                    if(status) {
                         JSONObject dataDetails = loginJsonObject.getJSONObject("data");
                         JSONObject userDetails = dataDetails.getJSONObject("user");
                         String tokenDetails = dataDetails.getString(context.getString(R.string.shared_token));
@@ -87,14 +86,12 @@ public class LoginModel {
 
                         progressBar.setVisibility(View.GONE);
                         new DirectUserByRole(context,role);
-                        hidden_text_view("Success Login",hiddenSms);
-                    }else if(status.equals("ERROR")){
-                        String message = loginJsonObject.getString("message");
+                        String message = loginJsonObject.getString("msg");
+                        hidden_text_view("" + message,hiddenSms);
+                    }else {
+                        String message = loginJsonObject.getString("msg");
                         progressBar.setVisibility(View.GONE);
                         hidden_text_view(message,hiddenSms);
-                    }else{
-                        progressBar.setVisibility(View.GONE);
-                        hidden_text_view("Application Error",hiddenSms);
                     }
                 } catch (JSONException e) {
                     progressBar.setVisibility(View.GONE);

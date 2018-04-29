@@ -27,7 +27,8 @@ public class CheckBookedSeat {
         this.context = context;
     }
 
-    public void checkBookedSeat(){
+    private Map<String, Object> mapb;
+    public Map<String, Object> checkBookedSeat(){
         String cancelString = context.getString(R.string.app_name) + "/error";
         SharedPreferences share = context.getSharedPreferences(context.getString(R.string.shared_preference_booking_info),Context.MODE_PRIVATE);
         Map<String, ?> map = share.getAll();
@@ -50,7 +51,6 @@ public class CheckBookedSeat {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("StringReturned","SMS " + response);
                 Map<String, Object> map = new HashMap<>();
                 try {
                     map.put(context.getString(R.string.map_sch_date_id),response.getString(context.getString(R.string.map_sch_date_id)));
@@ -60,15 +60,13 @@ public class CheckBookedSeat {
 
                     new SharedPreferenceAppend(context).appendSharedPref(map,context.getString(R.string.shared_preference_route));
 
-
+                    mapb = new HashMap<>();
                     JSONArray a = response.getJSONArray("booked_seat");
-                    Map<String, Object> mapb = new HashMap<>();
                     for (int i = 0; i < a.length(); i++){
                         JSONObject o = a.getJSONObject(i);
                         Log.e("nuyama za ulimi","ss" + o.toString());
                         mapb.put(o.getString("seat_no"),o.getString("on_hold"));
                     }
-                    new SharedPreferenceAppend(context).newSharedPref(mapb,"booked_seat");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -90,5 +88,6 @@ public class CheckBookedSeat {
             }
         };
         AppSingleton.getInstance(context).addToRequestQueue(objectRequest,cancelString);
+        return mapb;
     }
 }

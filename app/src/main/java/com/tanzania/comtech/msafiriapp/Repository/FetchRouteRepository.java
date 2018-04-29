@@ -75,10 +75,6 @@ public class FetchRouteRepository {
                                 bus1.put(context.getString(R.string.shared_company_id), company.getString(context.getString(R.string.shared_id)));
                                 bus1.put(context.getString(R.string.shared_total_buses), information.getString(context.getString(R.string.shared_total_buses)));
                             jsonArray.put(bus1);
-
-                            Map<String, Object> append = new HashMap<>();
-                            append.put(context.getString(R.string.shared_company_id),company.getString(context.getString(R.string.shared_id)));
-                            new SharedPreferenceAppend(context).appendSharedPref(append,context.getString(R.string.shared_preference_booking_info));
                         }
                         studentsObj = new JSONObject();
                         studentsObj.put("buses", jsonArray);

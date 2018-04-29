@@ -44,6 +44,9 @@ public class FetchRouteBusRepository {
 
     public void requestJson(final String sendTextFrom, final String sendTextTo, final String sendPickedDate, String busId){
         final String Canceltag = "TagCancel";
+        Map<String, Object> append = new HashMap<>();
+        append.put(context.getString(R.string.shared_company_id),busId);
+        new SharedPreferenceAppend(context).appendSharedPref(append,context.getString(R.string.shared_preference_booking_info));
 
         final String url = BusApi.routeInformation + "/"+ busId + "/" + sendPickedDate + "/" + sendTextFrom + "/" + sendTextTo;
         Log.e(Canceltag,url);
@@ -52,7 +55,6 @@ public class FetchRouteBusRepository {
             public void onResponse(String response) {
                 try {
                     Log.e(Canceltag,response);
-                    System.out.println("Herer we go man how are you gays a grad to see you here we cerebrate our richness");
                     JSONObject routeObject = new JSONObject(response);
                     boolean success = routeObject.getBoolean(context.getString(R.string.json_status));
 

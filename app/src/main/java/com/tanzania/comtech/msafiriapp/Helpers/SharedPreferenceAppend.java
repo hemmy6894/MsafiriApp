@@ -2,6 +2,7 @@ package com.tanzania.comtech.msafiriapp.Helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,9 @@ public class SharedPreferenceAppend {
         preferenceMap = new HashMap<>();
         preferenceMap = preferences.getAll();
         for (Map.Entry <String, ?> entry : preferenceMap.entrySet()){
-            mapValue.put(entry.getKey(), (String) entry.getValue());
+            if(mapValue.containsKey(entry.getKey())){
+                continue;
+            }
             if(entry.getValue() instanceof Boolean){
                 mapValue.put(entry.getKey(), (Boolean) entry.getValue());
             }else if(entry.getValue() instanceof Integer){
@@ -44,6 +47,8 @@ public class SharedPreferenceAppend {
                 editor.putString(entry.getKey(), (String) entry.getValue() );
             }
         }
+
+
         editor.apply();
     }
 

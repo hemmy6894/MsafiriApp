@@ -33,6 +33,10 @@ public class FetchBusRepository {
 
     public void fetchBusInfo(final String busId){
         String cancelTag = "failToFetchBusData";
+        Map<String, Object> append = new HashMap<>();
+        append.put(context.getString(R.string.shared_bus_id),busId);
+        new SharedPreferenceAppend(context).appendSharedPref(append,context.getString(R.string.shared_preference_booking_info));
+
         String url = BusApi.busInformation + busId;
         StringRequest objectRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -42,11 +46,11 @@ public class FetchBusRepository {
                     new SharedPreferenceAppend(context).newSharedPref(new ReadJsonToMap(context).readJsonToMap(busObject),context.getString(R.string.shared_preference_bus_data_from_id));
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }finally {
+                    Intent seat_plan = new Intent(context, SeatPlanOriginal.class);
+                    seat_plan.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(seat_plan);
                 }
-
-                Intent seat_plan = new Intent(context, SeatPlanOriginal.class);
-                seat_plan.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(seat_plan);
             }
         }, new Response.ErrorListener() {
             @Override

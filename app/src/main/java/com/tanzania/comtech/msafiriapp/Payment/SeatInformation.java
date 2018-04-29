@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tanzania.comtech.msafiriapp.Helpers.PopActivity;
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
@@ -46,9 +47,13 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
     int namesId[] = {R.id.seat_information_passenger_name1,R.id.seat_information_passenger_name2,R.id.seat_information_passenger_name3,R.id.seat_information_passenger_name4,R.id.seat_information_passenger_name1};
     int namesSeat[] = {R.id.seat_information_seat1,R.id.seat_information_seat2,R.id.seat_information_seat3,R.id.seat_information_seat4,R.id.seat_information_seat5};
 
+    Double totalPrice;
     public void show_seats(){
         SharedPreferences sharedPreferences = getSharedPreferences("SEAT_BOOK", Context.MODE_PRIVATE);
         String string = sharedPreferences.getString("seatSelected","{}");
+        totalPrice = Double.valueOf(sharedPreferences.getString("totalPrice","0"));
+        TextView totalPriceTextView = (TextView)findViewById(R.id.set_seat_info_amount);
+        totalPriceTextView.setText(String.valueOf(totalPrice) + " Tzs");
 
         ArrayList list = new ArrayList();
         try {
@@ -72,7 +77,7 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
             seat_layout[i].setVisibility(View.VISIBLE);
             p_editText[i] = (EditText)findViewById(namesId[i]);
             s_viewText[i] = (TextView) findViewById(namesSeat[i]);
-            s_viewText[i].setText("Seat : " + list.get(i));
+            s_viewText[i].setText(" " + list.get(i));
         }
     }
 

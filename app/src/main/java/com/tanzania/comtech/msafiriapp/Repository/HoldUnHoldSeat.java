@@ -25,11 +25,12 @@ public class HoldUnHoldSeat {
     }
 
     public void holdingSeat(final Map<String, Object> holdingValue){
-        String link = BusApi.holdingSeat + holdingValue.get(context.getString(R.string.map_sch_pool_id)) + "/" + holdingValue.get(context.getString(R.string.map_sch_date_id)) + "/" + holdingValue.get(context.getString(R.string.map_booking_ref));
+        final String link = BusApi.holdingSeat + holdingValue.get(context.getString(R.string.map_sch_pool_id)) + "/" + holdingValue.get(context.getString(R.string.map_sch_date_id)) + "/" + holdingValue.get(context.getString(R.string.map_booking_ref));
         StringRequest request = new StringRequest(Request.Method.POST, link, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.e("StringReturned","sms " + response);
+                Log.e("StringReturned","link " + link);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -58,11 +59,12 @@ public class HoldUnHoldSeat {
     }
 
     public void unHoldingSeat(final Map<String, ?> unHoldingValue){
-        String link = BusApi.unHoldingSeat + unHoldingValue.get(context.getString(R.string.map_booking_ref)) + "/" + unHoldingValue.get(context.getString(R.string.shared_customer_id)) + "/" + unHoldingValue.get("seat_no");
+        final String link = BusApi.unHoldingSeat + unHoldingValue.get(context.getString(R.string.map_booking_ref)) + "/" + unHoldingValue.get(context.getString(R.string.shared_customer_id)) + "/" + unHoldingValue.get("seat_no");
         StringRequest request = new StringRequest(Request.Method.DELETE, link, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.e("StringReturned","sms " + response);
+                Log.e("StringReturned","link " + link);
             }
         }, new Response.ErrorListener() {
             @Override

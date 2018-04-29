@@ -73,8 +73,8 @@ public class Activity_list_bus extends AppCompatActivity {
             busRepositories.add(new CompanyModel(
                     buses.getString(getString(R.string.shared_departure_time)),
                     buses.getString(getString(R.string.shared_arrival_time)),
-                    buses.getDouble(getString(R.string.shared_fare)),
-                    buses.getDouble(getString(R.string.shared_discount)),
+                    buses.getString(getString(R.string.shared_fare)),
+                    buses.getString(getString(R.string.shared_discount)),
                     buses.getString(getString(R.string.shared_processing_fee)),
                     buses.getBoolean(getString(R.string.shared_sch_visible)),
                     buses.getString(getString(R.string.shared_sch_id)),

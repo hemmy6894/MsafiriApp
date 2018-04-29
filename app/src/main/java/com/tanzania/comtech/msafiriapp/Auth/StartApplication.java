@@ -19,7 +19,7 @@ public class StartApplication extends AppCompatActivity {
                 try {
                     ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
                     progressBar.setVisibility(View.VISIBLE);
-                    sleep(20000);
+                    sleep(60000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {

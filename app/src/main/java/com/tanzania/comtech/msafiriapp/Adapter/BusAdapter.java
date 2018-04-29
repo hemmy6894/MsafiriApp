@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.Repository.FetchBusRepository;
 import com.tanzania.comtech.msafiriapp.R;
 import com.tanzania.comtech.msafiriapp.Model.CompanyModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by programing on 3/31/2018.
@@ -64,6 +68,12 @@ public class BusAdapter extends ArrayAdapter<CompanyModel> {
         book_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Map<String, Object> objectMap = new HashMap<>();
+                objectMap.put(context.getString(R.string.shared_fare),companyModel.getSch_fare());
+                objectMap.put(context.getString(R.string.shared_discount),companyModel.getSch_discount());
+                new SharedPreferenceAppend(context).newSharedPref(objectMap,context.getString(R.string.shared_fare));
+
+                Log.e("priceMap","price " + objectMap);
                 FetchBusRepository fetchBusRepository = new FetchBusRepository(context);
                 fetchBusRepository.fetchBusInfo(companyModel.getBus_id());
             }

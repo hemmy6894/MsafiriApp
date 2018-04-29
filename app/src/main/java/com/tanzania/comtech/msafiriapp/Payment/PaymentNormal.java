@@ -32,6 +32,7 @@ public class PaymentNormal extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (isFirstStage) {
             setContentView(R.layout.activity_payment_token);
+            new TextToPayFor(getApplicationContext(),PaymentNormal.this);
             Button ok = (Button)findViewById(R.id.payment_token_button_next);
             ok.setOnClickListener(new View.OnClickListener() {
                 @Override

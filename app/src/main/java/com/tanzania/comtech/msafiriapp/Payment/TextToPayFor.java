@@ -2,6 +2,7 @@ package com.tanzania.comtech.msafiriapp.Payment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -44,8 +45,10 @@ class TextToPayFor {
                     seatsBuilder.append(" )");
                 String seats = seatsBuilder.toString();
             seat.setText(seats);
-            String toPay = String.valueOf(30000 * array.length());
-            price.setText(toPay);
+            Double toPay;
+            SharedPreferences sharedPreferences = context.getSharedPreferences("SEAT_BOOK", Context.MODE_PRIVATE);
+            toPay = Double.valueOf(sharedPreferences.getString("totalPrice","0"));
+            price.setText("" +toPay + "TZS");
         } catch (JSONException e) {
             e.printStackTrace();
         }

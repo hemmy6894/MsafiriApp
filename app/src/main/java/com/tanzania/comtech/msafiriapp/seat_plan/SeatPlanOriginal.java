@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,9 +17,8 @@ import android.widget.Toast;
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.Payment.SeatInformation;
 import com.tanzania.comtech.msafiriapp.R;
-import com.tanzania.comtech.msafiriapp.Repository.CheckBookedSeat;
+import com.tanzania.comtech.msafiriapp.Repository.HoldUnHoldSeat;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -36,8 +36,10 @@ public class SeatPlanOriginal extends AppCompatActivity {
     int space_between;
     int total_seats_rows;
     int remain_seat;
+    boolean last_seat_field = true;
     String rowNames[];
     String[] seatNo;
+    double priceToUse, totalPrice;
     int seat_id = 0;
     ///Layout variables ended heare
     private String seat_id_name;
@@ -56,6 +58,27 @@ public class SeatPlanOriginal extends AppCompatActivity {
 
 
         left_right_seat(String.valueOf(busdataMap.get(getString(R.string.shared_seat_type))));
+        total_seats = (int) busdataMap.get(getString(R.string.bus_max_seat_no));
+        last_seat_field = (boolean) busdataMap.get(getString(R.string.shared_bus_last_seat_filled));
+
+        TextView bus_name = (TextView)findViewById(R.id.seat_plan_layout_bus_name);
+        bus_name.setText((CharSequence) busdataMap.get(getString(R.string.shared_bus_name)));
+
+        TextView price = (TextView) findViewById(R.id.seat_plan_layout_plate_no);
+
+        Map<String, Object> priceMap = new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_fare));
+
+        Log.e("priceMap","price "+priceMap);
+        double busPrice = Double.parseDouble((String)priceMap.get(getString(R.string.shared_fare)));
+        double busDiscount = Double.parseDouble((String)priceMap.get(getString(R.string.shared_discount)));
+
+        if((busPrice) == (busPrice - busDiscount)){
+            price.setText(String.valueOf(busPrice) + " Tzs");
+        }else{
+            price.setText(String.valueOf(busPrice - busDiscount) + " (--" + String.valueOf(busPrice) + "--) TZS");
+        }
+
+        priceToUse = busPrice - busDiscount;
         total_column = left_column + right_column + 1;
         space_between = left_column + 1;
 
@@ -90,17 +113,26 @@ public class SeatPlanOriginal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seat_plan_original);
-        try {
-            checkedMapExistence = new HashMap<>();
-            checkedMapExistence = new CheckBookedSeat(getApplicationContext()).checkBookedSeat();
-            Log.e("checked","sma " + checkedMapExistence);
-        }finally {
-            rowNames = new String[]{"","A","B","C","D","E","F","G","H","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"}; // rows seat name
-            seatNo = new String[89]; // string for storing seats
-            selected_seat_by_customers = new String[10];
-            populate_bas_data();
-            getChildLinearLayout();
-        }
+
+        seatAvailable = new ArrayList();
+        mapHoldingValue = new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_route));
+
+        checkedMapExistence = new SharedPreferenceAppend(getApplicationContext()).readSharedPref("booked_seat");
+        new SharedPreferenceAppend(getApplicationContext()).clearSharedPref(new String[]{"booked_seat"});
+
+        rowNames = new String[]{"","A","B","C","D","E","F","G","H","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"}; // rows seat name
+        seatNo = new String[89]; // string for storing seats
+        selected_seat_by_customers = new String[10];
+        populate_bas_data();
+        getChildLinearLayout();
+
+        Button btn = (Button)findViewById(R.id.seat_plan_layout_confirm_seat);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                on_click_next_button();
+            }
+        });
     }
 
     private void getChildLinearLayout() {
@@ -123,21 +155,13 @@ public class SeatPlanOriginal extends AppCompatActivity {
                 if (i > total_column) {
                     imageView.setVisibility(View.GONE);
                 } else if (i == space_between) {
-                    imageView.setVisibility(View.INVISIBLE);
-                }else{
-                    seatNo[setNumberIncrement] = "" + rowNames[j] + k;
-
-                    if(isChecked(seatNo[setNumberIncrement])){
-                        imageView.setImageResource(R.drawable.seat_taken);
-                        imageView.setEnabled(false);
+                    if(j == total_seats_rows && last_seat_field){
+                        imageView.setVisibility(View.VISIBLE);
+                    }else {
+                        imageView.setVisibility(View.INVISIBLE);
                     }
-                    imageView.setId(setNumberIncrement);
-                    imageView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            onClickSeatImage(view);
-                        }
-                    });
+                }else{
+                    giveSeatId(j,k,imageView);
                     k++;
                     setNumberIncrement++;
                 }
@@ -151,8 +175,26 @@ public class SeatPlanOriginal extends AppCompatActivity {
         }
     }
 
+    private void giveSeatId(int j, int k, ImageView imageView){
+        seatNo[setNumberIncrement] = "" + rowNames[j] + k;
+
+        if(isChecked(seatNo[setNumberIncrement])){
+            imageView.setImageResource(R.drawable.seat_taken);
+            imageView.setEnabled(false);
+        }
+        imageView.setId(setNumberIncrement);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickSeatImage(view);
+            }
+        });
+    }
+
     private void onClickSeatImage(View view) {
         Toast.makeText(getApplicationContext(),seatNo[view.getId()] + "",Toast.LENGTH_SHORT).show();
+        String array_searched = seatNo[view.getId()];
+        addSeatAvailable(array_searched, array_searched, view.getId());
     }
 
     //Check if seat is booked
@@ -172,11 +214,45 @@ public class SeatPlanOriginal extends AppCompatActivity {
             SharedPreferences.Editor editor = seatPreference.edit();
 
             editor.putString("seatSelected", String.valueOf(seatAvailable));
+            editor.putString("totalPrice", String.valueOf(totalPrice));
             editor.apply();
+            Toast.makeText(getApplicationContext(),"Price " + totalPrice,Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), SeatInformation.class));
         }else{
             Toast.makeText(getApplicationContext(),"You must choose atleast 1 seat",Toast.LENGTH_SHORT).show();
         }
     }
 
+
+    ///selected seat by user
+    int totalSeatSelected = 0;
+    public void addSeatAvailable(String key, Object value, int ImageID){
+        int d = seatAvailable.indexOf(value);
+
+        mapHoldingValue.put(getString(R.string.shared_customer_id),new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_booking_info)).get(getString(R.string.shared_customer_id)));
+        HoldUnHoldSeat holdUnHoldSeat = new HoldUnHoldSeat(getApplicationContext());
+        if(d >= 0){
+            seatAvailable.remove(d);
+            totalSeatSelected--;
+            //Change seat image and pop up seat no selected
+            mapHoldingValue.put("seat_no",value);
+            holdUnHoldSeat.unHoldingSeat(mapHoldingValue);
+            buttonChangeImage = (ImageView)findViewById(ImageID);
+            buttonChangeImage.setImageResource(R.drawable.empty_seat);
+        }else if(totalSeatSelected < 5){
+            seatAvailable.add(value);
+            totalSeatSelected++;
+            //Change seat image and pop up seat no selected
+            mapHoldingValue.put("seat_no",value);
+            holdUnHoldSeat.holdingSeat(mapHoldingValue);
+            buttonChangeImage = (ImageView)findViewById(ImageID);
+            buttonChangeImage.setImageResource(R.drawable.seat_taken);
+        }else {
+            Toast.makeText(getApplicationContext(),"The maximum number of seats that can be selected is 5",Toast.LENGTH_SHORT).show();
+        }
+
+        TextView textView = (TextView)findViewById(R.id.seat_plan_layout_view_selected_seat);
+        totalPrice = priceToUse * totalSeatSelected;
+        textView.setText("Seat(s) " + seatAvailable + "\n" + "Price " + String.valueOf(totalPrice) + "TZS");
+    }
 }

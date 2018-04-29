@@ -28,13 +28,7 @@ public class SharedPreferenceAppend {
             if(mapValue.containsKey(entry.getKey())){
                 continue;
             }
-            if(entry.getValue() instanceof Boolean){
-                mapValue.put(entry.getKey(), (Boolean) entry.getValue());
-            }else if(entry.getValue() instanceof Integer){
-                mapValue.put(entry.getKey(), (Integer) entry.getValue());
-            }else if(entry.getValue() instanceof String){
-                mapValue.put(entry.getKey(), (String) entry.getValue());
-            }
+            mapValue.put(entry.getKey(),entry.getValue());
         }
         preferences = context.getSharedPreferences(sharedKey,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -87,13 +81,7 @@ public class SharedPreferenceAppend {
         mapValue = new HashMap<String, Object>();
         preferenceMap = preferences.getAll();
         for (Map.Entry <String, ?> entry : preferenceMap.entrySet()){
-            if(entry.getValue() instanceof Boolean){
-                mapValue.put(entry.getKey(), (Boolean) entry.getValue());
-            }else if(entry.getValue() instanceof Integer){
-                mapValue.put(entry.getKey(), (Integer) entry.getValue());
-            }else if(entry.getValue() instanceof String){
-                mapValue.put(entry.getKey(), (String) entry.getValue());
-            }
+            mapValue.put(entry.getKey(), entry.getValue());
         }
         return mapValue;
     }

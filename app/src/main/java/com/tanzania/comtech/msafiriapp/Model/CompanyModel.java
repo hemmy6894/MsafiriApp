@@ -1,7 +1,5 @@
 package com.tanzania.comtech.msafiriapp.Model;
 
-import com.tanzania.comtech.msafiriapp.API.Links;
-
 /**
  * Created by programing on 3/31/2018.
  */
@@ -9,9 +7,9 @@ import com.tanzania.comtech.msafiriapp.API.Links;
 public class CompanyModel {
     private String sch_departure_time;
     private String sch_arrival_time;
-    private double sch_fare;
-    private double sch_discount;
-    private double sch_tax;
+    private String sch_fare;
+    private String sch_discount;
+    private String sch_tax;
     private String sch_processing_fee;
     private boolean sch_visible;
     private String sch_id;
@@ -36,7 +34,7 @@ public class CompanyModel {
     private String bus_company;
     private String bus__v;
 
-    public CompanyModel(String sch_departure_time, String sch_arrival_time, double sch_fare, double sch_discount, String sch_processing_fee, boolean sch_visible, String sch_id, String sch_session, String estimated_time, String min_booking_hrs, String bus_name, String bus_seat_type, String bus_model, int bus_max_seat_no, boolean bus_last_seat_filled, String bus_driver_incharge, String bus_phone, boolean bus_visible, String bus_status, String bus_profile, String bus_id, String bus_company) {
+    public CompanyModel(String sch_departure_time, String sch_arrival_time, String sch_fare, String sch_discount, String sch_processing_fee, boolean sch_visible, String sch_id, String sch_session, String estimated_time, String min_booking_hrs, String bus_name, String bus_seat_type, String bus_model, int bus_max_seat_no, boolean bus_last_seat_filled, String bus_driver_incharge, String bus_phone, boolean bus_visible, String bus_status, String bus_profile, String bus_id, String bus_company) {
         this.sch_departure_time = sch_departure_time;
         this.sch_arrival_time = sch_arrival_time;
         this.sch_fare = sch_fare;
@@ -69,15 +67,15 @@ public class CompanyModel {
         return sch_arrival_time;
     }
 
-    public double getSch_fare() {
+    public String getSch_fare() {
         return sch_fare;
     }
 
-    public double getSch_discount() {
+    public String getSch_discount() {
         return sch_discount;
     }
 
-    public double getSch_tax() {
+    public String getSch_tax() {
         return sch_tax;
     }
 

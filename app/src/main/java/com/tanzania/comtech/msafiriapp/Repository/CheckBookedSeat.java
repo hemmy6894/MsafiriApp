@@ -1,6 +1,7 @@
 package com.tanzania.comtech.msafiriapp.Repository;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
@@ -13,6 +14,7 @@ import com.tanzania.comtech.msafiriapp.API.BusApi;
 import com.tanzania.comtech.msafiriapp.Helpers.AppSingleton;
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.R;
+import com.tanzania.comtech.msafiriapp.seat_plan.SeatPlanOriginal;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,8 +29,8 @@ public class CheckBookedSeat {
         this.context = context;
     }
 
-    private Map<String, Object> mapb;
-    public Map<String, Object> checkBookedSeat(){
+    private Map<String, Object> values;
+    public void checkBookedSeat(){
         String cancelString = context.getString(R.string.app_name) + "/error";
         SharedPreferences share = context.getSharedPreferences(context.getString(R.string.shared_preference_booking_info),Context.MODE_PRIVATE);
         Map<String, ?> map = share.getAll();
@@ -51,6 +53,7 @@ public class CheckBookedSeat {
 
             @Override
             public void onResponse(JSONObject response) {
+                Log.e("StringReturned","SMS " + response);
                 Map<String, Object> map = new HashMap<>();
                 try {
                     map.put(context.getString(R.string.map_sch_date_id),response.getString(context.getString(R.string.map_sch_date_id)));
@@ -60,17 +63,22 @@ public class CheckBookedSeat {
 
                     new SharedPreferenceAppend(context).appendSharedPref(map,context.getString(R.string.shared_preference_route));
 
-                    mapb = new HashMap<>();
+
                     JSONArray a = response.getJSONArray("booked_seat");
+                    Map<String, Object> mapb = new HashMap<>();
                     for (int i = 0; i < a.length(); i++){
                         JSONObject o = a.getJSONObject(i);
-                        Log.e("nuyama za ulimi","ss" + o.toString());
+                        Log.e("nuyama za ulimi",o.toString());
                         mapb.put(o.getString("seat_no"),o.getString("on_hold"));
                     }
+                    new SharedPreferenceAppend(context).newSharedPref(mapb,"booked_seat");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
+                Intent seat_plan = new Intent(context, SeatPlanOriginal.class);
+                seat_plan.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(seat_plan);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -88,6 +96,5 @@ public class CheckBookedSeat {
             }
         };
         AppSingleton.getInstance(context).addToRequestQueue(objectRequest,cancelString);
-        return mapb;
     }
 }

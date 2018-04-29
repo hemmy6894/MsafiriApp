@@ -44,12 +44,9 @@ public class FetchBusRepository {
                 try {
                     JSONObject busObject = new JSONObject(response);
                     new SharedPreferenceAppend(context).newSharedPref(new ReadJsonToMap(context).readJsonToMap(busObject),context.getString(R.string.shared_preference_bus_data_from_id));
+                    new CheckBookedSeat(context).checkBookedSeat();
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }finally {
-                    Intent seat_plan = new Intent(context, SeatPlanOriginal.class);
-                    seat_plan.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(seat_plan);
                 }
             }
         }, new Response.ErrorListener() {

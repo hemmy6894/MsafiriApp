@@ -357,6 +357,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="500,000 Tzs"
+                    android:id="@+id/set_seat_info_amount"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
                 <Button

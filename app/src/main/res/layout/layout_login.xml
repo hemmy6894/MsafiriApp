@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/official_typing_text"
+    android:background="@drawable/official_background"
     tools:context="com.tanzania.comtech.msafiriapp.Auth.Activity_Login">
     <ScrollView
         android:layout_width="match_parent"
@@ -14,7 +14,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:background="@drawable/bg_white_round"
+            android:layout_margin="20dp"
+            android:paddingBottom="20dp">
             <include layout="@layout/include_auth_header"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,6 +55,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_blue_border"
+                    android:padding="10dp"
+                    android:drawableRight="@mipmap/ico_email"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:hint="@string/email"
@@ -69,7 +75,10 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:hint="@string/register_password"
+                    android:background="@drawable/bg_blue_border"
+                    android:padding="10dp"
+                    android:hint="Password"
+                    android:drawableRight="@mipmap/ico_lock"
                     android:inputType="textPassword"
                     android:textColor="#6FB7B0"
                     android:id="@+id/layout_login_edittext_enter_password"/>
@@ -94,7 +103,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:background="@drawable/btn_bg_red"
+                android:background="@drawable/bg_blue_round"
+                android:textColor="#fff"
                 android:text="Login"
                 android:textStyle="bold"
                 android:id="@+id/layout_login_button_login"/>
@@ -121,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Please register"
-                    android:textColor="@color/official_design_color"
+                    android:textColor="@color/msafiri_app_color_blue"
                     android:id="@+id/layout_login_button_regiter"/>
             </LinearLayout>
         </LinearLayout>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent" android:gravity="center"
-    android:visibility="gone"
+    android:visibility="visible"
     android:id="@+id/register_two">
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:hint="@string/register_address"
             android:id="@+id/register_address"
             android:textColorHint="@color/official_hint_color"
-            android:background="@drawable/bg_white_border"
+            android:backgroundTint="#fff"
             android:drawableRight="@mipmap/ico_pointer"
             android:padding="10dp"
             android:inputType="textPostalAddress"/>
@@ -36,7 +36,7 @@
             android:id="@+id/register_password"
             android:padding="10dp"
             android:drawableRight="@mipmap/ico_lock_white"
-            android:background="@drawable/bg_white_border"
+            android:backgroundTint="#fff"
             android:textColorHint="@color/official_hint_color"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
@@ -54,7 +54,7 @@
             android:id="@+id/register_re_password"
             android:padding="10dp"
             android:drawableRight="@mipmap/ico_lock_white"
-            android:background="@drawable/bg_white_border"
+            android:backgroundTint="#fff"
             android:textColorHint="@color/official_hint_color"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>

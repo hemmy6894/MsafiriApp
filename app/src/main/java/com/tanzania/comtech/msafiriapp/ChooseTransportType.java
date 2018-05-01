@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -34,7 +35,7 @@ public class ChooseTransportType extends AppCompatActivity
 
     private TextView mTextMessage;
     Button goNext;
-    ImageView swapper;
+    CardView swapper;
     Calendar myCalendar;
     DatePickerDialog.OnDateSetListener date;
 
@@ -127,7 +128,7 @@ public class ChooseTransportType extends AppCompatActivity
         //  BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         //  navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        swapper = (ImageView)findViewById(R.id.select_source_destination_swapper);
+        swapper = (CardView) findViewById(R.id.select_source_destination_swapper);
         fromEditText = (AutoCompleteTextView) findViewById(R.id.select_source_destination_source);
         toEditText = (AutoCompleteTextView) findViewById(R.id.select_source_destination_destination);
 

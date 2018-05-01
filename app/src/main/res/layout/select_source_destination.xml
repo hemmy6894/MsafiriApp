@@ -65,7 +65,7 @@
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                     android:hint="@string/from_kutoka"
                                     android:id="@+id/select_source_destination_source"
-                                    android:background="@drawable/bg_white_border"
+                                    android:backgroundTint="#fff"
                                     android:padding="10dp"
                                     android:drawableStart="@mipmap/ico_pointer" />
                             </android.support.design.widget.TextInputLayout>
@@ -78,7 +78,7 @@
                                         android:layout_height="wrap_content"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                         android:hint="@string/to_kwenda"
-                                        android:background="@drawable/bg_white_border"
+                                        android:backgroundTint="#fff"
                                         android:padding="10dp"
                                         android:id="@+id/select_source_destination_destination"
                                     android:drawableStart="@mipmap/ico_pointer" />

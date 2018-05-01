@@ -32,20 +32,17 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_email"
                     android:text="Email"
-                    android:textColor="@color/msafiri_app_color_blue"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_call"
-                    android:textColor="@color/msafiri_app_color_blue"
                     android:text="Phone"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_website"
-                    android:textColor="@color/msafiri_app_color_blue"t
                     android:text="Website"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
             </LinearLayout>

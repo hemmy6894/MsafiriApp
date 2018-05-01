@@ -15,13 +15,12 @@
         <android.support.design.widget.TextInputLayout
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:layout_weight="0.50"
-            android:textColorHint="#fff">
+            android:layout_weight="0.50">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_first_name"
-                android:backgroundTint="#fff"
+                android:backgroundTint="@color/msafiri_app_color_blue"
                 android:padding="10dp"
                 android:layout_margin="5dp"
                 android:id="@+id/register_first_name"/>
@@ -29,15 +28,14 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:textColorHint="#fff">
+            android:layout_weight="0.50">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_last_name"
                 android:id="@+id/register_last_name"
                 android:textColorHint="@color/official_hint_color"
-                android:backgroundTint="#fff"
+                android:backgroundTint="@color/msafiri_app_color_blue"
                 android:padding="10dp"
                 android:layout_margin="5dp"/>
         </android.support.design.widget.TextInputLayout>
@@ -49,16 +47,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:textColorHint="#fff">
+        >
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:textColorHint="@color/official_hint_color"
             android:id="@+id/register_email"
-            android:backgroundTint="#fff"
+            android:backgroundTint="@color/msafiri_app_color_blue"
             android:padding="10dp"
-            android:drawableRight="@mipmap/ico_email_white"
+            android:drawableRight="@mipmap/ico_email"
             android:inputType="textEmailAddress"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -67,18 +64,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textColorHint="#fff">
+        android:layout_marginRight="10dp">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/register_phone_number"
             android:id="@+id/register_phone"
             android:textColorHint="@color/official_hint_color"
-            android:backgroundTint="#fff"
+            android:backgroundTint="@color/msafiri_app_color_blue"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:drawableRight="@mipmap/ico_phone_white"
+            android:drawableRight="@mipmap/ico_phone"
             android:inputType="phone"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -93,7 +89,7 @@
             android:layout_height="wrap_content"
             android:text="Next"
             android:textColor="@color/msafiri_app_color_blue"
-            android:background="@drawable/bg_white_round"
+            android:background="@drawable/bg_blue_border"
             android:id="@+id/register_page_one_next"/>
     </LinearLayout>
 </LinearLayout>

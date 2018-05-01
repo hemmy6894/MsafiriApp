@@ -2,23 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent" android:gravity="center"
-    android:visibility="gone"
+    android:visibility="visible"
     android:id="@+id/register_two">
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textColorHint="#fff">
+        android:layout_marginRight="10dp">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/register_address"
             android:id="@+id/register_address"
             android:textColorHint="@color/official_hint_color"
-            android:backgroundTint="#fff"
-            android:drawableRight="@mipmap/ico_pointer"
+            android:backgroundTint="@color/msafiri_app_color_blue"
+            android:drawableRight="@mipmap/ico_pointer_blue"
             android:padding="10dp"
             android:inputType="textPostalAddress"/>
     </android.support.design.widget.TextInputLayout>
@@ -35,8 +34,8 @@
             android:hint="@string/register_password"
             android:id="@+id/register_password"
             android:padding="10dp"
-            android:drawableRight="@mipmap/ico_lock_white"
-            android:backgroundTint="#fff"
+            android:drawableRight="@mipmap/ico_lock"
+            android:backgroundTint="@color/msafiri_app_color_blue"
             android:textColorHint="@color/official_hint_color"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
@@ -53,8 +52,8 @@
             android:hint="@string/register_re_password"
             android:id="@+id/register_re_password"
             android:padding="10dp"
-            android:drawableRight="@mipmap/ico_lock_white"
-            android:backgroundTint="#fff"
+            android:drawableRight="@mipmap/ico_lock"
+            android:backgroundTint="@color/msafiri_app_color_blue"
             android:textColorHint="@color/official_hint_color"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
@@ -68,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prev"
-            android:background="@drawable/bg_white_round"
+            android:background="@drawable/bg_blue_border"
             android:textColor="@color/msafiri_app_color_blue"
             android:id="@+id/register_page_two_prev"
             android:layout_marginRight="3dp"
@@ -76,8 +75,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_white_round"
-            android:textColor="@color/msafiri_app_color_blue"
+            android:background="@drawable/bg_blue_round"
+            android:textColor="#fff"
             android:text="Register"
             android:id="@+id/register_button_register"/>
     </LinearLayout>

@@ -11,10 +11,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-            android:padding="20dp">
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:padding="20dp"
+            android:background="@drawable/bg_white_round">
             <include layout="@layout/include_auth_header"
                 android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="150dp"
                 android:layout_width="150dp" />
             <LinearLayout
@@ -60,7 +63,8 @@
                 android:layout_height="wrap_content"
                 android:text="Sign In"
                 android:padding="6dp"
-                android:textColor="#fff"
+                android:textColor="@color/msafiri_app_color_blue"
+                android:layout_gravity="center_horizontal"
                 android:id="@+id/register_button_login"/>
         </LinearLayout>
     </ScrollView>

@@ -5,6 +5,6 @@ package com.tanzania.comtech.msafiriapp.API;
  */
 
 public class Links {
-    final static String msfiriAppLink = "http://35.154.231.79:9999/mob-api-v1/";
+    final static String msfiriAppLink = "http://13.232.48.10:9999/mob-api-v1/";
     public final static String imageLocation = msfiriAppLink + "images/";
 }

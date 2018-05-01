@@ -9,4 +9,10 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name = "android:windowNoTitle">true</item>
     </style>
+
+    <style name="MyAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/msafiri_app_color_blue</item>
+        <item name="android:background">#fff</item>
+        <item name="android:padding">5dp</item>
+    </style>
 </resources>

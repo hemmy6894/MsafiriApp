@@ -53,9 +53,10 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:layout_width="match_parent"
+                    android:textAppearance="@style/MyAppearance"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_blue_border"
+                    android:backgroundTint="@color/msafiri_app_color_blue"
                     android:padding="10dp"
                     android:drawableRight="@mipmap/ico_email"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -75,7 +76,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:background="@drawable/bg_blue_border"
+                    android:backgroundTint="@color/msafiri_app_color_blue"
                     android:padding="10dp"
                     android:hint="Password"
                     android:drawableRight="@mipmap/ico_lock"

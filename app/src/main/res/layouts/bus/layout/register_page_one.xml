@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent" android:gravity="center"
-    android:background="@color/official_typing_text"
     android:visibility="gone"
     android:id="@+id/register_one">
     <LinearLayout
@@ -16,26 +15,31 @@
         <android.support.design.widget.TextInputLayout
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:layout_weight="0.50">
+            android:layout_weight="0.50"
+            android:textColorHint="#fff">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_first_name"
-                android:text="@string/test_first_name"
-                android:textColorHint="@color/official_hint_color"
+                android:background="@drawable/bg_white_border"
+                android:padding="10dp"
+                android:layout_margin="5dp"
                 android:id="@+id/register_first_name"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.50">
+            android:layout_weight="0.50"
+            android:textColorHint="#fff">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_last_name"
                 android:id="@+id/register_last_name"
                 android:textColorHint="@color/official_hint_color"
-                android:text="@string/test_last_name"/>
+                android:background="@drawable/bg_white_border"
+                android:padding="10dp"
+                android:layout_margin="5dp"/>
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
@@ -44,14 +48,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:textColorHint="#fff">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
             android:textColorHint="@color/official_hint_color"
             android:id="@+id/register_email"
-            android:text="@string/test_email"
+            android:background="@drawable/bg_white_border"
+            android:padding="10dp"
+            android:drawableRight="@mipmap/ico_email_white"
             android:inputType="textEmailAddress"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -60,14 +67,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:textColorHint="#fff">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/register_phone_number"
             android:id="@+id/register_phone"
             android:textColorHint="@color/official_hint_color"
-            android:text="@string/test_phone_number"
+            android:background="@drawable/bg_white_border"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableRight="@mipmap/ico_phone_white"
             android:inputType="phone"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -75,12 +86,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Next"
-            android:background="@drawable/btn_bg_red"
+            android:textColor="@color/msafiri_app_color_blue"
+            android:background="@drawable/bg_white_round"
             android:id="@+id/register_page_one_next"/>
     </LinearLayout>
 </LinearLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/official_background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.tanzania.comtech.msafiriapp.ChooseTransportType"
     tools:showIn="@layout/app_bar_choose_transport_type">
@@ -14,7 +15,8 @@
         android:layout_height="wrap_content"
         android:background="@color/under_action_bar_color"
         app:menu="@menu/navigation"
-        tools:background="@color/under_action_bar_color" />
+        android:translationZ="10dp"
+        tools:background="@color/msafiri_app_color_blue" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,21 +33,22 @@
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:text="@string/title_home"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/layout_card_margin"
+                    android:layout_margin="10dp"
+                    android:translationZ="5dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     android:id="@+id/activity_main_from_to">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:padding="@dimen/layout_card_margin">
+                        android:padding="15dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -54,49 +57,64 @@
                             android:orientation="vertical">
                             <android.support.design.widget.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:textColorHint="#fff">
                                 <AutoCompleteTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                                    android:drawableLeft="@drawable/msafiri_app_icon_city"
                                     android:hint="@string/from_kutoka"
                                     android:id="@+id/select_source_destination_source"
-                                    android:drawableStart="@drawable/msafiri_app_icon_city" />
+                                    android:background="@drawable/bg_white_border"
+                                    android:padding="10dp"
+                                    android:drawableStart="@mipmap/ico_pointer" />
                             </android.support.design.widget.TextInputLayout>
                             <android.support.design.widget.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:textColorHint="#fff">
                                 <AutoCompleteTextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                         android:hint="@string/to_kwenda"
-                                        android:drawableLeft="@drawable/msafiri_app_icon_city"
+                                        android:background="@drawable/bg_white_border"
+                                        android:padding="10dp"
                                         android:id="@+id/select_source_destination_destination"
-                                    android:drawableStart="@drawable/msafiri_app_icon_city" />
+                                    android:drawableStart="@mipmap/ico_pointer" />
                             </android.support.design.widget.TextInputLayout>
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                android:translationZ="2dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:drawableLeft=""
+                                    android:text=" Swap Destination"/>
+
+                            </android.support.v7.widget.CardView>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.25"
-                            android:background="@color/cardview_light_background">
 
-                            <ImageView
-                                android:id="@+id/select_source_destination_swapper"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                app:srcCompat="@drawable/change_value" />
-                        </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
+
+
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/layout_card_margin"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    android:translationZ="5dp"
                     android:layout_below="@+id/activity_main_from_to"
                     android:id="@+id/activity_main_day">
 

@@ -2,6 +2,6 @@
 <resources>
     <color name="msafiri_app_background_color">#e9ebee</color>
     <color name="text_color_card">#434343</color>
-    <color name="action_bar_color">#ed2026</color>
+    <color name="action_bar_color">#1496ef</color>
     <color name="under_action_bar_color">#ef6367</color>
 </resources>

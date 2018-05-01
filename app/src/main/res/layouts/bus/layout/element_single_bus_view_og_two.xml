@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/official_typing_text">
+        app:cardBackgroundColor="@android:color/transparent"
+        android:layout_marginBottom="5dp"
+        android:translationZ="2dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,23 +24,28 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_company_name"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:text="Display Company name ( 5 )"/>
+                    android:text="Display Company name ( 5 )"
+                    android:textStyle="bold"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_email"
                     android:text="Email"
+                    android:textColor="@color/msafiri_app_color_blue"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_call"
+                    android:textColor="@color/msafiri_app_color_blue"
                     android:text="Phone"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_website"
+                    android:textColor="@color/msafiri_app_color_blue"t
                     android:text="Website"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
             </LinearLayout>
@@ -51,6 +59,10 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/company_layout_book"
                     android:text="Book"
+                    android:background="@drawable/bg_blue_round"
+                    android:textColor="#fff"
+                    android:translationZ="1dp"
+                    android:clickable="true"
                     android:textAllCaps="false"/>
             </LinearLayout>
         </LinearLayout>

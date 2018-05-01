@@ -124,7 +124,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/layout_card_margin"
+                        android:padding="10dp"
                         android:orientation="horizontal"
                         android:id="@+id/select_source_destination_date_picker"
                         android:baselineAligned="false">

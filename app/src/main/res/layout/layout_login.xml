@@ -16,6 +16,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@drawable/bg_white_round"
+            android:alpha="0.75"
             android:layout_margin="20dp"
             android:paddingBottom="20dp">
             <include layout="@layout/include_auth_header"/>

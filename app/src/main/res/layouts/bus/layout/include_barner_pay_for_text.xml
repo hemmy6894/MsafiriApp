@@ -2,83 +2,87 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/linear_layout_conner_green"
+
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin"
     android:layout_margin="8dp">
-        <LinearLayout
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="0px"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:gravity="right"
-                android:text="Passenger Name :"/>
+                android:layout_weight="0.4"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="0px"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="left"
+                    android:text="Passenger Name"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="12sp"
+                    android:textColor="#00aaaa"
+                    android:layout_gravity="left"
+                    android:id="@+id/pay_for_full_name"
+                    android:text="Hemedi Mshamu"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:layout_marginLeft="4dp"
-                android:id="@+id/pay_for_full_name"
-                android:text="Hemedi Mshamu"/>
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="#00aaaa"
+                    android:id="@+id/pay_for_total_seat"
+                    android:text="3 Seat ( A1, G6, B12)"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pay_for_total_amount"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#0a0"
+                    android:text="200,000 Tsh"/>
+            </LinearLayout>
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:gravity="right"
-                android:text="Total Seat :"/>
+            android:orientation="vertical"
+            android:gravity="center">
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="@color/msafiri_app_color_blue"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
 
             <TextView
-                android:layout_width="0px"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
                 android:layout_marginLeft="4dp"
-                android:id="@+id/pay_for_total_seat"
-                android:text="3 Seat ( A1, G6, B12)"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:gravity="right"
-                android:text="Paying amount :"/>
-
-            <TextView
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:layout_marginLeft="4dp"
-                android:id="@+id/pay_for_total_amount"
-                android:text="200,000 Tsh"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:gravity="right"
-                android:text="Phone Number :"/>
-
-            <TextView
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:layout_marginLeft="4dp"
+                android:drawableLeft="@mipmap/ico_phone"
+                android:drawablePadding="7dp"
+                android:textSize="20sp"
                 android:id="@+id/pay_for_phone_number"
                 android:text="@string/test_phone_number"/>
         </LinearLayout>

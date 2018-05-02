@@ -4,6 +4,7 @@
     android:layout_height="match_parent" android:orientation="vertical"
     android:id="@+id/pop_view_group"
     android:background="@drawable/pattern_darkblue_cyan"
+    android:layout_margin="2dp"
     android:gravity="center">
 
     <TextView

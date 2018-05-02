@@ -2,16 +2,25 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent" android:orientation="vertical"
-    android:id="@+id/pop_view_group" android:background="#ccc"
+    android:id="@+id/pop_view_group"
+    android:background="@drawable/pattern_darkblue_cyan"
     android:gravity="center">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Payment Method"
+        android:text="CHOOSE PAYMENT  METHOD"
         android:gravity="center"
-        android:textColor="#000"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+        android:textColor="#fff"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#fff"
+        android:layout_marginBottom="10dp" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -26,29 +35,46 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/linear_layout_conner_green"
                 android:orientation="horizontal"
-                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"
                 android:padding="5dp">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/tigopesa"
-                    android:id="@+id/pay_by_api_tigo_pesa"/>
+                    android:src="@drawable/nmb"
+                    android:layout_margin="7dp"
+                    android:id="@+id/pay_by_api_nmp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/visa"
+                    android:layout_margin="7dp"
+                    android:id="@+id/pay_by_visa"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mastercard"
+                    android:layout_margin="7dp"
+                    android:id="@+id/pay_by_master"/>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/linear_layout_conner_green"
                 android:orientation="horizontal"
-                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"
                 android:padding="5dp">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/nmb"
-                    android:id="@+id/pay_by_api_nmp"/>
+                    android:src="@drawable/paypal"
+                    android:id="@+id/pay_by_api_tigo_pesa"/>
+
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -57,21 +83,9 @@
                 android:orientation="horizontal"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:padding="5dp">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/visa"
-                    android:id="@+id/pay_by_visa"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/master"
-                    android:id="@+id/pay_by_master"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/master2"
-                    android:id="@+id/pay_by_master_two"/>
+
+
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

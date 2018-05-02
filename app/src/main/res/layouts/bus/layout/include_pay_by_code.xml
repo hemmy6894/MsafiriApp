@@ -3,21 +3,23 @@
     android:orientation="horizontal"
     android:padding="5dp"
     android:layout_gravity="center"
-    android:background="@drawable/linear_layout_conner_green"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/vodacom"
+        android:src="@drawable/mpesa"
+        android:layout_margin="7dp"
         android:id="@+id/pay_by_vodacom"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/airtel"
+        android:src="@drawable/tigopesa"
+        android:layout_margin="7dp"
         android:id="@+id/pay_by_airtel"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/tigo_pesaa"
+        android:src="@drawable/airtel_money"
+        android:layout_margin="7dp"
         android:id="@+id/pay_by_tigo_pesa"/>
 </LinearLayout>

@@ -16,9 +16,9 @@ import com.tanzania.comtech.msafiriapp.R;
 
 public class PopActivity extends Activity implements View.OnClickListener {
 
-    ImageView code_mpesa, code_tigo, code_airtel, api_tigo, api_nmb, api_visa, api_master, api_master_two;
+    ImageView code_mpesa, code_tigo, code_airtel, api_tigo, api_nmb, api_visa, api_master;
 
-    ImageView imageViews[] = {code_mpesa, code_tigo, code_airtel, api_tigo, api_nmb, api_visa, api_master, api_master_two};
+    ImageView imageViews[] = {code_mpesa, code_tigo, code_airtel, api_tigo, api_nmb, api_visa, api_master};
     private void startButtons(){
         code_mpesa = (ImageView) findViewById(R.id.pay_by_vodacom);
         code_tigo = (ImageView) findViewById(R.id.pay_by_tigo_pesa);
@@ -29,7 +29,6 @@ public class PopActivity extends Activity implements View.OnClickListener {
 
         api_visa = (ImageView) findViewById(R.id.pay_by_visa);
         api_master = (ImageView) findViewById(R.id.pay_by_master);
-        api_master_two = (ImageView) findViewById(R.id.pay_by_master_two);
 
         code_mpesa.setOnClickListener(this);
         code_tigo.setOnClickListener(this);
@@ -40,7 +39,6 @@ public class PopActivity extends Activity implements View.OnClickListener {
 
         api_visa.setOnClickListener(this);
         api_master.setOnClickListener(this);
-        api_master_two.setOnClickListener(this);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +69,6 @@ public class PopActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.pay_by_visa:
             case R.id.pay_by_master:
-            case R.id.pay_by_master_two:
                 startActivity(new Intent(getApplicationContext(), PaymentVisa.class));
                 break;
             default:

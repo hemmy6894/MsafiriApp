@@ -5,6 +5,6 @@ package com.tanzania.comtech.msafiriapp.Time;
  */
 
 public class TimeVariables {
-    public final static String monthNames[] = {"January","February","March","April","May","June","July","August","September","October","November","December",""};
-    public final static String weeksNames[] = {"Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday",""};
+    public final static String monthNames[] = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""};
+    public final static String weeksNames[] = {"Sat","Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
 }

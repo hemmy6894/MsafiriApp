@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.Helpers.ThanksActivity;
 import com.tanzania.comtech.msafiriapp.R;
+import com.tanzania.comtech.msafiriapp.Repository.BookSeat;
 
 public class PaymentNormal extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,9 +38,8 @@ public class PaymentNormal extends AppCompatActivity implements View.OnClickList
             ok.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), ThanksActivity.class);
-                    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    new BookSeat(getApplicationContext()).bookSeat(new SharedPreferenceAppend(getApplicationContext()).readSharedPrefNormal(getString(R.string.shared_preference_text_to_pay_for)));
+
                 }
             });
             isFirstStage = false;

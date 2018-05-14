@@ -58,7 +58,7 @@ public class CheckBookedSeat {
                 try {
                     map.put(context.getString(R.string.map_sch_date_id),response.getString(context.getString(R.string.map_sch_date_id)));
                     map.put(context.getString(R.string.map_sch_pool_id),response.getString(context.getString(R.string.map_sch_pool_id)));
-                    map.put(context.getString(R.string.map_booking_ref),response.getString("bus"));
+                    map.put(context.getString(R.string.map_booking_ref),response.getString("_id"));
                     map.put("company",response.getString("company"));
 
                     new SharedPreferenceAppend(context).appendSharedPref(map,context.getString(R.string.shared_preference_route));

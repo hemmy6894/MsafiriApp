@@ -1,21 +1,63 @@
 package com.tanzania.comtech.msafiriapp.Helpers;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.webkit.DownloadListener;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tanzania.comtech.msafiriapp.ChooseTransportType;
 import com.tanzania.comtech.msafiriapp.R;
 
 public class ThanksActivity extends Activity implements View.OnClickListener {
 
+    protected WebView mWebview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_thanks);
+
+        mWebview  = (WebView)findViewById(R.id.display_ticket_view);
+        final TextView downloading = (TextView)findViewById(R.id.downloading_text);
+
+        mWebview.getSettings().setJavaScriptEnabled(true); // enable javascript
+
+        final Activity activity = this;
+
+        mWebview.setWebViewClient(new WebViewClient() {
+            @SuppressWarnings("deprecation")
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
+            }
+            @TargetApi(android.os.Build.VERSION_CODES.M)
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
+                // Redirect to deprecated method, so you can use it in all SDK versions
+                onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
+            }
+        });
+
+        mWebview.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                //start download
+                DownloadPDF downloadPDF = new DownloadPDF(getApplicationContext(),mWebview,downloading);
+                downloadPDF.execute(url,userAgent,contentDisposition);
+            }
+        });
+
+        mWebview .loadUrl("http://13.232.48.10/msafiri-shared-files/");
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -23,17 +65,15 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(.8 *width),(int)(.7*height));
+        getWindow().setLayout((int)(.85 *width),(int)(.8*height));
 
-        Button button = (Button)findViewById(R.id.thank_go_home);
-        button.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        String arrray[] = {getString(R.string.shared_preference_route),getString(R.string.shared_preference_route_info),getString(R.string.shared_preference_text_to_pay_for),getString(R.string.shared_preference_bus_data_from_id)};
-        new SharedPreferenceAppend(getApplicationContext()).clearSharedPref(arrray);
+        String array[] = {getString(R.string.shared_preference_route),getString(R.string.shared_preference_route_info),getString(R.string.shared_preference_text_to_pay_for),getString(R.string.shared_preference_bus_data_from_id)};
+        new SharedPreferenceAppend(getApplicationContext()).clearSharedPref(array);
         finish();
-        startActivity(new Intent(getApplicationContext(), ChooseTransportType.class));
+        startActivity(new Intent(getApplicationContext(), ChooseTransportType.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
     }
 }

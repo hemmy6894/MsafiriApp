@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.tanzania.comtech.msafiriapp.Helpers.PopActivity;
 import com.tanzania.comtech.msafiriapp.Helpers.SharedPreferenceAppend;
 import com.tanzania.comtech.msafiriapp.R;
+import com.tanzania.comtech.msafiriapp.Repository.BookSeat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -119,11 +120,10 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-                Intent intent = new Intent(SeatInformation.this,PopActivity.class);
-                startActivity(intent);
-
                 new SharedPreferenceAppend(getApplicationContext()).newSharedPrefNormal(object.toString(),getString(R.string.shared_preference_text_to_pay_for));
+                Intent intent = new Intent(SeatInformation.this,PopActivity.class);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

@@ -192,7 +192,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
     }
 
     private void onClickSeatImage(View view) {
-        Toast.makeText(getApplicationContext(),seatNo[view.getId()] + "",Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(),seatNo[view.getId()] + "",Toast.LENGTH_SHORT).show();
         String array_searched = seatNo[view.getId()];
         addSeatAvailable(array_searched, array_searched, view.getId());
     }
@@ -216,7 +216,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
             editor.putString("seatSelected", String.valueOf(seatAvailable));
             editor.putString("totalPrice", String.valueOf(totalPrice));
             editor.apply();
-            Toast.makeText(getApplicationContext(),"Price " + totalPrice,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Price " + totalPrice,Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), SeatInformation.class));
         }else{
             Toast.makeText(getApplicationContext(),"You must choose atleast 1 seat",Toast.LENGTH_SHORT).show();

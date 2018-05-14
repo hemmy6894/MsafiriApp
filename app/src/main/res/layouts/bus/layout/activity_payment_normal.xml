@@ -9,7 +9,8 @@
     <android.support.v7.widget.CardView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:translationZ="5dp"
+        android:translationZ="2dp"
+        app:cardBackgroundColor="#ffffff"
         app:cardCornerRadius="5dp">
 
         <LinearLayout
@@ -67,7 +68,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="By clicking Buy Now (Next), I agree to the Terms of service and Privacy Policy. "
+                        android:text="By clicking Pay, I agree to the Terms of service and Privacy Policy. "
                         android:gravity="center"
                         android:textColor="#c00"
                         android:layout_margin="10dp"/>

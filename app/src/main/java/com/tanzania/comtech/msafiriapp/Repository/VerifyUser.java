@@ -69,7 +69,7 @@ public class VerifyUser {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        }){
+        })  {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<String, String>();

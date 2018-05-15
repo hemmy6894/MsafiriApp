@@ -15,6 +15,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -40,7 +41,12 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
         progressBar.setProgress(0);
         progressBar.setVisibility(View.INVISIBLE);
 
-        Button download = (Button) findViewById(R.id.download_ticket);
+        final Button download = (Button) findViewById(R.id.download_ticket);
+        final LinearLayout e_ticket = (LinearLayout) findViewById(R.id.e_ticket);
+        final ImageView pdf = (ImageView) findViewById(R.id.pdf_downloaded);
+
+
+        e_ticket.setVisibility(View.GONE);
 
         download.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +57,20 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
 
                     public void onTick(long millisUntilFinished) {
                         progressBar.incrementProgressBy(8);
+
+                        if (millisUntilFinished == 1000) {
+
+                            download.animate().alpha(0).setDuration(700).start();
+
+                        }
                     }
 
                     public void onFinish() {
+
                         progressBar.setVisibility(View.INVISIBLE);
+                        download.setVisibility(View.GONE);
+                        e_ticket.setVisibility(View.VISIBLE);
+
                     }
                 }.start();
             }

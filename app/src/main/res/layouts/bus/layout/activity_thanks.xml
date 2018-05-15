@@ -9,14 +9,7 @@
     android:background="@drawable/official_background"
     android:gravity="center">
 
-    <ProgressBar
-        android:id="@+id/downloading_ticket"
-        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="fill_parent"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_height="wrap_content"
-        android:progress="25" />
+
 
     <android.support.v7.widget.CardView
         android:layout_width="fill_parent"
@@ -26,225 +19,234 @@
         app:cardCornerRadius="20dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
             android:padding="10dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@mipmap/msafiri_app_logo_main"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="E - Ticket"
-                    android:textSize="24sp"
-                    android:textColor="@color/msafiri_app_color_blue"/>
-            </LinearLayout>
-
-            <View
+                android:id="@+id/e_ticket"
+                android:visibility="visible"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/msafiri_app_color_blue"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:src="@drawable/qrcode"
-                    android:layout_marginRight="10dp"/>
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@mipmap/msafiri_app_logo_main"/>
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="left">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Customer ID: "
-                            android:textSize="15sp"
-                            android:textColor="#000"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:id="@+id/ticket_customer_id"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:text="08573jfu "
-                            android:textSize="13sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:orientation="horizontal"
-                        android:gravity="left">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Boarding Point: "
-                            android:textSize="15sp"
-                            android:textColor="#000"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:id="@+id/ticket_boarding_point"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ubungo "
-                            android:textColor="#000"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="left">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dropping Point: "
-                            android:textSize="15sp"
-                            android:textColor="#000"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:id="@+id/ticket_dropping_point"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:text="Kilimanjaro "
-                            android:textSize="15sp" />
-                    </LinearLayout>
+                        android:text="E - Ticket"
+                        android:textSize="24sp"
+                        android:textColor="@color/msafiri_app_color_blue"/>
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="From: "
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/ticket_from"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dar es salaam "
-                    android:background="@drawable/bg_blue_round"
-                    android:padding="7dp"
-                    android:textColor="#fff"
-                    android:textSize="15sp"
-                    android:textStyle="italic"/>
 
                 <View
-                    android:layout_width="2dp"
-                    android:layout_height="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
                     android:background="@color/msafiri_app_color_blue"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="To: "
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/ticket_to"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kilimanjaro "
-                    android:background="@drawable/bg_blue_round"
-                    android:padding="7dp"
-                    android:textColor="#fff"
-                    android:textSize="15sp"
-                    android:textStyle="italic"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
 
                 <LinearLayout
-                    android:id="@+id/ticket_name"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/qrcode"
+                        android:layout_marginRight="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="left">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Customer ID: "
+                                android:textSize="15sp"
+                                android:textColor="#000"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:id="@+id/ticket_customer_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:text="08573jfu "
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="horizontal"
+                            android:gravity="left">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Boarding Point: "
+                                android:textSize="15sp"
+                                android:textColor="#000"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:id="@+id/ticket_boarding_point"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ubungo "
+                                android:textColor="#000"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="left">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dropping Point: "
+                                android:textSize="15sp"
+                                android:textColor="#000"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:id="@+id/ticket_dropping_point"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:text="Kilimanjaro "
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="From: "
+                        android:textColor="#000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/ticket_from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dar es salaam "
+                        android:background="@drawable/bg_blue_round"
+                        android:padding="7dp"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
+                        android:textStyle="italic"/>
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="30dp"
+                        android:background="@color/msafiri_app_color_blue"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Name"
+                        android:layout_height="wrap_content"
+                        android:text="To: "
                         android:textColor="#000"
-                        android:textStyle="bold"
-                        android:textSize="15sp"/>
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/ticket_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kilimanjaro "
+                        android:background="@drawable/bg_blue_round"
+                        android:padding="7dp"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
+                        android:textStyle="italic"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ticket_number"
-                    android:layout_margin="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/ticket_name"
+                        android:layout_margin="10dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Number"
-                        android:textColor="#000"
-                        android:textStyle="bold"
-                        android:textSize="15sp"/>
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Name"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:textSize="15sp"/>
 
-                <LinearLayout
-                    android:id="@+id/ticket_seat"
-                    android:layout_margin="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    </LinearLayout>
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/ticket_number"
+                        android:layout_margin="10dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Seat Number"
-                        android:textColor="#000"
-                        android:textStyle="bold"
-                        android:textSize="15sp"/>
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Number"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:textSize="15sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ticket_seat"
+                        android:layout_margin="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Seat Number"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:textSize="15sp"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -260,9 +262,34 @@
                 android:textColor="#fff"
                 android:background="@drawable/bg_blue_round"/>
 
+            <ProgressBar
+                android:id="@+id/downloading_ticket"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="fill_parent"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:progress="25" />
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:id="@+id/pdf_downloaded"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:alpha="0"
+            android:src="@drawable/pdf"/>
+    </LinearLayout>
 
 
 

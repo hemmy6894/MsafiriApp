@@ -57,7 +57,7 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
             }
         });
 
-        mWebview .loadUrl("http://13.232.48.10/msafiri-shared-files/");
+        mWebview .loadUrl("http://13.232.48.10:9999/mob-api-v1/customer_bus_ticket_from_id/5ada0db654baba0c6c551257/5ada120e54baba0c6c551259");
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

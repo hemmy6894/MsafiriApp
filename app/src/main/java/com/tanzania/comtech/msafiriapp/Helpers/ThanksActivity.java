@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +35,30 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_thanks);
+
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.downloading_ticket);
+        progressBar.setProgress(0);
+        progressBar.setVisibility(View.INVISIBLE);
+
+        Button download = (Button) findViewById(R.id.download_ticket);
+
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setProgress(0);
+                progressBar.setVisibility(View.VISIBLE);
+                new CountDownTimer(3000, 30) {
+
+                    public void onTick(long millisUntilFinished) {
+                        progressBar.incrementProgressBy(8);
+                    }
+
+                    public void onFinish() {
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                }.start();
+            }
+        });
 
         String passengers = new SharedPreferenceAppend(getApplicationContext()).readSharedPrefNormal(getString(R.string.shared_preference_text_to_pay_for));
         Log.d("Thanks Activity", passengers.toString());

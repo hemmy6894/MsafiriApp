@@ -3,8 +3,10 @@ package com.tanzania.comtech.msafiriapp.Helpers;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.webkit.DownloadListener;
 import android.webkit.WebResourceError;
@@ -12,11 +14,16 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tanzania.comtech.msafiriapp.ChooseTransportType;
 import com.tanzania.comtech.msafiriapp.R;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class ThanksActivity extends Activity implements View.OnClickListener {
 
@@ -27,45 +34,57 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
 
         setContentView(R.layout.activity_thanks);
 
-        mWebview  = (WebView)findViewById(R.id.display_ticket_view);
-        final TextView downloading = (TextView)findViewById(R.id.downloading_text);
+        String passengers = new SharedPreferenceAppend(getApplicationContext()).readSharedPrefNormal(getString(R.string.shared_preference_text_to_pay_for));
+        Log.d("Thanks Activity", passengers.toString());
+        try {
+            JSONObject jsonObject = new JSONObject(passengers);
+            String customer_id = jsonObject.getString(getString(R.string.shared_customer_id));
+            String boarding_point = jsonObject.getString(getString(R.string.json_boarding_point));
+            String dropping_point = jsonObject.getString(getString(R.string.json_dropping_point));
 
-        mWebview.getSettings().setJavaScriptEnabled(true); // enable javascript
+            JSONArray ticket_seats = jsonObject.getJSONArray("passengers");
 
-        final Activity activity = this;
+            TextView textView_customer_id = (TextView) findViewById(R.id.ticket_customer_id);
+            TextView textView_boarding_point = (TextView) findViewById(R.id.ticket_boarding_point);
+            TextView textView_dropping_point = (TextView) findViewById(R.id.ticket_dropping_point);
 
-        mWebview.setWebViewClient(new WebViewClient() {
-            @SuppressWarnings("deprecation")
-            @Override
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
+            textView_customer_id.setText(customer_id);
+            textView_boarding_point.setText(boarding_point);
+            textView_dropping_point.setText(dropping_point);
+
+            for (int i=0;i<ticket_seats.length();i++){
+
+                JSONObject ticket = ticket_seats.getJSONObject(i);
+
+                String json_name = ticket.getString("passenger_name");
+                String json_phone = ticket.getString("passenger_phone");
+                String json_seat = ticket.getString("seat_no");
+
+                TextView name = new TextView(this);
+                name.setTextColor(Color.parseColor("#000000"));
+                name.setText(json_name);
+                TextView phone = new TextView(this);
+                phone.setTextColor(Color.parseColor("#000000"));
+                phone.setText(json_phone);
+                TextView seat = new TextView(this);
+                seat.setTextColor(Color.parseColor("#000000"));
+                seat.setText(json_seat);
+
+                LinearLayout names = (LinearLayout) findViewById(R.id.ticket_name);
+                LinearLayout numbers = (LinearLayout) findViewById(R.id.ticket_number);
+                LinearLayout seats = (LinearLayout) findViewById(R.id.ticket_seat);
+
+                names.addView(name);
+                numbers.addView(phone);
+                seats.addView(seat);
+
             }
-            @TargetApi(android.os.Build.VERSION_CODES.M)
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
-                // Redirect to deprecated method, so you can use it in all SDK versions
-                onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
-            }
-        });
 
-        mWebview.setDownloadListener(new DownloadListener() {
-            @Override
-            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                //start download
-                DownloadPDF downloadPDF = new DownloadPDF(getApplicationContext(),mWebview,downloading);
-                downloadPDF.execute(url,userAgent,contentDisposition);
-            }
-        });
+            Log.d("Thanks Activity", ticket_seats.toString());
 
-        mWebview .loadUrl("http://13.232.48.10/msafiri-shared-files/");
-
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-        getWindow().setLayout((int)(.85 *width),(int)(.8*height));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

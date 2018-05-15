@@ -123,6 +123,7 @@ public class SeatInformation extends AppCompatActivity implements View.OnClickLi
                 new SharedPreferenceAppend(getApplicationContext()).newSharedPrefNormal(object.toString(),getString(R.string.shared_preference_text_to_pay_for));
                 Intent intent = new Intent(SeatInformation.this,PopActivity.class);
                 //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                 startActivity(intent);
                 break;
         }

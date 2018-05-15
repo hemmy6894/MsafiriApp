@@ -117,7 +117,7 @@ public class LoginModel {
 
     private void hidden_text_view(String text,TextView hiddenSms){
         hiddenSms.setVisibility(View.VISIBLE);
-        hiddenSms.setTextColor(Color.RED);
+        hiddenSms.setTextColor(Color.GREEN);
         hiddenSms.setText(text);
     }
 }

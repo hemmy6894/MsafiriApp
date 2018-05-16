@@ -46,6 +46,7 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
         final ImageView pdf = (ImageView) findViewById(R.id.pdf_downloaded);
 
 
+        e_ticket.setTranslationY(-1000f);
         e_ticket.setVisibility(View.GONE);
 
         download.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +62,7 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
 
                         if (millisUntilFinished == 1000) {
 
-                            download.animate().alpha(0).setDuration(700).start();
+                            download.animate().alpha(0).setDuration(700);
 
                         }
                     }
@@ -71,6 +72,7 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
                         progressBar.setVisibility(View.INVISIBLE);
                         download.setVisibility(View.GONE);
                         e_ticket.setVisibility(View.VISIBLE);
+                        e_ticket.animate().translationYBy(1000f).setDuration(300);
 
                     }
                 }.start();

@@ -8,6 +8,7 @@
     android:background="@drawable/bg_compass">
 
     <TextView
+        android:id="@+id/welcome_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -18,7 +19,21 @@
         android:layout_marginLeft="50dp"
         android:gravity="center"
         android:textColor="@color/msafiri_app_color_blue"
-        android:text="Welcome to Msafiri App"/>
+        android:text="Welcome to"/>
+
+    <TextView
+        android:id="@+id/msafiri_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/welcome_txt"
+        android:textSize="35sp"
+        android:fontFamily="@font/roboto_bold"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:gravity="center"
+        android:textColor="@color/msafiri_app_color_blue"
+        android:text="M-safiriApp"/>
 
     <ImageView
         android:layout_width="wrap_content"

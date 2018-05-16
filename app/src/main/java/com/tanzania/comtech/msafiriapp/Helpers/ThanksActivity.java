@@ -56,6 +56,7 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
                 new CountDownTimer(3000, 30) {
 
                     public void onTick(long millisUntilFinished) {
+
                         progressBar.incrementProgressBy(8);
 
                         if (millisUntilFinished == 1000) {

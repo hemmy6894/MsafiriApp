@@ -197,9 +197,10 @@ public class ChooseTransportType extends AppCompatActivity
 
         if (id == R.id.about) {
             // Handle the camera action
+            Intent z = new Intent(getApplicationContext(), AboutMsafiri.class);
+            startActivity(z);
         } else if (id == R.id.my_profile) {
-            Intent i = new Intent(getApplicationContext(), AboutMsafiri.class);
-            startActivity(i);
+
         } else if (id == R.id.my_tickets) {
             Intent i = new Intent(getApplicationContext(), ThanksActivity.class);
             startActivity(i);

@@ -1,5 +1,6 @@
 package com.tanzania.comtech.msafiriapp.Auth;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,19 +15,27 @@ public class StartApplication extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_application);
-        new Thread() {
-            public void run() {
-                try {
-                    ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress_bar);
-                    progressBar.setVisibility(View.VISIBLE);
-                    sleep(60000);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    finish();
-                    new CheckIfIsLogin(getApplicationContext());
-                }
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
+        new CountDownTimer(3000, 10)  {
+
+            public void onTick (long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                new CheckIfIsLogin(getApplicationContext());
             }
         }.start();
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        System.exit(0);
     }
 }

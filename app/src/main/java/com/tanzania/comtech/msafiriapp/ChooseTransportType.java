@@ -2,6 +2,7 @@ package com.tanzania.comtech.msafiriapp;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.tanzania.comtech.msafiriapp.Helpers.ThanksActivity;
 import com.tanzania.comtech.msafiriapp.Repository.FetchRouteRepository;
 import com.tanzania.comtech.msafiriapp.Time.TimeVariables;
 
@@ -193,17 +195,15 @@ public class ChooseTransportType extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.about) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.my_profile) {
+            Intent i = new Intent(getApplicationContext(), AboutMsafiri.class);
+            startActivity(i);
+        } else if (id == R.id.my_tickets) {
+            Intent i = new Intent(getApplicationContext(), ThanksActivity.class);
+            startActivity(i);
+        } else if (id == R.id.logout) {
 
         }
 

@@ -1,5 +1,6 @@
 package com.tanzania.comtech.msafiriapp.Helpers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -82,15 +83,14 @@ public class Drawable extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.navigation) {
+        if (id == R.id.about) {
             // Handle the camera action
-        } else if (id == R.id.navigation_dashboard) {
+        } else if (id == R.id.my_profile) {
 
-        } else if (id == R.id.navigation_home) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.my_tickets) {
+            Intent i = new Intent(getApplicationContext(), ThanksActivity.class);
+            startActivity(i);
+        } else if (id == R.id.logout) {
 
         }
 

@@ -8,6 +8,41 @@
     android:orientation="vertical"
     android:background="#fff"
     android:gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="PDF"
+            android:background="#0000ff"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:drawableLeft="@drawable/pdf_drawable"
+            android:drawableStart="@drawable/pdf_drawable"
+            android:padding="6dp"
+            android:gravity="center"
+            android:id="@+id/download_ticket_view"
+            android:layout_margin="4dp"
+            android:drawableTint="#ff0000"
+            android:drawablePadding="5dp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Print"
+            android:gravity="center"
+            android:layout_margin="4dp"
+            android:drawableTint="#ff0000"
+            android:id="@+id/print_ticket_view"
+            android:background="#0000ff"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:drawableLeft="@drawable/print_drawable"
+            android:drawableStart="@drawable/print_drawable"
+            android:padding="6dp"
+            android:drawablePadding="5dp" />
+    </LinearLayout>
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

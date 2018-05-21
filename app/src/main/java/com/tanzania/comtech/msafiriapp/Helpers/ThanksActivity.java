@@ -18,6 +18,9 @@ import android.widget.Toast;
 import com.tanzania.comtech.msafiriapp.ChooseTransportType;
 import com.tanzania.comtech.msafiriapp.R;
 
+import static com.tanzania.comtech.msafiriapp.API.BusApi.customerBusTicket;
+
+
 public class ThanksActivity extends Activity implements View.OnClickListener {
 
     protected WebView mWebview;
@@ -47,17 +50,37 @@ public class ThanksActivity extends Activity implements View.OnClickListener {
                 onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
             }
         });
+        final String realUrl = customerBusTicket + "5ada0db654baba0c6c551257/5ada120e54baba0c6c551259";
+        final String downloadedUrl = realUrl + "/download";
+        final String loadedUrl = realUrl + "/preview";
+
+        Button downloadPdf = (Button)findViewById(R.id.download_ticket_view);
+        downloadPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DownloadPDF downloadPDF = new DownloadPDF(getApplicationContext(),mWebview,downloading);
+                downloadPDF.execute(downloadedUrl,"","");
+            }
+        });
+
+        Button printTicket = (Button)findViewById(R.id.print_ticket_view);
+        printTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"Under Construction",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mWebview.setDownloadListener(new DownloadListener() {
             @Override
             public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
                 //start download
                 DownloadPDF downloadPDF = new DownloadPDF(getApplicationContext(),mWebview,downloading);
-                downloadPDF.execute(url,userAgent,contentDisposition);
+                downloadPDF.execute(downloadedUrl,userAgent,contentDisposition);
             }
         });
 
-        mWebview .loadUrl("http://13.232.48.10:9999/mob-api-v1/customer_bus_ticket_from_id/5ada0db654baba0c6c551257/5ada120e54baba0c6c551259");
+        mWebview .loadUrl(loadedUrl);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

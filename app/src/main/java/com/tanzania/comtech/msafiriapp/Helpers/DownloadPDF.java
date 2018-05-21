@@ -46,7 +46,7 @@ class DownloadPDF extends AsyncTask<String, Integer, String> {
             File myDir = new File(Environment.getExternalStoragePublicDirectory(
                     Environment.DIRECTORY_DOWNLOADS).toString()+"/MsfiriApp/Download");
 
-            // create the directory if it does not exist
+            //create the directory if it does not exist
             if (!myDir.exists()) myDir.mkdirs();
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

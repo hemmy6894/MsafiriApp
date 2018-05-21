@@ -26,25 +26,21 @@ public class ModelVariables {
     private boolean bus_visible;
     private String bus_status;
     private String bus_profile;
+    private String bus_from;
+    private String bus_to;
     private String bus_id;
     private String bus_company;
     private String bus__v;
 
-    ModelVariables(String sch_departure_time, String sch_arrival_time, String sch_fare, String sch_discount, boolean sch_visible, String estimated_time, String help_line_no, String bus_name, String bus_model, int bus_max_seat_no, String bus_phone) {
-        this.sch_departure_time = sch_departure_time;
-        this.sch_arrival_time = sch_arrival_time;
-        this.sch_fare = sch_fare;
-        this.sch_discount = sch_discount;
-        this.sch_visible = sch_visible;
-        this.estimated_time = estimated_time;
-        this.help_line_no = help_line_no;
-        this.bus_name = bus_name;
-        this.bus_model = bus_model;
-        this.bus_max_seat_no = bus_max_seat_no;
-        this.bus_phone = bus_phone;
+    public String getBus_from() {
+        return bus_from;
     }
 
-   ModelVariables(String sch_departure_time, String sch_arrival_time, String sch_fare, String sch_discount, String sch_processing_fee, boolean sch_visible, String sch_id, String sch_session, String estimated_time, String min_booking_hrs, String bus_name, String bus_seat_type, String bus_model, int bus_max_seat_no, boolean bus_last_seat_filled, String bus_driver_incharge, String bus_phone, boolean bus_visible, String bus_status, String bus_profile, String bus_id, String bus_company) {
+    public String getBus_to() {
+        return bus_to;
+    }
+
+    ModelVariables(String sch_departure_time, String sch_arrival_time, String sch_fare, String sch_discount, String sch_processing_fee, boolean sch_visible, String sch_id, String sch_session, String estimated_time, String min_booking_hrs, String bus_name, String bus_seat_type, String bus_model, int bus_max_seat_no, boolean bus_last_seat_filled, String bus_driver_incharge, String bus_phone, boolean bus_visible, String bus_status, String bus_profile, String bus_id, String bus_company) {
         this.sch_departure_time = sch_departure_time;
         this.sch_arrival_time = sch_arrival_time;
         this.sch_fare = sch_fare;
@@ -68,6 +64,25 @@ public class ModelVariables {
         this.bus_id = bus_id;
         this.bus_company = bus_company;
     }
+
+     ModelVariables(String sch_departure_time, String sch_arrival_time, String sch_fare, String sch_discount, boolean sch_visible, String estimated_time, String help_line_no, String bus_name, String bus_model, int bus_max_seat_no, String bus_phone, boolean bus_visible, String bus_from, String bus_to) {
+        this.sch_departure_time = sch_departure_time;
+        this.sch_arrival_time = sch_arrival_time;
+        this.sch_fare = sch_fare;
+        this.sch_discount = sch_discount;
+        this.sch_visible = sch_visible;
+        this.estimated_time = estimated_time;
+        this.help_line_no = help_line_no;
+        this.bus_name = bus_name;
+        this.bus_model = bus_model;
+        this.bus_max_seat_no = bus_max_seat_no;
+        this.bus_phone = bus_phone;
+        this.bus_visible = bus_visible;
+        this.bus_from = bus_from;
+        this.bus_to = bus_to;
+    }
+
+
 
     public String getSch_departure_time() {
         return sch_departure_time;

@@ -18,5 +18,6 @@ public class BusApi {
     public final  static String holdingSeat = Links.msfiriAppLink + "hold_bus_seat/";
     public final  static String companyInformation = Links.msfiriAppLink + "companies";
     public final  static String customerInformation = Links.msfiriAppLink + "customers";
+    public final  static String customerHistoryBooking = Links.msfiriAppLink + "customer_history_bus_bookings/";
     public final  static String customerBusTicket = Links.msfiriAppLink + "customer_bus_ticket_from_id/";
 }

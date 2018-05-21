@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/msafiri_app_logo_two"
@@ -19,7 +20,7 @@
             android:label="@string/title_activity_main" />
         <activity android:name=".Bus.Activity_list_bus" />
         <activity android:name=".Bus.Activity_list_company" />
-        <activity android:name=".seat_plan.MainActivity"></activity>
+        <activity android:name=".seat_plan.MainActivity" />
         <activity
             android:name=".Payment.SeatInformation"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -52,12 +53,12 @@
         <activity android:name=".Auth.StartApplication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".seat_plan.SeatPlanOriginal">
-
-        </activity>
+        <activity android:name=".seat_plan.SeatPlanOriginal" />
+        <activity android:name=".DrawerHistory"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</LinearLayout>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_card_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Travel Date"
+                android:id="@+id/drawer_travel_date"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bus Name"
+                        android:id="@+id/drawer_bus_name"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Helpline number"
+                        android:id="@+id/drawer_helpline_no"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CANCELED"
+                        android:layout_gravity="center"
+                        android:id="@+id/drawer_status"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.45"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:text="Dar es salaam"
+                    android:id="@+id/drawer_source"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="=>"
+                    android:gravity="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:layout_weight="0.10"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.45"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:text="Kilimanjaro"
+                    android:id="@+id/drawer_destination"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+</android.support.v7.widget.CardView>

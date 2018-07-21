@@ -2,6 +2,7 @@ package com.tanzania.comtech.msafiriapp.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.tanzania.comtech.msafiriapp.Helpers.JavaStringOperation;
+import com.tanzania.comtech.msafiriapp.Helpers.ThanksActivity;
 import com.tanzania.comtech.msafiriapp.Model.DrawerModel;
 import com.tanzania.comtech.msafiriapp.R;
 
@@ -34,7 +36,7 @@ public class DrawableAdapter  extends ArrayAdapter<DrawerModel> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if(convertView == null){
             LayoutInflater in = (LayoutInflater)getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = in.inflate(R.layout.element_single_bus_view_og_two,null,true);
+            convertView = in.inflate(R.layout.drawable_element_view,null,true);
         }
 
         final DrawerModel drawerModel = getItem(position);
@@ -48,12 +50,24 @@ public class DrawableAdapter  extends ArrayAdapter<DrawerModel> {
         source = convertView.findViewById(R.id.drawer_source);
         destination = convertView.findViewById(R.id.drawer_destination);
 
-        treval_date.setText("" + drawerModel.getSch_departure_time());
-        bus_name.setText(drawerModel.getBus_name());
-        helpline_no.setText(drawerModel.getHelp_line_no());
-        status.setText(JavaStringOperation.replaceCapitalize("ticket_canceled"));
-        source.setText(drawerModel.getBus_from());
-        destination.setText(drawerModel.getBus_to());
+
+            assert drawerModel != null;
+            treval_date.setText(drawerModel.getSch_departure_time());
+            bus_name.setText(drawerModel.getBus_name());
+            helpline_no.setText(drawerModel.getHelp_line_no());
+            status.setText(JavaStringOperation.replaceCapitalize("ticket_canceled"));
+            source.setText(drawerModel.getBus_from());
+            destination.setText(drawerModel.getBus_to());
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, ThanksActivity.class);
+                    intent.putExtra("APPENDED_VALUE",drawerModel.getBooking_id() + "/" + drawerModel.getSeat_id());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            });
         return convertView;
     }
 }

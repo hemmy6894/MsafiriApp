@@ -2,23 +2,28 @@ package com.tanzania.comtech.msafiriapp.Bus;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tanzania.comtech.msafiriapp.Adapter.BusAdapter;
-import com.tanzania.comtech.msafiriapp.Adapter.CompanyAdapter;
 import com.tanzania.comtech.msafiriapp.Model.CompanyModel;
 import com.tanzania.comtech.msafiriapp.R;
-import com.tanzania.comtech.msafiriapp.Model.BusModel;
 import com.tanzania.comtech.msafiriapp.Time.TimeVariables;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+import devs.mulham.horizontalcalendar.HorizontalCalendar;
+import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
 
 public class Activity_list_bus extends AppCompatActivity {
 
@@ -28,11 +33,15 @@ public class Activity_list_bus extends AppCompatActivity {
     ArrayList<CompanyModel> busRepositories;
     ListView busList;
 
+    private HorizontalCalendar horizontalCalendar;
+
     TextView source, destination, date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bus_layout_list_bus);
+
+
 
         routeInformation = getSharedPreferences("routeInfo",Context.MODE_PRIVATE);
 
@@ -50,6 +59,34 @@ public class Activity_list_bus extends AppCompatActivity {
 
        // Log.e("My Json Data",jsonObj);
         busRepositories = new ArrayList<>();
+
+        ////Start makorokocho siyajui
+        Calendar endDate = Calendar.getInstance();
+        endDate.set(routeInformation.getInt("year",Calendar.YEAR),routeInformation.getInt("month",Calendar.MONTH),routeInformation.getInt("day_of_month",Calendar.DAY_OF_MONTH));
+        endDate.add(Calendar.DAY_OF_MONTH, 3);
+        Calendar startDate = Calendar.getInstance();
+        startDate.set(routeInformation.getInt("year",Calendar.YEAR),routeInformation.getInt("month",Calendar.MONTH),routeInformation.getInt("day_of_month",Calendar.DAY_OF_MONTH));
+        startDate.add(Calendar.DAY_OF_MONTH, -3);
+
+        Calendar defaultSelected = Calendar.getInstance();
+        defaultSelected.set(routeInformation.getInt("year",Calendar.YEAR),routeInformation.getInt("month",Calendar.MONTH),routeInformation.getInt("day_of_month",Calendar.DAY_OF_MONTH));
+        HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder(this, R.id.calendarView)
+                .defaultSelectedDate(defaultSelected.getTime())
+                .startDate(startDate.getTime())
+                .endDate(endDate.getTime())
+                .datesNumberOnScreen(5)
+                .textSize(10f,16f,10f)
+                .build();
+
+        horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
+            @Override
+            public void onDateSelected(Date date, int position) {
+                Toast.makeText(getApplicationContext(), DateFormat.getDateInstance().format(date) + " is selected!", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
+        ////End makorokocho siyajui
 
         busList = (ListView)findViewById(R.id.bus_layout_list_bus_list);
 

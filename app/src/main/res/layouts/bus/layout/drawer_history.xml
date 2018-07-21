@@ -5,28 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DrawerHistory"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ddd">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="history"
-        android:textAllCaps="true"
+        android:id="@+id/drawer_title"
         android:gravity="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:padding="5dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
         <ProgressBar
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/drawer_progress"/>
+            android:id="@+id/drawer_progress" />
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:id="@+id/list_drawer_item"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No data to display"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:id="@+id/drawer_text"
+            android:gravity="center"
+            android:visibility="gone"/>
     </LinearLayout>
 </LinearLayout>

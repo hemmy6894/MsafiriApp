@@ -3,8 +3,8 @@ package com.tanzania.comtech.msafiriapp.seat_plan;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +19,10 @@ import com.tanzania.comtech.msafiriapp.Payment.SeatInformation;
 import com.tanzania.comtech.msafiriapp.R;
 import com.tanzania.comtech.msafiriapp.Repository.HoldUnHoldSeat;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class SeatPlanOriginal extends AppCompatActivity {
@@ -178,33 +178,47 @@ public class SeatPlanOriginal extends AppCompatActivity {
     private void giveSeatId(int j, int k, ImageView imageView){
         seatNo[setNumberIncrement] = "" + rowNames[j] + k;
 
-        if(isChecked(seatNo[setNumberIncrement])){
-            imageView.setImageResource(R.drawable.seat_taken);
-            imageView.setEnabled(false);
-        }
         imageView.setId(setNumberIncrement);
+        int isChecked = isChecked(seatNo[setNumberIncrement]);
+        if(isChecked > 0){
+            imageView.setImageResource(R.drawable.seat_taken);
+            if(isChecked == 1) {
+                imageView.setEnabled(true);
+                String array_searched = seatNo[setNumberIncrement];
+                addSeatAvailable(false, array_searched, setNumberIncrement);
+            } if(isChecked == 2 || isChecked == 3) imageView.setEnabled(false);
+        }
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                onClickSeatImage(view);
-            }
+            public void onClick(View view) { onClickSeatImage(view); }
         });
     }
-
     private void onClickSeatImage(View view) {
-       // Toast.makeText(getApplicationContext(),seatNo[view.getId()] + "",Toast.LENGTH_SHORT).show();
         String array_searched = seatNo[view.getId()];
-        addSeatAvailable(array_searched, array_searched, view.getId());
+        addSeatAvailable(true, array_searched, view.getId());
     }
 
     //Check if seat is booked
-    private boolean isChecked(String seatName){
-        try {
-            return checkedMapExistence.containsKey(seatName);
-        }catch (NullPointerException e){
-            return false;
+    private int isChecked(String seatName){
+        if(checkedMapExistence.containsKey(seatName)) {
+            String jsonData = String.valueOf(checkedMapExistence.get(seatName));
+            boolean paid = false;
+            boolean hold = false;
+            String customer = "";
+            SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.shared_preference_session), MODE_PRIVATE);
+            final String customer_id = sharedPreferences.getString("customer_id", "");
+            try {
+                JSONObject returned = new JSONObject(jsonData);
+                paid = returned.getBoolean("paid");
+                hold = returned.getBoolean("on_hold");
+                customer = returned.getString("customer");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+                if(customer.equals(customer_id) && hold){ return 1;}else if (paid){ return 2; }else if(hold){ return 3;}
         }
-
+        return 0;
     }
 
     //Function followed whene next button clicked
@@ -226,7 +240,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
 
     ///selected seat by user
     int totalSeatSelected = 0;
-    public void addSeatAvailable(String key, Object value, int ImageID){
+    public void addSeatAvailable(boolean holdSeatYes, Object value, int ImageID){
         int d = seatAvailable.indexOf(value);
 
         mapHoldingValue.put(getString(R.string.shared_customer_id),new SharedPreferenceAppend(getApplicationContext()).readSharedPref(getString(R.string.shared_preference_booking_info)).get(getString(R.string.shared_customer_id)));
@@ -244,6 +258,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
             totalSeatSelected++;
             //Change seat image and pop up seat no selected
             mapHoldingValue.put("seat_no",value);
+            if (holdSeatYes)
             holdUnHoldSeat.holdingSeat(mapHoldingValue);
             buttonChangeImage = (ImageView)findViewById(ImageID);
             buttonChangeImage.setImageResource(R.drawable.seat_taken);

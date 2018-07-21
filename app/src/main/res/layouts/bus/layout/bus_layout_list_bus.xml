@@ -77,11 +77,21 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
                     android:text="@string/date_string"
+                    android:visibility="gone"
                     android:textSize="17dp"
                     android:drawableLeft="@mipmap/ico_calender"
                     android:drawablePadding="5dp"
                     android:padding="@dimen/layout_input_margin"
-                    android:id="@+id/bus_layout_list_bus_today"/>
+                    android:id="@+id/bus_layout_list_bus_today"
+                    android:drawableStart="@mipmap/ico_calender" />
+
+                <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    app:textColorSelected="#FFFF"
+                    android:layout_margin="3dp"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

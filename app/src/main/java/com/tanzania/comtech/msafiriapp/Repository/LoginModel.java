@@ -72,6 +72,7 @@ public class LoginModel {
                         userEditor.putString(context.getString(R.string.shared_phone_number), phone_no);
                         userEditor.putBoolean(context.getString(R.string.shared_phone_verified), phone_verified);
                         userEditor.putString(context.getString(R.string.shared_token), tokenDetails);
+                        userEditor.putString(context.getString(R.string.shared_customer_id), customer_id);
                         userEditor.apply();
 
                         SharedPreferences booking = context.getSharedPreferences(context.getString(R.string.shared_preference_booking_info),Context.MODE_PRIVATE);

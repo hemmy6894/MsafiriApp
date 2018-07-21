@@ -65,11 +65,12 @@ public class CheckBookedSeat {
 
 
                     JSONArray a = response.getJSONArray("booked_seat");
+                    Log.e("response","response "+ a.toString());
                     Map<String, Object> mapb = new HashMap<>();
                     for (int i = 0; i < a.length(); i++){
                         JSONObject o = a.getJSONObject(i);
-                        Log.e("nuyama za ulimi",o.toString());
-                        mapb.put(o.getString("seat_no"),o.getString("on_hold"));
+                        //Log.e("nuyama za ulimi",o.toString());
+                        mapb.put(o.getString("seat_no"),o.toString());
                     }
                     new SharedPreferenceAppend(context).newSharedPref(mapb,"booked_seat");
                 } catch (JSONException e) {

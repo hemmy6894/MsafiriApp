@@ -89,18 +89,18 @@ class DownloadPDF extends AsyncTask<String, Integer, String> {
             int PROGRESS_MAX = 100;
             int PROGRESS_CURRENT = 0;
 
-
+            int notificationId = 456;
             while ((count = input.read(data)) != -1) {
                 total += count;
                 PROGRESS_CURRENT = (int)total / 100;
-                output.write(data, 0, count);
                 mBuilder.setProgress(PROGRESS_MAX, PROGRESS_CURRENT, false);
+                notificationManager.notify(notificationId, mBuilder.build());
+                output.write(data, 0, count);
             }
 
 
 
-            int notificationId = 456;
-            notificationManager.notify(notificationId, mBuilder.build());
+
 
             mBuilder.setContentText("Download complete")
                     .setProgress(0,0,false);

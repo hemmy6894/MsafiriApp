@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/official_background"
+    android:background="@color/msafiri_app_color_light_grey"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.tanzania.comtech.msafiriapp.ChooseTransportType"
     tools:showIn="@layout/app_bar_choose_transport_type">
@@ -16,7 +16,173 @@
         android:background="@color/under_action_bar_color"
         app:menu="@menu/navigation"
         android:translationZ="10dp"
-        tools:background="@color/msafiri_app_color_blue" />
+        tools:background="@color/msafiri_app_color_blue_light" />
+
+    <LinearLayout
+        android:id="@+id/slide_show"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/scrollView2"
+        android:orientation="vertical">
+
+        <ViewFlipper
+            android:id="@+id/viewFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_0"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_1"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_2"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_3"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_4"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_5"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_6"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_7"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_8"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_9"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_10"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_11"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_12"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_13"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_14"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_15"/>
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_16"/>
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_17"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_18"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_18"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_19"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_20"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_21"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_22"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_23"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_24"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_25"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_26"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_27"/>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/slide_pic_28"/>
+
+
+        </ViewFlipper>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:translationZ="5dp"
-                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardBackgroundColor="@color/msafiri_app_color_blue"
                     android:id="@+id/activity_main_from_to">
 
                     <LinearLayout
@@ -63,6 +229,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                                    android:textColor="@color/msafiri_app_color_light_grey"
                                     android:hint="@string/from_kutoka"
                                     android:id="@+id/select_source_destination_source"
                                     android:backgroundTint="#fff"
@@ -78,8 +245,9 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                                        android:textColor="@color/msafiri_app_color_light_grey"
                                         android:hint="@string/to_kwenda"
-                                        android:backgroundTint="#fff"
+                                        android:backgroundTint="@color/msafiri_app_color_light_grey"
                                         android:padding="10dp"
                                         android:id="@+id/select_source_destination_destination"
                                     android:drawableStart="@mipmap/ico_pointer"
@@ -100,6 +268,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
+                                    android:background="@drawable/bg_white_border"
                                     android:drawableLeft="@mipmap/swap_white"
                                     android:text=" Swap Destination"
                                     android:textColor="#fff"/>
@@ -107,37 +276,42 @@
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
+
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
                     app:cardBackgroundColor="@android:color/transparent"
                     android:translationZ="5dp"
                     android:layout_below="@+id/activity_main_from_to"
+                    android:layout_centerHorizontal="true"
                     android:id="@+id/activity_main_day">
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_blue_round"
                         android:id="@+id/select_source_destination_date_picker"
                         android:baselineAligned="false">
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.6"
                             android:orientation="vertical"
                             tools:ignore="UselessParent">
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
+                                android:gravity="center"
                                 android:baselineAligned="false"
                                 tools:ignore="UselessParent">
                                 <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="0.2">
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
                                     <TextView
                                         android:id="@+id/select_source_destination_date_picker_day"
                                         android:layout_width="wrap_content"
@@ -146,12 +320,11 @@
                                         android:text="10"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                         android:textColor="#fff"
-                                        android:textSize="50sp" />
+                                        android:textSize="35sp" />
                                 </LinearLayout>
                                 <LinearLayout
-                                    android:layout_width="0dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="0.2"
                                     android:padding="10dp"
                                     android:orientation="vertical">
 
@@ -162,20 +335,19 @@
                                         android:text="Mon"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                         android:textColor="#fff"
-                                        android:textSize="15sp" />
+                                        android:textSize="10sp" />
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Jan"
                                         android:textColor="#fff"
                                         android:id="@+id/select_source_destination_date_picker_month"
-                                        android:textSize="25sp"
+                                        android:textSize="13sp"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                                 </LinearLayout>
                                 <LinearLayout
-                                    android:layout_width="0dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="0.4"
                                     android:layout_gravity="center">
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -185,7 +357,7 @@
                                         android:textColor="#fff"
                                         android:gravity="top"
                                         android:id="@+id/select_source_destination_date_picker_year"
-                                        android:textSize="50sp"
+                                        android:textSize="35sp"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
                                 </LinearLayout>
                             </LinearLayout>

@@ -17,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -24,6 +26,7 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.tanzania.comtech.msafiriapp.Repository.FetchRouteRepository;
 import com.tanzania.comtech.msafiriapp.Time.TimeVariables;
@@ -49,6 +52,9 @@ public class ChooseTransportType extends AppCompatActivity
 
     public int left_seat, right_seat;
 
+    Animation fade_in, fade_out;
+    ViewFlipper viewFlipper;
+
     String sendTextFrom, sendTextTo, sendPickedDate;
     public void create_datePickers(){
         datePickerDay = (TextView)findViewById(R.id.select_source_destination_date_picker_day);
@@ -65,7 +71,7 @@ public class ChooseTransportType extends AppCompatActivity
         int day_of_week = myCalendar.get(Calendar.DAY_OF_WEEK);
 
         datePickerDay.setText(String.format("%s", day_of_month));
-        datePickerDayName.setText(String.format("%s", TimeVariables.weeksNames[day_of_week]));
+        datePickerDayName.setText(String.format("%s", TimeVariables.monthNames[day_of_week]));
         datePickerMonth.setText(String.format("%s", TimeVariables.monthNames[month]));
         datePickerYear.setText(String.format("%s", year));
 
@@ -153,6 +159,18 @@ public class ChooseTransportType extends AppCompatActivity
 
         goNext = (Button)findViewById(R.id.select_source_destination_next_button);
         goNext.setOnClickListener(this);
+
+        viewFlipper = findViewById(R.id.viewFlipper);
+        fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        fade_out = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+
+        viewFlipper.setInAnimation(fade_in);
+        viewFlipper.setOutAnimation(fade_out);
+
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setFlipInterval(5000);
+        viewFlipper.startFlipping();
+
     }
 
     @Override

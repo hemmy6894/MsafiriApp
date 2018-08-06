@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/justinmind_logo_size"
+                android:layout_height="@dimen/justinmind_logo_size_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/justinmind_top_margin"
+                android:src="@mipmap/msafiri_app_logo" />
+
+            <EditText
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="Fullname"
+                android:inputType="text" />
+
+            <EditText
+                android:layout_width="@dimen/justinmind_edittext_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="Phone number"
+                android:inputType="phone" />
+
+            <EditText
+                android:layout_width="@dimen/justinmind_edittext_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:layout_width="@dimen/justinmind_edittext_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:layout_width="@dimen/justinmind_edittext_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:layout_width="@dimen/justinmind_button_width"
+                android:layout_height="@dimen/justinmind_button_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/justinmind_margin_top_input"
+                android:background="@drawable/justinmind_button"
+                android:text="Register"
+                android:textColor="@color/justinmind_white_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/justinmind_margin_top_input"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="102dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:text="A member Sign In!!"
+                    android:textSize="@dimen/justinmind_text_fornt_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/justinmind_slider_image_width"
+                android:layout_height="@dimen/justinmind_slider_image_height"
+                android:layout_gravity="center"
+                android:src="@color/justinmind_button_color" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="@dimen/justinmind_logo_size"
+                android:layout_height="@dimen/justinmind_logo_size_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/justinmind_top_margin"
+                android:src="@mipmap/msafiri_app_logo"/>
+
+            <EditText
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
+                android:hint="username"/>
+
+            <EditText
+                android:layout_width="@dimen/justinmind_edittext_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="textPassword"
+                android:layout_marginTop="10dp"
+                android:hint="password"/>
+
+            <Button
+                android:layout_width="@dimen/justinmind_button_width"
+                android:layout_height="@dimen/justinmind_button_height"
+                android:text="Login"
+                android:layout_marginTop="@dimen/justinmind_margin_top_input"
+                android:layout_gravity="center"
+                android:background="@drawable/justinmind_button"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/justinmind_margin_top_input">
+                <TextView
+                    android:layout_width="114dp"
+                    android:layout_height="20dp"
+                    android:textSize="@dimen/justinmind_text_fornt_size"
+                    android:text="forget password ?"
+                    android:layout_gravity="start"/>
+
+                <TextView
+                    android:layout_width="102dp"
+                    android:layout_height="20dp"
+                    android:textSize="@dimen/justinmind_text_fornt_size"
+                    android:text="create account !!"
+                    android:gravity="end"
+                    android:layout_gravity="end" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/justinmind_slider_image_width"
+                android:layout_height="@dimen/justinmind_slider_image_height"
+                android:layout_gravity="center"
+                android:src="@color/justinmind_button_color"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

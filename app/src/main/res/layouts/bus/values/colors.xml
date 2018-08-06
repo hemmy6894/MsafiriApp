@@ -4,4 +4,6 @@
     <color name="text_color_card">#434343</color>
     <color name="action_bar_color">#1496ef</color>
     <color name="under_action_bar_color">#1496ef</color>
+    <color name="justinmind_button_color">#08AE9E</color>
+    <color name="justinmind_white_text">#FFFFFF</color>
 </resources>

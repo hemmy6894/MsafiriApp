@@ -51,6 +51,9 @@
             android:name=".Helpers.ThanksActivity"
             android:theme="@style/popWindowMyThem" />
         <activity android:name=".Auth.StartApplication">
+
+        </activity>
+        <activity android:name=".TestLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -51,14 +51,15 @@
             android:name=".Helpers.ThanksActivity"
             android:theme="@style/popWindowMyThem" />
         <activity android:name=".Auth.StartApplication">
-
-        </activity>
-        <activity android:name=".TestLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".TestLayout">
+
         </activity>
         <activity android:name=".seat_plan.SeatPlanOriginal" />
         <activity android:name=".DrawerHistory"></activity>

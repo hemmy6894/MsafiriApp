@@ -10,5 +10,10 @@ public class TestLayout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.justinmind_msafiri_register);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
 

@@ -35,7 +35,7 @@ public class BookSeat {
             public void onResponse(String response) {
                 //Log.e("response ", "taifa "  + response);
                 String array[] = {context.getString(R.string.shared_preference_route),context.getString(R.string.shared_preference_route_info),context.getString(R.string.shared_preference_text_to_pay_for),context.getString(R.string.shared_preference_bus_data_from_id)};
-                new SharedPreferenceAppend(context).clearSharedPref(array);
+                //new SharedPreferenceAppend(context).clearSharedPref(array);
                 context.startActivity(new Intent(context, DrawerHistory.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK).putExtra("EXTRA_TYPE", "ticket"));
             }
         }, new Response.ErrorListener() {
@@ -47,8 +47,8 @@ public class BookSeat {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<>();
-                Log.e("BOOKING_DATA","String: " + map_string);
-                map.put("passengers",map_string);
+                Log.e("BOOKING_DATA", "String: " + map_string);
+                map.put("booking_obj", map_string);
                 return map;
             }
 

@@ -63,27 +63,27 @@
                     <ImageView
                         android:layout_width="41dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/seat_taken"/>
+                        android:src="@mipmap/seat_driver"/>
                     <ImageView
                         android:layout_width="41dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/seat_taken"/>
+                        android:src="@mipmap/seat_driver"/>
                     <ImageView
                         android:layout_width="41dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/seat_taken"/>
+                        android:src="@mipmap/seat_driver"/>
                     <ImageView
                         android:layout_width="41dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/seat_taken"/>
+                        android:src="@mipmap/seat_driver"/>
                     <ImageView
                         android:layout_width="41dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/seat_taken"/>
+                        android:src="@mipmap/seat_driver"/>
                     <ImageView
                         android:layout_width="41dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/seat_taken"/>
+                        android:src="@mipmap/seat_driver"/>
                 </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -93,27 +93,58 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/seat_taken"
+                    android:tooltipText="H5"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/seat_taken"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/seat_taken"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/seat_taken"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/seat_taken"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -123,27 +154,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -153,27 +184,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -183,27 +214,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -213,27 +244,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -243,27 +274,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -273,27 +304,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -303,27 +334,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -333,27 +364,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -363,27 +394,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -393,27 +424,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -423,27 +454,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -453,27 +484,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -483,27 +514,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -513,27 +544,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -543,27 +574,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -573,27 +604,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -603,27 +634,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -633,27 +664,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -663,27 +694,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -693,27 +724,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -723,57 +754,27 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/seat_taken"/>
+                    android:src="@mipmap/seat_taken"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_gravity="center"

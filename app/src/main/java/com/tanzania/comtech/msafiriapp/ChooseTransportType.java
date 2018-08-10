@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -26,6 +27,7 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.tanzania.comtech.msafiriapp.Repository.FetchRouteRepository;
@@ -71,7 +73,7 @@ public class ChooseTransportType extends AppCompatActivity
         int day_of_week = myCalendar.get(Calendar.DAY_OF_WEEK);
 
         datePickerDay.setText(String.format("%s", day_of_month));
-        datePickerDayName.setText(String.format("%s", TimeVariables.monthNames[day_of_week]));
+        datePickerDayName.setText(String.format("%s", TimeVariables.weeksNames[day_of_week]));
         datePickerMonth.setText(String.format("%s", TimeVariables.monthNames[month]));
         datePickerYear.setText(String.format("%s", year));
 
@@ -119,8 +121,26 @@ public class ChooseTransportType extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
+/*
+        String[] testData = new String[]{"firstFiled","secondField","thirdString"};
+        MsafiriDatabase m = new MsafiriDatabase(getApplicationContext());
+        JSONArray jsonArray = new JSONArray();
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("first_name","Hemedi");
+            jsonObject.put("lastname","Manyi");
+            jsonArray.put(jsonObject);
+            jsonObject = new JSONObject();
+            jsonObject.put("first_name","Hamisa");
+            jsonObject.put("lastname","Hey");
+            jsonArray.put(jsonObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String[] headerssss = new String[]{"first_name","last_name"};
+        String hemedi = m.valuesReader(jsonArray,headerssss);
+        Log.e("RETURNED_VALUE", "Test " + hemedi);
+*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -173,13 +193,33 @@ public class ChooseTransportType extends AppCompatActivity
 
     }
 
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            ///Double click back button to exit from {R.string.app_name}
+            /// 10/08/2018
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Click again to Exist from " + R.string.app_name, Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
+
+            //End  here
         }
     }
 
@@ -199,6 +239,11 @@ public class ChooseTransportType extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(),"Settings under construction",Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if(id == R.id.action_logout){
+            Toast.makeText(getApplicationContext(),"Log out under construction",Toast.LENGTH_LONG).show();
             return true;
         }
 

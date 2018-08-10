@@ -151,7 +151,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
             if(j != 0) {
                 View view = (View) layout.getChildAt((i - 1));
                 ImageView imageView = (ImageView) view;
-                imageView.setImageResource(R.drawable.empty_seat);
+                imageView.setImageResource(R.mipmap.seat_empty);
                 if (i > total_column) {
                     imageView.setVisibility(View.GONE);
                 } else if (i == space_between) {
@@ -181,7 +181,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
         imageView.setId(setNumberIncrement);
         int isChecked = isChecked(seatNo[setNumberIncrement]);
         if(isChecked > 0){
-            imageView.setImageResource(R.drawable.seat_taken);
+            imageView.setImageResource(R.mipmap.seat_taken);
             if(isChecked == 1) {
                 imageView.setEnabled(true);
                 String array_searched = seatNo[setNumberIncrement];
@@ -252,7 +252,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
             mapHoldingValue.put("seat_no",value);
             holdUnHoldSeat.unHoldingSeat(mapHoldingValue);
             buttonChangeImage = (ImageView)findViewById(ImageID);
-            buttonChangeImage.setImageResource(R.drawable.empty_seat);
+            buttonChangeImage.setImageResource(R.mipmap.seat_empty);
         }else if(totalSeatSelected < 5){
             seatAvailable.add(value);
             totalSeatSelected++;
@@ -261,7 +261,7 @@ public class SeatPlanOriginal extends AppCompatActivity {
             if (holdSeatYes)
             holdUnHoldSeat.holdingSeat(mapHoldingValue);
             buttonChangeImage = (ImageView)findViewById(ImageID);
-            buttonChangeImage.setImageResource(R.drawable.seat_taken);
+            buttonChangeImage.setImageResource(R.mipmap.seat_taken);
         }else {
             Toast.makeText(getApplicationContext(),"The maximum number of seats that can be selected is 5",Toast.LENGTH_SHORT).show();
         }

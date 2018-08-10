@@ -292,9 +292,9 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:background="@drawable/bg_blue_round"
                         android:orientation="horizontal"
                         android:gravity="center_horizontal"
-                        android:background="@drawable/bg_blue_round"
                         android:id="@+id/select_source_destination_date_picker"
                         android:baselineAligned="false">
                         <LinearLayout
